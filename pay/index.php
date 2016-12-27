@@ -1,5 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetPageProperty("H1", "Способы оплаты");
 $APPLICATION->SetTitle("Способы оплаты");
 ?><div class="content">
 	<div class="address_all">
@@ -19,7 +20,7 @@ $APPLICATION->SetTitle("Способы оплаты");
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"CHECK_DATES" => "Y",
-		"COMPONENT_TEMPLATE" => "pent_contact",
+		"COMPONENT_TEMPLATE" => "icons_in_line",
 		"DETAIL_URL" => "",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
 		"DISPLAY_DATE" => "Y",
@@ -46,7 +47,7 @@ $APPLICATION->SetTitle("Способы оплаты");
 		"PARENT_SECTION" => "",
 		"PARENT_SECTION_CODE" => "",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"PROPERTY_CODE" => array(0=>"",1=>"",2=>"",3=>"",),
+		"PROPERTY_CODE" => array(0=>"",1=>"",),
 		"SET_BROWSER_TITLE" => "N",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_META_DESCRIPTION" => "N",
@@ -60,20 +61,18 @@ $APPLICATION->SetTitle("Способы оплаты");
 		"SORT_ORDER2" => "ASC"
 	)
 );?>
-	</div>
+</div></div>
 	<div class="content">
 		<div class="seo">
 			 <?$APPLICATION->IncludeComponent(
-	"bitrix:main.include",
-	".default",
-	Array(
-		"AREA_FILE_SHOW" => "page",
-		"AREA_FILE_SUFFIX" => "inc",
-		"COMPONENT_TEMPLATE" => ".default",
-		"EDIT_TEMPLATE" => ""
-	)
-);?>
+	            "bitrix:main.include",
+	            ".default",
+	            Array(
+		            "AREA_FILE_SHOW" => "page",
+		            "AREA_FILE_SUFFIX" => "inc",
+		            "COMPONENT_TEMPLATE" => ".default",
+		            "EDIT_TEMPLATE" => ""
+	            )
+            );?>
 		</div>
-	</div>
-</div>
-<br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+	</div><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

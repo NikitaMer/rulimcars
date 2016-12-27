@@ -1,14 +1,14 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetPageProperty("H1", "Прокат автомобилей в Москве");
 $APPLICATION->SetPageProperty("title", "Прокат автомобилей в Москве");
 $APPLICATION->SetTitle("Прокат автомобилей в Москве");
-?>
-<?$APPLICATION->IncludeComponent(
+?><?$APPLICATION->IncludeComponent(
 	"bitrix:news", 
 	"list_car", 
 	array(
 		"ADD_ELEMENT_CHAIN" => "N",
-		"ADD_SECTIONS_CHAIN" => "Y",
+		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
 		"AJAX_OPTION_ADDITIONAL" => "",
 		"AJAX_OPTION_HISTORY" => "N",
@@ -20,6 +20,7 @@ $APPLICATION->SetTitle("Прокат автомобилей в Москве");
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"CHECK_DATES" => "Y",
+		"COMPONENT_TEMPLATE" => "list_car",
 		"DETAIL_ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"DETAIL_DISPLAY_BOTTOM_PAGER" => "Y",
 		"DETAIL_DISPLAY_TOP_PAGER" => "N",
@@ -33,12 +34,10 @@ $APPLICATION->SetTitle("Прокат автомобилей в Москве");
 		"DETAIL_PAGER_TITLE" => "Страница",
 		"DETAIL_PROPERTY_CODE" => array(
 			0 => "YEAR_CAR",
-			1 => "DAY",
-			2 => "NAME_CAR",
-			3 => "ICON",
-			4 => "TEXT_ICON",
-			5 => "PRICE",
-			6 => "",
+			1 => "NAME_CAR",
+			2 => "ICON",
+			3 => "TEXT_ICON",
+			4 => "",
 		),
 		"DETAIL_SET_CANONICAL_URL" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
@@ -50,7 +49,7 @@ $APPLICATION->SetTitle("Прокат автомобилей в Москве");
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
 		"IBLOCK_ID" => "12",
 		"IBLOCK_TYPE" => "cars",
-		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"LIST_ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"LIST_FIELD_CODE" => array(
 			0 => "PREVIEW_PICTURE",
@@ -61,9 +60,7 @@ $APPLICATION->SetTitle("Прокат автомобилей в Москве");
 			0 => "YEAR_CAR",
 			1 => "NAME_CAR",
 			2 => "ICON",
-			3 => "PRICE",
-			4 => "PENT",
-			5 => "",
+			3 => "",
 		),
 		"MESSAGE_404" => "",
 		"META_DESCRIPTION" => "-",
@@ -77,14 +74,15 @@ $APPLICATION->SetTitle("Прокат автомобилей в Москве");
 		"PAGER_TEMPLATE" => ".default",
 		"PAGER_TITLE" => "Новости",
 		"PREVIEW_TRUNCATE_LEN" => "",
+		"SEF_FOLDER" => "/",
 		"SEF_MODE" => "Y",
 		"SET_LAST_MODIFIED" => "N",
-		"SET_STATUS_404" => "N",
-		"SET_TITLE" => "Y",
-		"SHOW_404" => "N",
-		"SORT_BY1" => "ID",
+		"SET_STATUS_404" => "Y",
+		"SET_TITLE" => "N",
+		"SHOW_404" => "Y",
+		"SORT_BY1" => "NAME",
 		"SORT_BY2" => "SORT",
-		"SORT_ORDER1" => "ASC",
+		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC",
 		"USE_CATEGORIES" => "N",
 		"USE_FILTER" => "N",
@@ -94,28 +92,29 @@ $APPLICATION->SetTitle("Прокат автомобилей в Москве");
 		"USE_RSS" => "N",
 		"USE_SEARCH" => "N",
 		"USE_SHARE" => "N",
-		"COMPONENT_TEMPLATE" => "list_car",
-		"SEF_FOLDER" => "/car/",
+		"FILE_404" => "/404.php",
 		"SEF_URL_TEMPLATES" => array(
 			"news" => "",
 			"section" => "",
-			"detail" => "#ELEMENT_ID#/",
+			"detail" => "#ELEMENT_CODE#/",
 		)
 	),
 	false
 );?>
-<div class="content">
-    <div class="seo"> 
-        <?$APPLICATION->IncludeComponent(
-            "bitrix:main.include",
-            "",
-            Array(
-                "AREA_FILE_SHOW" => "file",
-                "AREA_FILE_SUFFIX" => "inc",
-                "EDIT_TEMPLATE" => "",
-                "PATH" => "/include/seo_mine.php"
-            )
-        );?>
+<div class="content <?if($_SERVER['SCRIPT_URL'] != '/') {?>invisible<?}?>">
+    <div class="seo">
+         <?$APPLICATION->IncludeComponent(
+    "bitrix:main.include", 
+    ".default", 
+    array(
+        "AREA_FILE_SHOW" => "file",
+        "AREA_FILE_SUFFIX" => "inc",
+        "EDIT_TEMPLATE" => "",
+        "PATH" => "/include/seo_mine.php",
+        "COMPONENT_TEMPLATE" => ".default"
+    ),
+    false
+);?>
     </div>
 </div>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?checkSlash();require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
