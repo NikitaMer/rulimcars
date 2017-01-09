@@ -1,7 +1,10 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetPageProperty("description", "Прокат авто без водителя, аренда автомобилей дешево и удобно в Москве, авто в аренду рядом с метро Водный стадион.");
+$APPLICATION->SetPageProperty("keywords", "аренда авто, аренда авто Москва, прокат авто, прокат авто водный стадион, аренда авто водный стадион");
+$APPLICATION->SetPageProperty("title", "Контакты RulimCars - аренда автомобилей в Москве");
 $APPLICATION->SetPageProperty("H1", "Контакты");
-$APPLICATION->SetTitle("Контакты");
+$APPLICATION->SetTitle("Контакты RulimCars");
 ?><div class="content">
 	<div class="address_all">
 		 <?$APPLICATION->IncludeComponent(
@@ -64,18 +67,29 @@ $APPLICATION->SetTitle("Контакты");
 	</div>
 	<div class="map">
 		 <?$APPLICATION->IncludeComponent(
-	"bitrix:map.google.view",
-	"",
-	Array(
+	"bitrix:map.google.view", 
+	".default", 
+	array(
 		"API_KEY" => "",
-		"CONTROLS" => array("SMALL_ZOOM_CONTROL","TYPECONTROL","SCALELINE"),
+		"CONTROLS" => array(
+			0 => "SMALL_ZOOM_CONTROL",
+			1 => "TYPECONTROL",
+			2 => "SCALELINE",
+		),
 		"INIT_MAP_TYPE" => "ROADMAP",
-		"MAP_DATA" => "a:4:{s:10:\"google_lat\";d:55.83967687824122;s:10:\"google_lon\";d:37.48314766662596;s:12:\"google_scale\";i:16;s:10:\"PLACEMARKS\";a:1:{i:0;a:3:{s:4:\"TEXT\";s:0:\"\";s:3:\"LON\";d:37.484278678894;s:3:\"LAT\";d:55.840072655382;}}}",
+		"MAP_DATA" => "a:4:{s:10:\"google_lat\";d:55.839676878241;s:10:\"google_lon\";d:37.483147666626;s:12:\"google_scale\";i:16;s:10:\"PLACEMARKS\";a:1:{i:0;a:3:{s:4:\"TEXT\";s:9:\"RulimCars\";s:3:\"LON\";d:37.48855948448181;s:3:\"LAT\";d:55.839699147438296;}}}",
 		"MAP_HEIGHT" => "500",
 		"MAP_ID" => "",
 		"MAP_WIDTH" => "700",
-		"OPTIONS" => array("ENABLE_SCROLL_ZOOM","ENABLE_DBLCLICK_ZOOM","ENABLE_DRAGGING","ENABLE_KEYBOARD")
-	)
+		"OPTIONS" => array(
+			0 => "ENABLE_SCROLL_ZOOM",
+			1 => "ENABLE_DBLCLICK_ZOOM",
+			2 => "ENABLE_DRAGGING",
+			3 => "ENABLE_KEYBOARD",
+		),
+		"COMPONENT_TEMPLATE" => ".default"
+	),
+	false
 );?>
 	</div>
 	<div class="text">

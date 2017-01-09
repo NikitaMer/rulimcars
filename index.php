@@ -1,7 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("H1", "Прокат автомобилей в Москве");
-$APPLICATION->SetPageProperty("title", "Прокат автомобилей в Москве");
+$APPLICATION->SetPageProperty("title", "Аренда авто в Москве недорого, прокат автомобилей с водителем и без. Грузоперевозки.");
 $APPLICATION->SetTitle("Прокат автомобилей в Москве");
 ?><?$APPLICATION->IncludeComponent(
 	"bitrix:news", 
@@ -19,7 +19,7 @@ $APPLICATION->SetTitle("Прокат автомобилей в Москве");
 		"CACHE_GROUPS" => "Y",
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
-		"CHECK_DATES" => "Y",
+		"CHECK_DATES" => "N",
 		"COMPONENT_TEMPLATE" => "list_car",
 		"DETAIL_ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"DETAIL_DISPLAY_BOTTOM_PAGER" => "Y",

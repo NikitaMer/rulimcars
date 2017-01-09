@@ -1,8 +1,15 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Главная", 
+		"Аренда авто", 
 		"/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Аренда фургона", 
+		"/lada_largus/", 
 		Array(), 
 		Array(), 
 		"" 

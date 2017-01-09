@@ -23,7 +23,7 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"О компании", 
-		"contacts/", 
+		"about.php", 
 		Array(), 
 		Array(), 
 		"" 

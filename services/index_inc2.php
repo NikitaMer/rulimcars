@@ -1,1 +1,3 @@
-Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem.
+<p style="text-align: justify;">
+	<b>Прокат автомобилей RulimCars</b> предлагает спектр услуг, в том числе <b>аренда авто без водителя в Москве</b>, <b>аренда авто</b> с водителем, <b>услуги грузоперевозок</b>, домашние <b>переезды</b>, офисные переезды, малотоннажные перевозки (до 1,5 тонн).&nbsp;
+</p>

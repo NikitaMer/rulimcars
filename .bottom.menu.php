@@ -1,15 +1,22 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Главная", 
+		"Прокат автомобилей", 
 		"/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Еще страница", 
-		"/services/", 
+		"Аренда лада ларгус фургон", 
+		"/lada_largus_furgon_new/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Аренда Газели", 
+		"/gazel-next-prom/", 
 		Array(), 
 		Array(), 
 		"" 

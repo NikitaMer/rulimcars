@@ -1,1 +1,12 @@
-Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem.
+<p style="text-align: justify;">
+	Обращаясь в наш <b>прокат</b><b>&nbsp;автомобилей</b>, вы можете <b>взять в аренду авто</b>&nbsp;с водителем с почасовой оплатой, либо воспользоваться услугой&nbsp;<b>аренда авто без водителя</b> с посуточной оплатой. Наша компания может организовать вам <b>офисный</b>&nbsp;или <b>квартирный переезд</b>, <b>перевозку вещей.</b>
+</p>
+<p style="text-align: justify;">
+	<b></b>
+</p>
+<p>
+</p>
+<b>
+<p style="text-align: justify;">
+</p>
+</b>

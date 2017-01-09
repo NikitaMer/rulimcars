@@ -1,8 +1,15 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Главная", 
+		"Прокат авто", 
 		"/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Аренда газели", 
+		"/gazel-next-prom/", 
 		Array(), 
 		Array(), 
 		"" 

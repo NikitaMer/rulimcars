@@ -1,6 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetPageProperty("title", "Дополнительные услуги");
+$APPLICATION->SetPageProperty("title", "Дополнительные услуги - прокат авто RulimCars");
 $APPLICATION->SetPageProperty("H1", "Дополнительные услуги");
 $APPLICATION->SetTitle("Дополнительные услуги");
 ?><div class="content">
