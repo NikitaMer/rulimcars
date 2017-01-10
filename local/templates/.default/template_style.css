@@ -167,7 +167,7 @@ footer {
 
 }
 .bot_addres{
-    width: 242.31px;
+    width: 245px;
 }
 .content{
     width: 702.75px;
@@ -282,6 +282,9 @@ footer {
 .inner_price p{
     padding-right: 22.5px;
 }
+.more{
+    display: inline-block;
+}
 .button_case{
     margin:0 auto;
     width: 225px;
@@ -307,6 +310,7 @@ footer {
     font-family:HelveticaNeue;
     text-decoration:none;
     color: #fff;
+    padding: 10px 20px;
 }
 .characteristics, .address{
     display: inline-block;
@@ -480,6 +484,9 @@ footer {
     border-width: 0px;
     border-style: none;
     margin-top: 20px;
+}
+#smalltext{
+    font-size: 14px;
 }
 .form .button1{
     width: 347px;

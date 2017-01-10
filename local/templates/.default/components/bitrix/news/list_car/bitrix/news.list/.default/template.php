@@ -17,6 +17,7 @@
 <?endif;?>
 <?$i = 1;?>
 <?foreach($arResult["ITEMS"] as $arItem):
+if ($arItem['PROPERTIES']['SHOW_CAR']['VALUE_ENUM_ID'] == 13){
 // Ищем ID товара с нужным автомобилем
 $c = CIBlockElement::GetList(array(), array("IBLOCK_ID" => 17));
 while($c1 = $c->Fetch()){
@@ -25,7 +26,6 @@ if ($ca['VALUE'] == $arItem['ID']){
     $carID = $c1['ID'];
 }           
 }
-
 // Берем цены из нужного товара
 $CPrice = CPrice::GetList(array(), array("IBLOCK_ID" => 17)); 
 $dayprice = array(); 
@@ -33,7 +33,7 @@ while($CPrice1 = $CPrice->Fetch()){
 if ($CPrice1['PRODUCT_ID'] == $carID)   
     $dayprice[] = $CPrice1;       
 }
-// Приведим цены в лучший вид 
+// Приводим цены в лучший вид 
 $price = array();
 foreach($dayprice as $key){
     $price[] = stristr($key['PRICE'], '.', true);        
@@ -45,37 +45,37 @@ foreach($dayprice as $key){
          <div class="content">       
             <div class="price_car">
             <?if ($k == 1):?>                    
-                <div class="car">
+                <div id="main_imagecar" class="car">
                     <a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>"/></a>                                      
                 </div>
                 <div class="price_name">
-                    <div class="name">
+                    <div id="main_namecar" class="name">
                         <a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><b><?=$arItem["NAME"]?></b></a> <br/>  
                         <b><?=$arItem["PROPERTIES"]["YEAR_CAR"]["VALUE"]?></b><br/><br/>
                     </div>
-                    <div class="price">
+                    <div id="main_pricecar" class="price">
                         <?=GetMessage("FROM")?> <a id="price" href="<?=$arItem["DETAIL_PAGE_URL"]?>"> <?=min($price)?> <span>&#8381;</span></a><br/>
-                        <?=GetMessage("PER_DAY")?>       <a id="more" href="<?=$arItem["DETAIL_PAGE_URL"]?>"><?=GetMessage("MORE")?></a>                               
+                        <?=GetMessage("PER_DAY")?>   <div id="main_morecar" class="more"><a id="more" href="<?=$arItem["DETAIL_PAGE_URL"]?>"><?=GetMessage("MORE")?></a></div>                                  
                     </div>
-                    <div class="button">
+                    <div id="main_rentcar" class="button">
                         <a href="/rent/?AUTO=<?=$arItem['ID']?>"><?=GetMessage("RENT")?></a>
                     </div>
                 </div>
             <?else:?>
                 <div class="price_name">
-                    <div class="name">
+                    <div id="main_namecar" class="name">
                         <a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><b><?=$arItem["NAME"]?></b></a> <br/>  
                         <b><?=$arItem["PROPERTIES"]["YEAR_CAR"]["VALUE"]?></b><br/><br/>
                     </div>
-                    <div class="price">
+                    <div id="main_pricecar" class="price">
                         <?=GetMessage("FROM")?> <a id="price" href="<?=$arItem["DETAIL_PAGE_URL"]?>"> <?=min($price)?> <span>&#8381;</span></a><br/>
-                        <?=GetMessage("PER_DAY")?>       <a id="more" href="<?=$arItem["DETAIL_PAGE_URL"]?>"><?=GetMessage("MORE")?></a>                               
+                        <?=GetMessage("PER_DAY")?>   <div id="main_morecar" class="more"><a id="more" href="<?=$arItem["DETAIL_PAGE_URL"]?>"><?=GetMessage("MORE")?></a></div>                               
                     </div>
                     <div class="button">
-                        <a href="/rent/?AUTO=<?=$arItem['ID']?>"><?=GetMessage("RENT")?></a>
+                        <a id="main_rentcar" href="/rent/?AUTO=<?=$arItem['ID']?>"><?=GetMessage("RENT")?></a>
                     </div>
                 </div>
-                <div class="car">
+                <div id="main_imagecar" class="car">
                     <a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>"  /></a>                                      
                 </div>
             <?endif;?>
@@ -101,5 +101,5 @@ foreach($dayprice as $key){
          </div>
     </div> 
     <?$i++;?>
-<?endforeach;?>
+<?}endforeach;?>
 </div>

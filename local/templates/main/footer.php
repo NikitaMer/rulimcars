@@ -39,7 +39,7 @@ IncludeTemplateLangFile(__FILE__);
                         );?>
             <br/>
             <br/>
-            Copyright 2014-2016, all rights reserved
+            <div id="copyright">Copyright 2014-<span>2017</span>, all rights reserved</div>
             </div>
             <div class="bot_contacts">
                 <div class="phone">Тел: <?$APPLICATION->IncludeComponent(
@@ -56,16 +56,16 @@ IncludeTemplateLangFile(__FILE__);
                 <br/>
                 <div class="email">
                 <?$APPLICATION->IncludeComponent(
-	"bitrix:main.include", 
-	".default", 
-	array(
-		"AREA_FILE_SHOW" => "file",
-		"AREA_FILE_SUFFIX" => "inc",
-		"EDIT_TEMPLATE" => "",
-		"PATH" => "/include/email.php",
-		"COMPONENT_TEMPLATE" => ".default"
-	),
-	false
+    "bitrix:main.include", 
+    ".default", 
+    array(
+        "AREA_FILE_SHOW" => "file",
+        "AREA_FILE_SUFFIX" => "inc",
+        "EDIT_TEMPLATE" => "",
+        "PATH" => "/include/email.php",
+        "COMPONENT_TEMPLATE" => ".default"
+    ),
+    false
 );?><br/>
                 <?$APPLICATION->IncludeComponent(
                     "bitrix:main.include",

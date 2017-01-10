@@ -17,7 +17,7 @@ $this->setFrameMode(true);
     <table>
         <tr>
             <?foreach($arResult["ITEMS"] as $arItem):?>                                                        
-                <td class="table_car">
+                <td id="carsbloc" class="table_car">
                     <?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>                        
                     <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="" />
                     <?endif;?>

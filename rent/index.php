@@ -1,6 +1,5 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetPageProperty("H1", "Заявка на аренду");
 $APPLICATION->SetTitle("Заявка на аренду");
 ?>
 <?$APPLICATION->IncludeComponent(

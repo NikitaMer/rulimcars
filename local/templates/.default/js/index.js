@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $("input[name='PHONE']").mask("+7(999)999-99-99");
+    
     $("#select").change(function(){
         location.href = "/rent/?AUTO=" + $('#select option:selected').attr('value');
     });
@@ -10,7 +11,8 @@ $(document).ready(function () {
     yearTomorrow = Tomorrow.getFullYear();
     if (dayTomorrow<10){dayTomorrow = '0'+dayTomorrow;}
     if (monthTomorrow<10){monthTomorrow = '0'+monthTomorrow;}
-    $('#date_fld').val(dayTomorrow +'.'+monthTomorrow+'.'+yearTomorrow);    
+    $('#date_fld').val(dayTomorrow +'.'+monthTomorrow+'.'+yearTomorrow);
+    $('#copyright').find('span').text(yearTomorrow);    
     $("#rent").change(function(){
         
         var selday, selprice; 

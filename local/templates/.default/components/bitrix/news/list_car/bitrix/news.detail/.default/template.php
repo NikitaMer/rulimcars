@@ -28,7 +28,7 @@ while($CPrice1 = $CPrice->Fetch()){
 if ($CPrice1['PRODUCT_ID'] == $carID)   
     $dayprice[] = $CPrice1;       
 }
-// Приведим цены в лучший вид 
+// Приводим цены в лучший вид 
 $price = array();
 foreach($dayprice as $key){
     $price[] = stristr($key['PRICE'], '.', true);        
@@ -37,7 +37,7 @@ foreach($dayprice as $key){
 ?>
 <div class="background_white">            
                 <div class="button_case">
-                    <div class="button">
+                    <div id="car_headrentcar" class="button">
                         <a href="/rent/?AUTO=<?=$arResult['ID']?>"><?=GetMessage("RENT")?></a>
                     </div>
                 </div>
@@ -114,7 +114,7 @@ foreach($dayprice as $key){
                 <?endforeach;?>                                       
                 </div>
                 <div class="button_case">
-                    <div class="button">
+                    <div id="car_footrentcar" class="button">
                         <a href="/rent/?AUTO=<?=$arResult['ID']?>"><?=GetMessage("RENT")?></a>
                     </div>
                 </div>
