@@ -71,7 +71,7 @@ if (strlen($arResult["MESSAGE"]) > 0):?>
                     <div class="horizontalgrey horizontalgrey3"></div>
                     <div class="verticalgrey"></div>   
                 <form method="post" action="/rent/thankyou.php">
-                    <button type="submit" class="button1 button" id="smalltext order_headrequest" onclick=""><?=GetMessage("SEND_REQUEST")?></button>
+                    <button type="submit" class="button1 button button_text_mini" id="order_footrequest"><?=GetMessage("SEND_REQUEST")?></button>
                     <p><?=GetMessage("PERSONAL_DATA")?></p>
                     <label><select class="select must" name="AUTO" id="select">
                             <option value="0"><?=GetMessage("CAR")?></option>
@@ -142,7 +142,7 @@ if (strlen($arResult["MESSAGE"]) > 0):?>
                              <option value="31"><?=GetMessage("1_MONTH")?></option>                           
                            </select>
                     </label>
-                    <label><textarea class="textarea" id="smalltext" placeholder="<?=GetMessage("PLAC_COMMENT")?>" name="TEXT"></textarea></label>
+                    <label><textarea class="textarea" id="text" placeholder="<?=GetMessage("PLAC_COMMENT")?>" name="TEXT"></textarea></label>
                     <label class="invisible"><input autocomplete="off" type="text" id="result" class="input invisible" name="RESULT" placeholder="<?=GetMessage("PLAC_RESULT")?>" value="0"/></label>
                     <div class="invisible">
                         <div id="selday">
@@ -156,7 +156,7 @@ if (strlen($arResult["MESSAGE"]) > 0):?>
                             endforeach;?>                                  
                         </div>
                     </div>                            
-                    <button type="submit" class="button" id="smalltext order_footrequest "><?=GetMessage("SEND_REQUEST")?></button>
+                    <button type="submit" class="button button_text_mini" id="order_footrequest"><?=GetMessage("SEND_REQUEST")?></button>
                 </form>
                 <div class="horizontalgrey horizontalgrey2"></div>               
             </div>

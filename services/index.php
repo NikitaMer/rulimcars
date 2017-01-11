@@ -74,9 +74,9 @@ $APPLICATION->SetTitle("Дополнительные услуги");
         "SORT_ORDER2" => "ASC"
     )
 );?>
-        <div class="button_case">
-            <div class="button button1">
- <a id="smalltext" href="#">СВЯЗАТЬСЯ С МЕНЕДЖЕРОМ</a>
+        <div class="button_case2">
+            <div class="button button1 button_text_mini">
+                <a href="#">СВЯЗАТЬСЯ С МЕНЕДЖЕРОМ</a>
             </div>
         </div>
     </div>

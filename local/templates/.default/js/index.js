@@ -4,13 +4,18 @@ $(document).ready(function () {
     $("#select").change(function(){
         location.href = "/rent/?AUTO=" + $('#select option:selected').attr('value');
     });
-    var Data = new Date();    
-    Tomorrow = new Date(Data.getTime() + (24 * 60 * 60 * 1000));
+    var Dat = new Date();    
+    Tomorrow = new Date(Dat.getTime() + (24 * 60 * 60 * 1000));
+    dayNow = Dat.getDate();
+    monthNow = Dat.getMonth() + 1;
+    yearNow = Dat.getFullYear();
     dayTomorrow = Tomorrow.getDate(); 
-    monthTomorrow = Tomorrow.getMonth() + 1; //в js месяц отсчитывается с нуля
+    monthTomorrow = Tomorrow.getMonth() + 1;
     yearTomorrow = Tomorrow.getFullYear();
     if (dayTomorrow<10){dayTomorrow = '0'+dayTomorrow;}
     if (monthTomorrow<10){monthTomorrow = '0'+monthTomorrow;}
+    if (dayNow<10){dayNow = '0'+dayNow;}
+    if (monthNow<10){monthNow = '0'+monthNow;}    
     $('#date_fld').val(dayTomorrow +'.'+monthTomorrow+'.'+yearTomorrow);
     $('#copyright').find('span').text(yearTomorrow);    
     $("#rent").change(function(){

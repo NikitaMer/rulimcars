@@ -22,7 +22,7 @@ IncludeTemplateLangFile(__FILE__);
         <header>
             <div class="header">
                 <div class="top_contacts">
-                    <div class="phone"><?$APPLICATION->IncludeComponent(
+                    <div class="phone_alloka"><?$APPLICATION->IncludeComponent(
                             "bitrix:main.include",
                             "",
                             Array(

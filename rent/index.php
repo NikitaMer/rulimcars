@@ -37,7 +37,8 @@ $APPLICATION->SetTitle("Заявка на аренду");
         "STATUS_NEW" => "N",
         "USER_MESSAGE_ADD" => "",
         "USER_MESSAGE_EDIT" => "",
-        "USE_CAPTCHA" => "N"
+        "USE_CAPTCHA" => "N",
+        "NEXT_DATA" => "18"
     )
 );?>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

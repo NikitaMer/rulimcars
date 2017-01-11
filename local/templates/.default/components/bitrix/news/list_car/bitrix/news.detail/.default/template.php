@@ -36,7 +36,7 @@ foreach($dayprice as $key){
 //my_dump($arResult);
 ?>
 <div class="background_white">            
-                <div class="button_case">
+                <div class="button_case1">
                     <div id="car_headrentcar" class="button">
                         <a href="/rent/?AUTO=<?=$arResult['ID']?>"><?=GetMessage("RENT")?></a>
                     </div>
@@ -113,80 +113,61 @@ foreach($dayprice as $key){
                     </div>
                 <?endforeach;?>                                       
                 </div>
-                <div class="button_case">
+                <div class="button_case1">
                     <div id="car_footrentcar" class="button">
                         <a href="/rent/?AUTO=<?=$arResult['ID']?>"><?=GetMessage("RENT")?></a>
                     </div>
                 </div>
             </div>
         </div>
+        <?if ($arResult["PROPERTIES"]["SIMILAR_CAR"]["VALUE"] != null){?>
         <div class="background_grey">            
-                <?$APPLICATION->IncludeComponent(
-                    "bitrix:news.list", 
-                    "mini_list_car", 
-                    array(
-                        "ACTIVE_DATE_FORMAT" => "d.m.Y",
-                        "ADD_SECTIONS_CHAIN" => "Y",
-                        "AJAX_MODE" => "N",
-                        "AJAX_OPTION_ADDITIONAL" => "",
-                        "AJAX_OPTION_HISTORY" => "N",
-                        "AJAX_OPTION_JUMP" => "N",
-                        "AJAX_OPTION_STYLE" => "Y",
-                        "CACHE_FILTER" => "N",
-                        "CACHE_GROUPS" => "Y",
-                        "CACHE_TIME" => "36000000",
-                        "CACHE_TYPE" => "A",
-                        "CHECK_DATES" => "Y",
-                        "DETAIL_URL" => "",
-                        "DISPLAY_BOTTOM_PAGER" => "N",
-                        "DISPLAY_DATE" => "Y",
-                        "DISPLAY_NAME" => "Y",
-                        "DISPLAY_PICTURE" => "Y",
-                        "DISPLAY_PREVIEW_TEXT" => "Y",
-                        "DISPLAY_TOP_PAGER" => "N",
-                        "FIELD_CODE" => array(
-                            0 => "",
-                            1 => "",
-                        ),
-                        "FILTER_NAME" => "",
-                        "HIDE_LINK_WHEN_NO_DETAIL" => "N",
-                        "IBLOCK_ID" => "12",
-                        "IBLOCK_TYPE" => "car",
-                        "INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
-                        "INCLUDE_SUBSECTIONS" => "Y",
-                        "MESSAGE_404" => "",
-                        "NEWS_COUNT" => "4",
-                        "PAGER_BASE_LINK_ENABLE" => "N",
-                        "PAGER_DESC_NUMBERING" => "N",
-                        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-                        "PAGER_SHOW_ALL" => "N",
-                        "PAGER_SHOW_ALWAYS" => "N",
-                        "PAGER_TEMPLATE" => ".default",
-                        "PAGER_TITLE" => "Новости",
-                        "PARENT_SECTION" => "",
-                        "PARENT_SECTION_CODE" => "",
-                        "PREVIEW_TRUNCATE_LEN" => "",
-                        "PROPERTY_CODE" => array(
-                            0 => "NAME_CAR",
-                            1 => "PRICE",
-                            2 => "",
-                        ),
-                        "SET_BROWSER_TITLE" => "Y",
-                        "SET_LAST_MODIFIED" => "N",
-                        "SET_META_DESCRIPTION" => "Y",
-                        "SET_META_KEYWORDS" => "Y",
-                        "SET_STATUS_404" => "N",
-                        "SET_TITLE" => "Y",
-                        "SHOW_404" => "N",
-                        "SORT_BY1" => "ACTIVE_FROM",
-                        "SORT_BY2" => "SORT",
-                        "SORT_ORDER1" => "DESC",
-                        "SORT_ORDER2" => "ASC",
-                        "COMPONENT_TEMPLATE" => "mini_list_car"
-                    ),
-                    false
-                );?>            
+                <div class="inner_car">
+                    <table>
+                        <tr>
+                            <?foreach($arResult["PROPERTIES"]["SIMILAR_CAR"]["VALUE"] as $arItem):
+                            $car_id = CIBlockElement::GetByID("$arItem");
+                            $car_el = $car_id->GetNextElement(); 
+                            $car_prop = $car_el->GetFields();?>                                                        
+                                <td id="carsbloc" class="table_car">                                                            
+                                    <img src="<?=CFile::GetPath($car_prop["PREVIEW_PICTURE"])?>" alt="" />
+                                </td>                                
+                            <?endforeach;?>
+                        </tr>
+                        <tr>
+                            <?foreach($arResult["PROPERTIES"]["SIMILAR_CAR"]["VALUE"] as $arItem):
+                            $car_id = CIBlockElement::GetByID("$arItem");
+                            $car_el = $car_id->GetNextElement(); 
+                            $car_prop = $car_el->GetFields();
+                            // Ищем ID товара с нужным автомобилем
+                            $c = CIBlockElement::GetList(array(), array("IBLOCK_ID" => 17));
+                            while($c1 = $c->Fetch()){
+                                $ca = CIBlockElement::GetProperty(17, $c1['ID'])->Fetch();
+                            if ($ca['VALUE'] == $car_prop['ID']){
+                                $carID = $c1['ID'];
+                            }           
+                            }
+                            // Берем цены из нужного товара
+                            $CPrice = CPrice::GetList(array(), array("IBLOCK_ID" => 17)); 
+                            $dayprice = array(); 
+                            while($CPrice1 = $CPrice->Fetch()){
+                            if ($CPrice1['PRODUCT_ID'] == $carID)   
+                                $dayprice[] = $CPrice1;       
+                            }
+                            // Приведим цены в лучший вид 
+                            $price = array();
+                            foreach($dayprice as $key){
+                                $price[] = stristr($key['PRICE'], '.', true);        
+                            }?>
+                                <td>
+                                    <a href="<?=$car_prop["DETAIL_PAGE_URL"]?>"><?echo $car_prop["NAME"]?><br/><?=GetMessage("FROM_MINI")?> <?=min($price)?> <span>&#8381;</span></a>
+                                </td>                                
+                            <?endforeach;?>
+                        </tr>
+                    </table>
+                </div>         
         </div>
+        <?}?>
         <div class="content">
             <div class="seo">
                 <?if ($arResult['DETAIL_TEXT'] == null){

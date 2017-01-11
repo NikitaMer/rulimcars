@@ -6,22 +6,23 @@ IncludeTemplateLangFile(__FILE__);
         <footer>
         <div class="<?if($_SERVER['SCRIPT_URL'] == "/rent/" || $_SERVER['REDIRECT_STATUS'] == 200) { ?> invisible <? } ?>">
         <?$APPLICATION->IncludeComponent(
-            "bitrix:menu",
-            "top_menu",
-            Array(
+            "bitrix:menu", 
+            "bot_menu", 
+            array(
                 "ALLOW_MULTI_SELECT" => "N",
                 "CHILD_MENU_TYPE" => "left",
-                "COMPONENT_TEMPLATE" => "horizontal_multilevel",
+                "COMPONENT_TEMPLATE" => "bot_menu",
                 "DELAY" => "N",
                 "MAX_LEVEL" => "1",
-                "MENU_CACHE_GET_VARS" => "",
+                "MENU_CACHE_GET_VARS" => array(),
                 "MENU_CACHE_TIME" => "3600",
                 "MENU_CACHE_TYPE" => "A",
                 "MENU_CACHE_USE_GROUPS" => "Y",
                 "MENU_THEME" => "yellow",
                 "ROOT_MENU_TYPE" => "bottom",
                 "USE_EXT" => "N"
-            )
+            ),
+            false
         );?>
         </div>        
         <div class="footer">
