@@ -25,7 +25,7 @@ if (strlen($arResult["MESSAGE"]) > 0):?>
                 $id = $propertyID["LINK_IBLOCK_ID"];                                
                 if ($id == 12):
                     $res_car = array();
-                    $result = CIBlockElement::GetList(array(), array("IBLOCK_ID" => $id, "ACTIVE"=>"Y"));
+                    $result = CIBlockElement::GetList(array(), array("IBLOCK_ID" => $id));                    
                     while ($ob = $result->GetNextElement()){
                         $res = $ob->GetFields();                        
                         array_push($res_car,$res);                                     
@@ -48,13 +48,13 @@ if (strlen($arResult["MESSAGE"]) > 0):?>
             if ($CPrice1['PRODUCT_ID'] == $carID)   
                 $dayprice[] = $CPrice1;       
             }
-            // Приведим цены в лучший вид 
+            // Приводим цены в лучший вид 
             $price = array();
             foreach($dayprice as $key){
                 $price[] = stristr($key['PRICE'], '.', true);        
             }            
             //my_dump($ar_props);   
-            ?>                       
+            ?>                      
             <div class="form">
                 <div>
                     <div class="horizontalgrey horizontalgrey1"></div>
@@ -71,7 +71,7 @@ if (strlen($arResult["MESSAGE"]) > 0):?>
                     <div class="horizontalgrey horizontalgrey3"></div>
                     <div class="verticalgrey"></div>   
                 <form method="post" action="/rent/thankyou.php">
-                    <button type="submit" class="button1 button" onclick=""><?=GetMessage("SEND_REQUEST")?></button>
+                    <button type="submit" class="button1 button button_text_mini" id="order_footrequest"><?=GetMessage("SEND_REQUEST")?></button>
                     <p><?=GetMessage("PERSONAL_DATA")?></p>
                     <label><select class="select must" name="AUTO" id="select">
                             <option value="0"><?=GetMessage("CAR")?></option>
@@ -80,9 +80,10 @@ if (strlen($arResult["MESSAGE"]) > 0):?>
                                 $PROPS = array();
                                 while($ar_props = $db_props->GetNext()){                                
                                     $PROPS[$ar_props['CODE']] = $ar_props['VALUE'];                
-                                }?>
+                                }
+                                if ($PROPS['SHOW_CAR'] == 13){?>
                                 <option <?if ($n['ID'] == $arResult['RES_CAR']['ID']): ?>selected="selected"<? endif;?> value="<?=$n["ID"]?>"><?=$n["NAME"]?> <?=$PROPS['YEAR_CAR']?></option>
-                            <?endforeach;?>
+                            <?}endforeach;?>
                            </select>
                     </label>
                     <label><input autocomplete="off" type="text" class="input must" id="name" name="NAME" placeholder="<?=GetMessage("PLAC_NAME")?>" value=""></label>
@@ -155,7 +156,7 @@ if (strlen($arResult["MESSAGE"]) > 0):?>
                             endforeach;?>                                  
                         </div>
                     </div>                            
-                    <button type="submit" class="button"><?=GetMessage("SEND_REQUEST")?></button>
+                    <button type="submit" class="button button_text_mini" id="order_footrequest"><?=GetMessage("SEND_REQUEST")?></button>
                 </form>
                 <div class="horizontalgrey horizontalgrey2"></div>               
             </div>

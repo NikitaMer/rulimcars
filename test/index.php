@@ -3,60 +3,70 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("title", "TEST");
 $APPLICATION->SetTitle("TEST");?>
 
-<table style="width:100%;margin:0;padding:0;">
-<tr>
-<td colspan="2">
-    <div style="width:100%;padding-top: 54px;    display: flex;    align-items: center;    justify-content: center;        padding-left: 50px;    padding-bottom: 30px;    font-size: 20px;">
-        <div class="top_contacts">
-            <div style="color: #e93f45;">8 (800) 777 59 90</div>
-            <div class="email">info@rulimcars.ru</div>
-        </div>
-        <div style="padding: 0 60px;">
-            <a href="#SERVER_NAME#/?utm_source=order&utm_medium=email&utm_campaign=#ID#_#DATE_CREATE#&utm_content=site_logo"><img src="/img/logo.bmp" alt="" /></a>
-        </div>
-        <div class="top_address">Москва, Головинское <br>шоссе, д. 1, офис 318</div>
-    </div>   
-</td>
-</tr>
-        <tr>
-            <td style="min-height: 570px;">
-                Здравствуйте,  #NAME#! <br>
-                Благодарим вас за обращение в компанию <a style="text-decoration: none;" href="#SERVER_NAME#/?utm_source=order&utm_medium=email&utm_campaign=#ID#_#DATE_CREATE#&utm_content=site_link"><span style="color: red;">RulimCars</span></a><br>
-                Ваша заявка на бронирование успешно принята!<br>
-                Номер вашей заявки <span style="color: red;">#TYPE_CAR_CIR##ID#</span>.<br>
-                <br>
-                Данные вашего бронирования: <br>
-                <a style="text-decoration:none;" hreaf="#SERVER_NAME##DETAIL_CAR#/?utm_source=order&utm_medium=email&utm_campaign=#ID#_#DATE_CREATE#&utm_content=car_link"><span style="color: red;">#NAME_CAR# - #YEAR_CAR# г</span></a><br>
-                Дата аренды: <span style="color: red;">#DATA#</span><br>
-                Срок аренды: <span style="color: red;">#RENT#</span><br>
-                Стоимость аренды: <span style="color: red;">#RESULT#.</span><br>
-                Стоимость одних суток: <span style="color: red;">#RESULT_DAY#.</span><br>
-                <br>
-                Телефон: #PHONE#<br>
-                e-mail: #EMAIL#<br>
-                Комментарий:  #COMMENT#<br>
-                <br>
-            </td>                
-            <td>
-                <a href="#SERVER_NAME##DETAIL_CAR#/?utm_source=order&utm_medium=email&utm_campaign=#ID#_#DATE_CREATE#&utm_content=car_image"><img style="max-height: 470px;" src="#CAR_PICTURE#" alt=""></a>
-            </td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                В ближайшее время с вами свяжется наш менеджер по прокату, вы так же можете позвонить нам самостоятельно по бесплатному номеру <span style="color:red;">8 (800) 777 59 90</span> <br> <br>
-            </td>
-        </tr>
-        <tr>
-            <td style="background-color:#DFDFDF;" colspan="2">
-                <ul style="display:block;display:flex;align-items:center;justify-content:center;">
-                    <li style="list-style:none;float:left;display:block;height:50px;padding: 0 30px;position:relative;"><a style="display:block;height:18px;color:#000;font-size:21px;padding:16px 0;text-decoration:none;" href="#SITE_NAME#/services/?utm_source=order&utm_medium=email&utm_campaign=#ID#_#DATE_CREATE#&utm_content=uslugi">Услуги</a></li>
-                    <li style="list-style:none;float:left;display:block;height:50px;padding: 0 30px;position:relative;"><a style="display:block;height:18px;color:#000;font-size:21px;padding:16px 0;text-decoration:none;" href="#SITE_NAME#/pay/?utm_source=order&utm_medium=email&utm_campaign=#ID#_#DATE_CREATE#&utm_content=infoplata">Способы оплаты</a></li>
-                    <li style="list-style:none;float:left;display:block;height:50px;padding: 0 30px;position:relative;"><a style="display:block;height:18px;color:#000;font-size:21px;padding:16px 0;text-decoration:none;" href="#SITE_NAME#/contacts/?utm_source=order&utm_medium=email&utm_campaign=#ID#_#DATE_CREATE#&utm_content=aboutus">О компании</a></li>
-                    <li style="list-style:none;float:left;display:block;height:50px;padding: 0 30px;position:relative;"><a style="display:block;height:18px;color:#000;font-size:21px;padding:16px 0;text-decoration:none;" href="#SITE_NAME#/contacts/?utm_source=order&utm_medium=email&utm_campaign=#ID#_#DATE_CREATE#&utm_content=contacts">Контакты</a></li>
-                    <li style="list-style:none;float:left;display:block;height:50px;padding: 0 30px;position:relative;"><a style="display:block;height:18px;color:#000;font-size:21px;padding:16px 0;text-decoration:none;" href="https://vk.com/rulimcars"><img src="/img/rc_vk.png" alt=""></a></li>
-                </ul>
-            </td>
-        </tr>
-    </table>    
+<?$APPLICATION->IncludeComponent(
+	"bitrix:news.list", 
+	"mini_list_car", 
+	array(
+		"ACTIVE_DATE_FORMAT" => "d.m.Y",
+		"ADD_SECTIONS_CHAIN" => "Y",
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"AJAX_OPTION_HISTORY" => "N",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "Y",
+		"CACHE_FILTER" => "N",
+		"CACHE_GROUPS" => "Y",
+		"CACHE_TIME" => "36000000",
+		"CACHE_TYPE" => "A",
+		"CHECK_DATES" => "Y",
+		"DETAIL_URL" => "",
+		"DISPLAY_BOTTOM_PAGER" => "N",
+		"DISPLAY_DATE" => "Y",
+		"DISPLAY_NAME" => "Y",
+		"DISPLAY_PICTURE" => "Y",
+		"DISPLAY_PREVIEW_TEXT" => "Y",
+		"DISPLAY_TOP_PAGER" => "N",
+		"FIELD_CODE" => array(
+			0 => "",
+			1 => "",
+		),
+		"FILTER_NAME" => "",
+		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
+		"IBLOCK_ID" => "12",
+		"IBLOCK_TYPE" => "cars",
+		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
+		"INCLUDE_SUBSECTIONS" => "Y",
+		"MESSAGE_404" => "",
+		"NEWS_COUNT" => "4",
+		"PAGER_BASE_LINK_ENABLE" => "N",
+		"PAGER_DESC_NUMBERING" => "N",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+		"PAGER_SHOW_ALL" => "N",
+		"PAGER_SHOW_ALWAYS" => "N",
+		"PAGER_TEMPLATE" => ".default",
+		"PAGER_TITLE" => "Новости",
+		"PARENT_SECTION" => "",
+		"PARENT_SECTION_CODE" => "",
+		"PREVIEW_TRUNCATE_LEN" => "",
+		"PROPERTY_CODE" => array(
+			0 => "NAME_CAR",
+			1 => "PRICE",
+			2 => "",
+		),
+		"SET_BROWSER_TITLE" => "Y",
+		"SET_LAST_MODIFIED" => "N",
+		"SET_META_DESCRIPTION" => "Y",
+		"SET_META_KEYWORDS" => "Y",
+		"SET_STATUS_404" => "N",
+		"SET_TITLE" => "Y",
+		"SHOW_404" => "N",
+		"SORT_BY1" => "ACTIVE_FROM",
+		"SORT_BY2" => "SORT",
+		"SORT_ORDER1" => "DESC",
+		"SORT_ORDER2" => "ASC",
+		"COMPONENT_TEMPLATE" => "mini_list_car"
+	),
+	false
+);?>    
 
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

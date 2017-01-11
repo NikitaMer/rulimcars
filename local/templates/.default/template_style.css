@@ -88,7 +88,7 @@ header {
 .top_address{
     width: 225.5px;
 }
-.phone{
+.phone_alloka{
     font-family: EuclidFlexBold;
 }
 .logo {
@@ -167,7 +167,7 @@ footer {
 
 }
 .bot_addres{
-    width: 242.31px;
+    width: 245px;
 }
 .content{
     width: 702.75px;
@@ -231,9 +231,6 @@ footer {
     width:395.25px;
     bottom: 0;
 }
-.background_grey .price_car img{
-    transform: scaleX(-1);
-}
 .background_grey .car{
     text-align: right;
 }
@@ -282,9 +279,16 @@ footer {
 .inner_price p{
     padding-right: 22.5px;
 }
-.button_case{
+.more{
+    display: inline-block;
+}
+.button_case1{
     margin:0 auto;
     width: 225px;
+}
+.button_case2{
+    margin:0 auto;
+    width: 290px;
 }
 .button{
     display: inline-block;
@@ -299,6 +303,9 @@ footer {
     margin: 8.25px;
     margin-top: 20px;
 }
+.button_text_mini{
+    font-size: 14px !important;
+}
 .button1{
     width: 262.5px;
     margin-top: 37.5px;
@@ -307,6 +314,7 @@ footer {
     font-family:HelveticaNeue;
     text-decoration:none;
     color: #fff;
+    padding: 10px 20px;
 }
 .characteristics, .address{
     display: inline-block;

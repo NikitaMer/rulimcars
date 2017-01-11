@@ -5,15 +5,24 @@ IncludeTemplateLangFile(__FILE__);
 <!DOCTYPE HTML>
 <html lang="<?=LANGUAGE_ID?>">
 <head>
-    <?include($_SERVER["DOCUMENT_ROOT"]."/include/meta.php");?> 
+    <?include($_SERVER["DOCUMENT_ROOT"]."/include/meta.php");?>
+    <script>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-WDVQ4V2');
+    </script>
 </head>
 <body>
 <?$APPLICATION->ShowPanel();?>
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WDVQ4V2"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
     <div class="wrap">
         <header>
             <div class="header">
                 <div class="top_contacts">
-                    <div class="phone"><?$APPLICATION->IncludeComponent(
+                    <div class="phone_alloka"><?$APPLICATION->IncludeComponent(
                             "bitrix:main.include",
                             "",
                             Array(
