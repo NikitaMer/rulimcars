@@ -40,7 +40,9 @@ IncludeTemplateLangFile(__FILE__);
                         );?>
             <br/>
             <br/>
-            <div id="copyright">Copyright 2014-<span>2017</span>, all rights reserved</div>
+
+            <div class="copyright">Copyright 2014-<span>2017</span>, all rights reserved</div>
+            
             </div>
             <div class="bot_contacts">
                 <div class="phone">Тел: <?$APPLICATION->IncludeComponent(
