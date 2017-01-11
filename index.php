@@ -80,7 +80,7 @@ $APPLICATION->SetTitle("Прокат автомобилей в Москве");
 		"SET_STATUS_404" => "Y",
 		"SET_TITLE" => "N",
 		"SHOW_404" => "Y",
-		"SORT_BY1" => "NAME",
+		"SORT_BY1" => "sort ",
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "DESC",
 		"SORT_ORDER2" => "ASC",
