@@ -11,6 +11,7 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
+
 ?>
 <?foreach($arResult["ITEMS"] as $arItem):?>
 	<?
@@ -18,11 +19,8 @@ $this->setFrameMode(true);
 	$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
 	?>	                       
         <div class="address" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
-            <img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="" /><br/>
-            <?if ($arItem['PREVIEW_TEXT'] == null): 
-                echo $arItem['DETAIL_TEXT'];
-            else:
-                echo $arItem['PREVIEW_TEXT'];
-            endif;?>
+            <img src="<?=$arItem["DETAIL_PICTURE"]["SRC"]?>" alt="" /><br/>
+            <?echo $arItem['DETAIL_TEXT'];?>
+                
         </div>
 <?endforeach;?>

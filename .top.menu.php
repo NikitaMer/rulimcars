@@ -1,39 +1,39 @@
 <?
 $aMenuLinks = Array(
-	Array(
-		"Автопарк", 
-		"/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Услуги", 
-		"services/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Способы оплаты", 
-		"pay/", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"О компании", 
-		"about.php", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Контакты", 
-		"contacts/", 
-		Array(), 
-		Array(), 
-		"" 
-	)
+    Array(
+        "Автопарк", 
+        "/", 
+        Array(), 
+        Array(), 
+        "" 
+    ),
+    Array(
+        "Услуги", 
+        "services/", 
+        Array(), 
+        Array(), 
+        "" 
+    ),
+    Array(
+        "Способы оплаты", 
+        "pay/", 
+        Array(), 
+        Array(), 
+        "" 
+    ),
+    Array(
+        "О компании", 
+        "about/", 
+        Array(), 
+        Array(), 
+        "" 
+    ),
+    Array(
+        "Контакты", 
+        "contacts/", 
+        Array(), 
+        Array(), 
+        "" 
+    )
 );
 ?>

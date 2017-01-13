@@ -1,5 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetPageProperty("H1", "Контакты RulimCars");
 $APPLICATION->SetPageProperty("description", "Прокат авто без водителя, аренда автомобилей дешево и удобно в Москве, авто в аренду рядом с метро Водный стадион.");
 $APPLICATION->SetPageProperty("keywords", "аренда авто, аренда авто Москва, прокат авто, прокат авто водный стадион, аренда авто водный стадион");
 $APPLICATION->SetPageProperty("title", "Контакты RulimCars - аренда автомобилей в Москве");
