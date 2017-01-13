@@ -19,9 +19,7 @@ if (strlen($arResult["MESSAGE"]) > 0):?>
     <?ShowNote($arResult["MESSAGE"])?>
 <?endif?>
            
-            <?$all_res = array();
-            foreach ($arResult["PROPERTY_LIST_FULL"] as $propertyID):
-            if (gettype($propertyID["ID"]) == string):
+            <?foreach ($arResult["PROPERTY_LIST_FULL"] as $propertyID):            
                 $id = $propertyID["LINK_IBLOCK_ID"];                                
                 if ($id == 12):
                     $res_car = array();
@@ -30,9 +28,12 @@ if (strlen($arResult["MESSAGE"]) > 0):?>
                         $res = $ob->GetFields();                        
                         array_push($res_car,$res);                                     
                     }    
-                endif;        
-            endif;
+                endif;            
             endforeach;
+            $pic = array();
+            foreach ($res_car as $num){
+                $pic[$num['ID']]=CFile::GetPath($num['PREVIEW_PICTURE']);
+            }
             // Ищем ID товара с нужным автомобилем
             $c = CIBlockElement::GetList(array(), array("IBLOCK_ID" => 17));
             while($c1 = $c->Fetch()){ 
@@ -52,8 +53,7 @@ if (strlen($arResult["MESSAGE"]) > 0):?>
             $price = array();
             foreach($dayprice as $key){
                 $price[] = stristr($key['PRICE'], '.', true);        
-            }            
-            //my_dump($ar_props);   
+            }  
             ?>                      
             <div class="form">
                 <div>
@@ -100,9 +100,9 @@ if (strlen($arResult["MESSAGE"]) > 0):?>
                                     "INPUT_VALUE_FINISH" => "",
                                     "SHOW_TIME" => "N",
                                     "HIDE_TIMEBAR" => "N",
-                                    //"INPUT_ADDITIONAL_ATTR" => "placeholder=\"дд.мм.гггг\"",
                                     "COMPONENT_TEMPLATE" => "calendar_rent",
-                                    "INPUT_NAME_FINISH" => ""
+                                    "INPUT_NAME_FINISH" => "",
+                                    "HOURS" => $arParams['HOURS'],
                                 ),
                                 false
                             );

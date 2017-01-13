@@ -90,6 +90,7 @@ header {
 }
 .phone_alloka{
     font-family: EuclidFlexBold;
+    color: #e93f45;
 }
 .logo {
     padding: 0 45px;    
@@ -99,9 +100,6 @@ header {
 }
 .top_contacts{  
     margin-left: 55px;
-}
-.top_contacts .phone {
-    color: #e93f45;
 }
 .background_banner {
     height: 318.75px;
