@@ -59,17 +59,17 @@ IncludeTemplateLangFile(__FILE__);
                 <br/>
                 <div class="email">
                 <?$APPLICATION->IncludeComponent(
-    "bitrix:main.include", 
-    ".default", 
-    array(
-        "AREA_FILE_SHOW" => "file",
-        "AREA_FILE_SUFFIX" => "inc",
-        "EDIT_TEMPLATE" => "",
-        "PATH" => "/include/email.php",
-        "COMPONENT_TEMPLATE" => ".default"
-    ),
-    false
-);?><br/>
+                    "bitrix:main.include", 
+                    ".default", 
+                    array(
+                        "AREA_FILE_SHOW" => "file",
+                        "AREA_FILE_SUFFIX" => "inc",
+                        "EDIT_TEMPLATE" => "",
+                        "PATH" => "/include/email.php",
+                        "COMPONENT_TEMPLATE" => ".default"
+                    ),
+                    false
+                );?><br/>
                 <?$APPLICATION->IncludeComponent(
                     "bitrix:main.include",
                     "",
@@ -89,4 +89,5 @@ IncludeTemplateLangFile(__FILE__);
         </footer>
     </div>    
 </body>
+<?$APPLICATION->ShowViewContent('myFuncAfterCar');?>
 </html>

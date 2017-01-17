@@ -9,11 +9,9 @@ $auto = $_POST["AUTO"];
 $email = $_POST["EMAIL"];
 $date = $_POST["DATE"];
 $res =  $_POST["RESULT"];
-$rent = $_POST["RENT"];
-?>
+$rent = $_POST["RENT"];?>
 
 <div class="content">
-
 <?
 $CBEor = CIBlockElement::GetList(array(), array("IBLOCK_ID" => 10));
 while($CBEorder = $CBEor->Fetch()){    
