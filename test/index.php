@@ -1,12 +1,10 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("title", "TEST");
-$APPLICATION->SetTitle("TEST");?>
-
-<?$APPLICATION->IncludeComponent(
-	"bitrix:news.list", 
-	"mini_list_car", 
-	array(
+$APPLICATION->SetTitle("TEST");?><?$APPLICATION->IncludeComponent(
+	"bitrix:news.list",
+	"mini_list_car",
+	Array(
 		"ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"ADD_SECTIONS_CHAIN" => "Y",
 		"AJAX_MODE" => "N",
@@ -19,6 +17,7 @@ $APPLICATION->SetTitle("TEST");?>
 		"CACHE_TIME" => "36000000",
 		"CACHE_TYPE" => "A",
 		"CHECK_DATES" => "Y",
+		"COMPONENT_TEMPLATE" => "mini_list_car",
 		"DETAIL_URL" => "",
 		"DISPLAY_BOTTOM_PAGER" => "N",
 		"DISPLAY_DATE" => "Y",
@@ -26,10 +25,7 @@ $APPLICATION->SetTitle("TEST");?>
 		"DISPLAY_PICTURE" => "Y",
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
-		"FIELD_CODE" => array(
-			0 => "",
-			1 => "",
-		),
+		"FIELD_CODE" => array(0=>"",1=>"",),
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
 		"IBLOCK_ID" => "12",
@@ -48,11 +44,7 @@ $APPLICATION->SetTitle("TEST");?>
 		"PARENT_SECTION" => "",
 		"PARENT_SECTION_CODE" => "",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"PROPERTY_CODE" => array(
-			0 => "NAME_CAR",
-			1 => "PRICE",
-			2 => "",
-		),
+		"PROPERTY_CODE" => array(0=>"NAME_CAR",1=>"PRICE",2=>"",),
 		"SET_BROWSER_TITLE" => "Y",
 		"SET_LAST_MODIFIED" => "N",
 		"SET_META_DESCRIPTION" => "Y",
@@ -63,10 +55,6 @@ $APPLICATION->SetTitle("TEST");?>
 		"SORT_BY1" => "ACTIVE_FROM",
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "DESC",
-		"SORT_ORDER2" => "ASC",
-		"COMPONENT_TEMPLATE" => "mini_list_car"
-	),
-	false
-);?>    
-
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+		"SORT_ORDER2" => "ASC"
+	)
+);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

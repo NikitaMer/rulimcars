@@ -30,30 +30,34 @@ if (strlen($arResult["MESSAGE"]) > 0):?>
                     }    
                 endif;            
             endforeach;
-            $pic = array();
-            foreach ($res_car as $num){
-                $pic[$num['ID']]=CFile::GetPath($num['PREVIEW_PICTURE']);
-            }
-            // Ищем ID товара с нужным автомобилем
-            $c = CIBlockElement::GetList(array(), array("IBLOCK_ID" => 17));
-            while($c1 = $c->Fetch()){ 
-                $ca = CIBlockElement::GetProperty(17, $c1['ID'])->Fetch();
-            if ($ca['VALUE'] == $arResult['RES_CAR']['ID']){
-                $carID = $c1['ID'];                
-            }           
-            } 
-            // Берем цены из нужного товара
-            $CPrice = CPrice::GetList(array(), array("IBLOCK_ID" => 17)); 
-            $dayprice = array(); 
+            $CPrice = CPrice::GetList(array(), array("IBLOCK_ID" => 17,"PRODUCT_ID" => $arResult['RES_CAR']['PROPERTIES']['CATALOG']['VALUE'],));
+            $dayprice =array();
             while($CPrice1 = $CPrice->Fetch()){
-            if ($CPrice1['PRODUCT_ID'] == $carID)   
-                $dayprice[] = $CPrice1;       
+                $dayprice[] = $CPrice1;
             }
             // Приводим цены в лучший вид 
             $price = array();
             foreach($dayprice as $key){
                 $price[] = stristr($key['PRICE'], '.', true);        
-            }  
+            }
+            $this->SetViewTarget("myFuncHeadCar");
+                echo "<script>
+                    dataLayer.push({
+                      'event': 'addToCart',
+                      'ecommerce': {
+                        'currencyCode': 'RUR',
+                        'add': {                                
+                          'products': [{                        
+                            'name': 'product_name',       //Наименование автомобиля + год
+                            'id': 'product_id',         //анкор автомобиля (символьный код)
+                            'price': 'XXXX.XX',         //стоимость суток аренды для тарифа 1-х днех(т.е. самый дорогой)
+                            'quantity': 1            //количество суток аренды
+                           }]
+                        }
+                      }
+                    });
+                    </script>";
+            $this->EndViewTarget();
             ?>                      
             <div class="form">
                 <div>

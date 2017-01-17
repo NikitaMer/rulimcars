@@ -12,28 +12,52 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 
-
-// Ищем ID товара с нужным автомобилем
-$c = CIBlockElement::GetList(array(), array("IBLOCK_ID" => 17));
-while($c1 = $c->Fetch()){
-    $ca = CIBlockElement::GetProperty(17, $c1['ID'])->Fetch();
-if ($ca['VALUE'] == $arResult['ID']){
-    $carID = $c1['ID'];    
-}           
-}
-// Берем цены из нужного товара
-$CPrice = CPrice::GetList(array(), array("IBLOCK_ID" => 17)); 
-$dayprice = array(); 
+$CPrice = CPrice::GetList(array(), array("IBLOCK_ID" => 17,"PRODUCT_ID" => $arResult['PROPERTIES']['CATALOG']['VALUE'],));
+$dayprice =array();
 while($CPrice1 = $CPrice->Fetch()){
-if ($CPrice1['PRODUCT_ID'] == $carID)   
-    $dayprice[] = $CPrice1;       
+    $dayprice[] = $CPrice1;
 }
 // Приводим цены в лучший вид 
 $price = array();
 foreach($dayprice as $key){
     $price[] = stristr($key['PRICE'], '.', true);        
 }
-//my_dump($arResult);
+//my_dump($dayp);
+$this->SetViewTarget("myFuncHeadCar");
+    echo $arResult['PROPERTIES']['SCRIPT_IN_HEAD']['~VALUE']['TEXT'];
+$this->EndViewTarget();
+$this->SetViewTarget("myFuncBodyCar");
+    echo $arResult['PROPERTIES']['SCRIPT_IN_BODY']['~VALUE']['TEXT'];
+$this->EndViewTarget();
+$this->SetViewTarget("myFuncAfterCar");
+    echo $arResult['PROPERTIES']['SCRIPT_AFTER_BODY']['~VALUE']['TEXT'];
+$this->EndViewTarget();
+$name = $arResult['NAME'];
+$yars = $arResult['PROPERTIES']['YEAR_CAR']['VALUE'];
+$code = $arResult['CODE'];
+$maxpric = $dayp[0]['PRICE'];
+$this->SetViewTarget("myFuncCar");
+    echo "<script>
+            function(productObj) {
+              dataLayer.push({
+                'event': 'productClick',
+                'ecommerce': {
+                  'click': {
+                    'actionField': {'list': 'link_previous_page'},      
+                    'products': [{
+                      'name': '$name $yars',      
+                      'id': '$code',         
+                      'price': '$maxpric'         
+                     }]
+                   }
+                 },
+                 'eventCallback': function() {
+                   document.location = productObj.url
+                 }
+              });
+            }
+            </script>";
+$this->EndViewTarget();
 ?>
 <div class="background_white">            
                 <div class="button_case1">
