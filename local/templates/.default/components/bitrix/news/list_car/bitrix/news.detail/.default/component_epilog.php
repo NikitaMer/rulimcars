@@ -8,5 +8,4 @@ $IPROPERTY = $ipropValues->getValues();
     //$APPLICATION->SetTitle($IPROPERTY['ELEMENT_PAGE_TITLE']);
     $APPLICATION->SetPageProperty("H1", $IPROPERTY['ELEMENT_PAGE_TITLE']);
     
-    
 ?>

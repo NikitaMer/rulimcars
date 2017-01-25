@@ -22,7 +22,6 @@ $price = array();
 foreach($dayprice as $key){
     $price[] = stristr($key['PRICE'], '.', true);        
 }
-//my_dump($dayp);
 $this->SetViewTarget("myFuncHeadCar");
     echo $arResult['PROPERTIES']['SCRIPT_IN_HEAD']['~VALUE']['TEXT'];
 $this->EndViewTarget();
@@ -33,21 +32,21 @@ $this->SetViewTarget("myFuncAfterCar");
     echo $arResult['PROPERTIES']['SCRIPT_AFTER_BODY']['~VALUE']['TEXT'];
 $this->EndViewTarget();
 $name = $arResult['NAME'];
-$yars = $arResult['PROPERTIES']['YEAR_CAR']['VALUE'];
+$years = $arResult['PROPERTIES']['YEAR_CAR']['VALUE'];
 $code = $arResult['CODE'];
-$maxpric = $dayp[0]['PRICE'];
-$this->SetViewTarget("myFuncCar");
-    echo "<script>
-            function(productObj) {
+$maxpric = $dayprice[0]['PRICE']; 
+$this->SetViewTarget("myFuncCar");?>
+        <script>
+            function (productObj) {
               dataLayer.push({
                 'event': 'productClick',
                 'ecommerce': {
                   'click': {
-                    'actionField': {'list': 'link_previous_page'},      
+                    'actionField': {'list': '<?if (substr_count($_SERVER['HTTP_REFERER'], rulimcars) != 0){ echo $_SERVER['HTTP_REFERER'];}?>'},      
                     'products': [{
-                      'name': '$name $yars',      
-                      'id': '$code',         
-                      'price': '$maxpric'         
+                      'name': '<?=$name." ".$years?>',      
+                      'id': '<?=$code?>',         
+                      'price': '<?=$maxpric?>'         
                      }]
                    }
                  },
@@ -56,13 +55,16 @@ $this->SetViewTarget("myFuncCar");
                  }
               });
             }
-            </script>";
-$this->EndViewTarget();
+            </script>
+<?$this->EndViewTarget();
 ?>
 <div class="background_white">            
                 <div class="button_case1">
-                    <div id="car_headrentcar" class="button">
-                        <a href="/rent/?AUTO=<?=$arResult['ID']?>"><?=GetMessage("RENT")?></a>
+                    <div id="car_headrentcar">
+                        <form method="post" action="/rent/">
+                            <input type="hidden" name="AUTO" value="<?=$arResult['ID']?>">
+                            <button type="submit" class="button"><?=GetMessage("RENT")?></button>
+                        </form>
                     </div>
                 </div>
                 <div class="inner_price">
@@ -138,8 +140,11 @@ $this->EndViewTarget();
                 <?endforeach;?>                                       
                 </div>
                 <div class="button_case1">
-                    <div id="car_footrentcar" class="button">
-                        <a href="/rent/?AUTO=<?=$arResult['ID']?>"><?=GetMessage("RENT")?></a>
+                    <div id="car_footrentcar">
+                        <form method="post" action="/rent/">
+                            <input type="hidden" name="AUTO" value="<?=$arResult['ID']?>">
+                            <button type="submit" class="button"><?=GetMessage("RENT")?></button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -150,9 +155,7 @@ $this->EndViewTarget();
                     <table>
                         <tr>
                             <?foreach($arResult["PROPERTIES"]["SIMILAR_CAR"]["VALUE"] as $arItem):
-                            $car_id = CIBlockElement::GetByID("$arItem");
-                            $car_el = $car_id->GetNextElement(); 
-                            $car_prop = $car_el->GetFields();?>                                                        
+                            $car_prop = GetIBlockElement($arItem);?>                                                        
                                 <td id="carsbloc" class="table_car">                                                            
                                     <img src="<?=CFile::GetPath($car_prop["PREVIEW_PICTURE"])?>" alt="" />
                                 </td>                                
@@ -160,25 +163,14 @@ $this->EndViewTarget();
                         </tr>
                         <tr>
                             <?foreach($arResult["PROPERTIES"]["SIMILAR_CAR"]["VALUE"] as $arItem):
-                            $car_id = CIBlockElement::GetByID("$arItem");
-                            $car_el = $car_id->GetNextElement(); 
-                            $car_prop = $car_el->GetFields();
-                            // Ищем ID товара с нужным автомобилем
-                            $c = CIBlockElement::GetList(array(), array("IBLOCK_ID" => 17));
-                            while($c1 = $c->Fetch()){
-                                $ca = CIBlockElement::GetProperty(17, $c1['ID'])->Fetch();
-                            if ($ca['VALUE'] == $car_prop['ID']){
-                                $carID = $c1['ID'];
-                            }           
-                            }
-                            // Берем цены из нужного товара
-                            $CPrice = CPrice::GetList(array(), array("IBLOCK_ID" => 17)); 
-                            $dayprice = array(); 
+                            $car_prop = GetIBlockElement($arItem);
+                            $carcatolog = CIBlockElement::GetProperty(12, $arItem, array("sort"=>"asc"), array("CODE"=>"CATALOG"))->Fetch(); 
+                            $CPrice = CPrice::GetList(array(), array("IBLOCK_ID" => 17,"PRODUCT_ID" => $carcatolog['VALUE'],));
+                            $dayprice =array();
                             while($CPrice1 = $CPrice->Fetch()){
-                            if ($CPrice1['PRODUCT_ID'] == $carID)   
-                                $dayprice[] = $CPrice1;       
+                                $dayprice[] = $CPrice1;
                             }
-                            // Приведим цены в лучший вид 
+                            // Приводим цены в лучший вид 
                             $price = array();
                             foreach($dayprice as $key){
                                 $price[] = stristr($key['PRICE'], '.', true);        
@@ -205,7 +197,7 @@ $this->EndViewTarget();
 <div class="nv_topnav">
 <ul>
 <?
-foreach($arResult['PROPERTIES']['TEXT_LINK']['VALUE'] as $key => $arTextLink):?>
+foreach($arResult['PROPERTIES']['TEXT_LINK']['DESCRIPTION'] as $key => $arTextLink):?>
     <li><a href="<?=$arResult['PROPERTIES']['LINK']['VALUE'][$key]?>"><?=$arTextLink?></a></li>
 <?endforeach?>
 </ul>

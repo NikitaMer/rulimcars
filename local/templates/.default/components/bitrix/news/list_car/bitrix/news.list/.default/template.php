@@ -18,26 +18,16 @@
 <?$i = 1;?>
 <?foreach($arResult["ITEMS"] as $arItem):
 if ($arItem['PROPERTIES']['SHOW_CAR']['VALUE_ENUM_ID'] == 13){
-// Ищем ID товара с нужным автомобилем
-$c = CIBlockElement::GetList(array(), array("IBLOCK_ID" => 17));
-while($c1 = $c->Fetch()){
-    $ca = CIBlockElement::GetProperty(17, $c1['ID'])->Fetch();
-if ($ca['VALUE'] == $arItem['ID']){
-    $carID = $c1['ID'];
-}           
-}
-// Берем цены из нужного товара
-$CPrice = CPrice::GetList(array(), array("IBLOCK_ID" => 17)); 
-$dayprice = array(); 
+$CPrice = CPrice::GetList(array(), array("IBLOCK_ID" => 17,"PRODUCT_ID" => $arItem['PROPERTIES']['CATALOG']['VALUE'],));
+$dayprice =array();
 while($CPrice1 = $CPrice->Fetch()){
-if ($CPrice1['PRODUCT_ID'] == $carID)   
-    $dayprice[] = $CPrice1;       
+    $dayprice[] = $CPrice1;
 }
 // Приводим цены в лучший вид 
 $price = array();
 foreach($dayprice as $key){
     $price[] = stristr($key['PRICE'], '.', true);        
-} 
+}         
     $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
     $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
     ?> 
@@ -57,8 +47,11 @@ foreach($dayprice as $key){
                         <?=GetMessage("FROM")?> <a id="price" href="<?=$arItem["DETAIL_PAGE_URL"]?>"> <?=min($price)?> <span>&#8381;</span></a><br/>
                         <?=GetMessage("PER_DAY")?>   <div id="main_morecar" class="more"><a id="more" href="<?=$arItem["DETAIL_PAGE_URL"]?>"><?=GetMessage("MORE")?></a></div>                                  
                     </div>
-                    <div id="main_rentcar" class="button">
-                        <a href="/rent/?AUTO=<?=$arItem['ID']?>"><?=GetMessage("RENT")?></a>
+                    <div id="main_rentcar">
+                        <form method="post" action="/rent/">
+                            <input type="hidden" name="AUTO" value="<?=$arItem['ID']?>">
+                            <button type="submit" class="button"><?=GetMessage("RENT")?></button>
+                        </form>
                     </div>
                 </div>
             <?else:?>
@@ -71,8 +64,11 @@ foreach($dayprice as $key){
                         <?=GetMessage("FROM")?> <a id="price" href="<?=$arItem["DETAIL_PAGE_URL"]?>"> <?=min($price)?> <span>&#8381;</span></a><br/>
                         <?=GetMessage("PER_DAY")?>   <div id="main_morecar" class="more"><a id="more" href="<?=$arItem["DETAIL_PAGE_URL"]?>"><?=GetMessage("MORE")?></a></div>                               
                     </div>
-                    <div class="button">
-                        <a id="main_rentcar" href="/rent/?AUTO=<?=$arItem['ID']?>"><?=GetMessage("RENT")?></a>
+                    <div id="main_rentcar">
+                        <form method="post" action="/rent/">
+                            <input type="hidden" name="AUTO" value="<?=$arItem['ID']?>">
+                            <button type="submit" class="button"><?=GetMessage("RENT")?></button>
+                        </form>
                     </div>
                 </div>
                 <div id="main_imagecar" class="car">

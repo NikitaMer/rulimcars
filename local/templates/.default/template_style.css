@@ -290,7 +290,7 @@ footer {
 }
 .button{
     display: inline-block;
-    width: 205px;
+    width: 225px;
     color: #fff;
     background-color: #E93F3F;
     cursor: pointer;
@@ -300,6 +300,8 @@ footer {
     padding: 13px 8px;
     margin: 8.25px;
     margin-top: 20px;
+    border-width:0px;
+    border-style: none;    
 }
 .button_text_mini{
     font-size: 14px !important;

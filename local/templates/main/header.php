@@ -5,9 +5,13 @@ IncludeTemplateLangFile(__FILE__);
 <!DOCTYPE HTML>
 <html lang="<?=LANGUAGE_ID?>">
 <head>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <?include($_SERVER["DOCUMENT_ROOT"]."/include/meta.php");
     $APPLICATION->ShowViewContent('myFuncHeadCar');
     $APPLICATION->ShowViewContent('myFuncCar');?>
+    <script type="text/javascript">
+            
+    </script>
     <script>
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);

@@ -50,7 +50,7 @@ $APPLICATION->SetTitle("Заявка на аренду");
 		"USER_MESSAGE_EDIT" => "",
 		"USE_CAPTCHA" => "N",
 		"NEXT_DATA" => "18",
-		"HOURS" => "13"
+		"HOURS" => "15"
 	),
 	false
 );?>
