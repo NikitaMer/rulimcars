@@ -245,13 +245,13 @@ footer {
     /*font-family:HelveticaNeueCyr-Bold;*/
 }
 .inner_name{
-    text-align: center;
-    color: #E93F3F;
-    font-size: 27px;
-    /*font-family:HelveticaNeueCyr-Bold;*/
+    text-align: center;  
     width: 705px;
     margin: 0 auto;
     margin-top: 30px;
+}
+.inner_name h1{
+   font-size: 27px !important; 
 }
 .price{
     padding-bottom: 10px;
@@ -420,11 +420,12 @@ footer {
     right: 45px;
     width: 84px;
 }
-.title{
-    color: #E93F3F;
-    font-size: 36.5775px;
+h1{
+   color: #E93F3F;
+   font-size: 36.5775px; 
+}
+.title{   
     margin-bottom: 22.5px;
-    /*font-family: HelveticaNeueCyr-Bold;*/
     width: 705px;
     margin: 0 auto;
     margin-top: 30px;

@@ -18,14 +18,9 @@
 <?$i = 1;?>
 <?foreach($arResult["ITEMS"] as $arItem):
 if ($arItem['PROPERTIES']['SHOW_CAR']['VALUE_ENUM_ID'] == 13){
-$CPrice = CPrice::GetList(array(), array("IBLOCK_ID" => 17,"PRODUCT_ID" => $arItem['PROPERTIES']['CATALOG']['VALUE'],));
-$dayprice =array();
-while($CPrice1 = $CPrice->Fetch()){
-    $dayprice[] = $CPrice1;
-}
 // Приводим цены в лучший вид 
 $price = array();
-foreach($dayprice as $key){
+foreach($arItem['DAY_PRICE'] as $key){
     $price[] = stristr($key['PRICE'], '.', true);        
 }         
     $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
@@ -78,18 +73,9 @@ foreach($dayprice as $key){
             </div>                                          
             <div class="characteristics_car">
             <?foreach ($arItem["PROPERTIES"]["ICON"]["VALUE"] as $key => $value):?>
-                      <?$icon_id = CIBlockElement::GetByID("$value");
-                        $icon_el = $icon_id->GetNextElement(); 
-                        $icon_prop = $icon_el->GetFields();?>                                       
+                      <?$icon = GetIBlockElement("$value");?>                                       
                 <div class="characteristics">                     
-                    <img src="/img/<?if ($k == 1):?>grey<?else:?>white<?endif;?>/<?=$icon_prop["CODE"]?>.png" alt="" /><br/>
-                    <?/*
-                    $num=strstr($arItem["PROPERTIES"]["TEXT_ICON"]["VALUE"][$key]," ",true);
-                    if (ctype_digit(substr($num, -1))) {
-                        $arItem["PROPERTIES"]["TEXT_ICON"]["VALUE"][$key]=substr($arItem["PROPERTIES"]["TEXT_ICON"]["VALUE"][$key],strlen($num)+1);
-                        ?><span><?=$num?></span><?    
-                    }*/
-                    ?>                    
+                    <img src="/img/<?if ($k == 1):?>grey<?else:?>white<?endif;?>/<?=$icon["CODE"]?>.png" alt="" /><br/>                   
                     <?=$arItem["PROPERTIES"]["TEXT_ICON"]["VALUE"][$key]['TEXT']?>
                 </div>
             <?endforeach;?>

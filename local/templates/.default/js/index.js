@@ -67,67 +67,96 @@ $(document).ready(function () {
         }        
     });
 });
+/**
+* Код для Google Tag Manager при смене селектора автомобиля на стр. "Заявка на аренду"
+* @param NewCarID - ID нового автомобиля 
+* @param NewCarName - Назавание нового автомобиля
+* @param NewCarYear - Год нового автомобиля
+* @param NewCarPrice - Максимальная цена нового автомобиля
+* @param OldCarID - ID старого автомобиля
+* @param OldCarName - Назавание старого автомобиля
+* @param OldCarYear - Год старого автомобиля
+* @param OldCarPrice - Максимальная цена старого автомобиля
+*/
 function ChangeCar(NewCarID, NewCarName, NewCarYear, NewCarPrice, OldCarID, OldCarName, OldCarYear, OldCarPrice) {
-                dataLayer.push({
-                      'event': 'addToCart',
-                      'ecommerce': {
-                        'currencyCode': 'RUR',
-                        'add': {                                
-                          'products': [{                        
-                            'name': NewCarName+' '+NewCarYear,    
-                            'id': NewCarID,         
-                            'price': NewCarPrice,          
-                            'quantity': 1                
-                           }]
-                        }
-                      },
-                    'event': 'removeFromCart',
-                      'ecommerce': {
-                        'remove': {                               
-                          'products': [{                          
-                              'name': OldCarName+' '+OldCarYear,    
-                              'id': OldCarID,        
-                              'price': OldCarPrice,        
-                              'quantity': 1            
-                          }]
-                        }
-                      }
-                    });
-            };
-            function OrderCar(NumOrder, Result, Coupon, CarName, CarYear, CarID, ResultDay, Day){   
-                dataLayer.push({
-                  'ecommerce': {
-                    'currencyCode': 'RUR',
-                    'purchase': {
-                      'actionField': {
-                        'id': NumOrder,        
-                        'revenue': Result,  
-                        'coupon': Coupon  
-                      },
-                      'products': [{                            
-                        'name': CarName+' '+CarYear,      
-                        'id': CarID,         
-                        'price': ResultDay,         
-                        'quantity': Day,           
-                        'coupon': Coupon
-                       }]
-                    }
-                  }
-                });   
-            };
-            function PresentCar(CarName, CarYear, CarID, CarPrice){ 
-                dataLayer.push({
-                  'event': 'addToCart',
-                  'ecommerce': {
-                    'currencyCode': 'RUR',
-                    'add': {
-                      'products': [{
-                        'name': CarName+' '+CarYear,
-                        'id': CarID,
-                        'price': CarPrice,
-                        'quantity': 1
-                       }]
-                    }
-                  }
-                });    
-            };
+    dataLayer.push({
+          'event': 'addToCart',
+          'ecommerce': {
+            'currencyCode': 'RUR',
+            'add': {                                
+              'products': [{                        
+                'name': NewCarName+' '+NewCarYear,    
+                'id': NewCarID,         
+                'price': NewCarPrice,          
+                'quantity': 1                
+               }]
+            }
+          },
+        'event': 'removeFromCart',
+          'ecommerce': {
+            'remove': {                               
+              'products': [{                          
+                  'name': OldCarName+' '+OldCarYear,    
+                  'id': OldCarID,        
+                  'price': OldCarPrice,        
+                  'quantity': 1            
+              }]
+            }
+          }
+        });
+};
+/**
+* Код для Google Tag Manager при совершение заказа 
+* @param NumOrder - Номер заказа
+* @param Result - Цена заказа
+* @param Coupon - номер купона
+* @param CarName - Название автомобиля
+* @param CarYear - Год автомобиля
+* @param CarID - ID автомобиля
+* @param ResultDay - Цена за один день
+* @param Day - Кол-во дней
+*/
+function OrderCar(NumOrder, Result, Coupon, CarName, CarYear, CarID, ResultDay, Day){   
+    dataLayer.push({
+      'ecommerce': {
+        'currencyCode': 'RUR',
+        'purchase': {
+          'actionField': {
+            'id': NumOrder,        
+            'revenue': Result,  
+            'coupon': Coupon  
+          },
+          'products': [{                            
+            'name': CarName+' '+CarYear,      
+            'id': CarID,         
+            'price': ResultDay,         
+            'quantity': Day,           
+            'coupon': Coupon
+           }]
+        }
+      }
+    });   
+};
+/**
+* Код для Google Tag Manager, когда заходим на стр. "Заявка на аренду" 
+* @param CarName - Название автомобиля
+* @param CarYear - Год автомобиля
+* @param CarID - ID автомобиля
+* @param CarPrice - Максимальная цена автомобиля
+*/
+function PresentCar(CarName, CarYear, CarID, CarPrice){ 
+    dataLayer.push({
+      'event': 'addToCart',
+      'ecommerce': {
+        'currencyCode': 'RUR',
+        'add': {
+          'products': [{
+            'name': CarName+' '+CarYear,
+            'id': CarID,
+            'price': CarPrice,
+            'quantity': 1
+           }]
+        }
+      }
+    });    
+};

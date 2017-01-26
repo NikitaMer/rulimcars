@@ -11,39 +11,17 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 /** @var string $templateFolder */
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
-$this->setFrameMode(false);
-$res_car = array();
-$PROPS = array(); 
-$props = array();
-$dayprice =array();
-foreach ($arResult["PROPERTY_LIST_FULL"] as $propertyID):            
-    $id = $propertyID["LINK_IBLOCK_ID"];                                
-    if ($id == 12):        
-        $result = CIBlockElement::GetList(array(), array("IBLOCK_ID" => $id,'ACTIVE' => 'Y'));                    
-        while ($ob = $result->GetNextElement()){  
-            $res = $ob->GetFields();            
-            $all_props = CIBlockElement::GetProperty($id, $res['ID'],array(),array('ACTIVE' => 'Y'));
-            $res_car[$res['ID']]=$res;
-            while($ar_props = $all_props->GetNext()){                                
-                $res_car[$res['ID']]['PROPERTIES'][$ar_props['CODE']] = $ar_props['VALUE'];                
-            }
-            $cprice = CPrice::GetList(array(), array("IBLOCK_ID" => 17,"PRODUCT_ID" => $res_car[$res['ID']]['PROPERTIES']['CATALOG'],));
-            while($cprice1 = $cprice->Fetch()){
-                $res_car[$res['ID']]['PRICE'][] = $cprice1;
-            }                                 
-        }    
-    endif;            
-endforeach;?>                    
+$this->setFrameMode(false);?>                    
 <div class="form">
 <script>
 $(document).ready(function () {        
-    var car = {<?foreach ($res_car as $key=>$car){?>
+    var car = {<?foreach ($arResult['ALL_CAR'] as $key=>$car){?>
     '<?=$key?>' : {
         'Name' : '<?=$car['NAME']?>',
         'Year' : '<?=$car['PROPERTIES']['YEAR_CAR']?>',
-        'Day' : [<?foreach($car['PRICE'] as $price){?>
-            '<?=$price['QUANTITY_FROM']?>',
-            '<?=$price['QUANTITY_TO']?>',       
+        'Day' : [<?foreach($car['PRICE'] as $day){?>
+            '<?=$day['QUANTITY_FROM']?>',
+            '<?=$day['QUANTITY_TO']?>',       
         <?}?>],
         'Price' : [<?foreach($car['PRICE'] as $price){?>
             '<?=stristr($price['PRICE'], '.', true)?>',       
@@ -115,12 +93,12 @@ $(document).ready(function () {
         <label>
                <select class="select must" name="AUTO" id="select">
                 <option value="0" data_path=""><?=GetMessage("CAR")?></option>
-                <?foreach ($res_car as $car): 
+                <?foreach ($arResult['ALL_CAR'] as $car): 
                     if ($car['PROPERTIES']['SHOW_CAR'] == 13){?>
-                <option <?if ($car['ID'] == $arResult['RES_CAR']['ID']): ?>selected="selected"<? endif;?> data_path="<?=CFile::GetPath($car['PREVIEW_PICTURE'])?>" 
-                    value="<?=$car["ID"]?>">
-                    <?=$car["NAME"]?> <?=$car['PROPERTIES']['YEAR_CAR']?>
-                </option>
+                    <option <?if ($car['ID'] == $arResult['RES_CAR']['ID']): ?>selected="selected"<? endif;?> data_path="<?=CFile::GetPath($car['PREVIEW_PICTURE'])?>" 
+                        value="<?=$car["ID"]?>">
+                        <?=$car["NAME"]?> <?=$car['PROPERTIES']['YEAR_CAR']?>
+                    </option>
                 <?}endforeach;?>
                </select>
         </label>

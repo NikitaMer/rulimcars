@@ -33,38 +33,15 @@ if ($name != null && $phone != null){
         "NAME"           => $name,
         "ACTIVE"         => "Y",          
         "DETAIL_TEXT"    => $text,
-    ); 
+    );
+ // Добавляем заявку в инфоблок "Заявки" 
     $el->Add($arLoadProductArray);
     
-    $cso = new CSaleOrder;
-    $csb = new CSaleBasket;                               
-
-    $CBE = CIBlockElement::GetList(array(), array("IBLOCK_ID" => 17));
-    while($CBEcar = $CBE->Fetch()){ 
-        $CBEprop = CIBlockElement::GetProperty(17, $CBEcar['ID'])->Fetch();   
-    if ($CBEprop['VALUE'] == $auto){
-        $productid = $CBEcar; 
-    }           
-    }   
-    $CPrice = CPrice::GetList(array(), array("IBLOCK_ID" => 17)); 
-    $dayprice = array(); 
-    while($CPrice1 = $CPrice->Fetch()){
-    if ($CPrice1['PRODUCT_ID'] == $productid['ID'])   
-        $dayprice[] = $CPrice1;       
-    }  
-    foreach ($dayprice as $prop): 
-        if ($prop['QUANTITY_FROM']<=$rent && $prop['QUANTITY_TO']>=$rent):
-            $res = $prop['PRICE'];
-        elseif($prop['QUANTITY_TO']==null):
-            $res = $prop['PRICE'];   
-        endif;   
-    endforeach;
-     
-    $product = array('ID' => $productid['ID'], 'NAME' => $productid['NAME'], 'PRICE' => $res, 'CURRENCY' => 'RUB', 'QUANTITY' => $rent);
+          
+$productid = GetIBlockElement($auto);     
+$product = array('ID' => $auto, 'NAME' => $productid['NAME'], 'PRICE' => $res/$rent, 'CURRENCY' => 'RUB', 'QUANTITY' => $rent);
                 
 $basket = Bitrix\Sale\Basket::create(SITE_ID);
-
-
 $item = $basket->createItem("catalog", $product["ID"]);
 unset($product["ID"]);
 $item->setFields($product);
@@ -80,14 +57,12 @@ $shipment = $shipmentCollection->createItem(Bitrix\Sale\Delivery\Services\Manage
 //$item = $shipmentItemCollection->createItem($basketItem);
 //$item->setQuantity($basketItem->getQuantity());
 
-
 $paymentCollection = $order->getPaymentCollection();
 $payment = $paymentCollection->createItem(Bitrix\Sale\PaySystem\Manager::getObjectById(1));
 $payment->setField("SUM", $order->getPrice());
 $payment->setField("CURRENCY", $order->getCurrency());
 
-    $result = $order->save();    
-    ?>
+$result = $order->save();?>
 
 <div class="content">
 <?
@@ -104,6 +79,7 @@ while($Cproporder = $Corder->Fetch()){
 }
 $car = GetIBlockElement($auto); 
 ?>
+
 <script type="text/javascript">
 $(document).ready(function () {
     var carName = {'Name' : '<?=$car['NAME']?>'};
