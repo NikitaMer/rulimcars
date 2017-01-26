@@ -4,7 +4,6 @@
     CModule::IncludeModule("sale");
     CModule::IncludeModule("statistic");
     CModule::IncludeModule("catalog");
-    //передаваемые данные
     $name = $_POST["NAME"];    
     $phone = $_POST["PHONE"];
     $auto = $_POST["AUTO"];
@@ -13,7 +12,7 @@
     $date = $_POST["DATE"];
     $res =  $_POST["RESULT"];
     $rent = $_POST["RENT"];
-                            
+    
     $el = new CIBlockElement;
     
     $PROP = array();

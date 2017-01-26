@@ -5,10 +5,11 @@ IncludeTemplateLangFile(__FILE__);
 <!DOCTYPE HTML>
 <html lang="<?=LANGUAGE_ID?>">
 <head>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <?include($_SERVER["DOCUMENT_ROOT"]."/include/meta.php");
     $APPLICATION->ShowViewContent('myFuncHeadCar');
     $APPLICATION->ShowViewContent('myFuncCar');?>
-    <script>
+    <script type="text/javascript">
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-WDVQ4V2');
@@ -87,6 +88,5 @@ $APPLICATION->ShowViewContent("myFuncBodyCar");?>
         </div>
         <div class="container">
         <div class="<?if($_SERVER['REDIRECT_STATUS'] == 200) {?>inner_name<?} else {?> title  <?} if($_SERVER['SCRIPT_URL'] == "/rent/") { ?> title_left <? } ?>">
-            <b><?$APPLICATION->ShowProperty("H1");?></b>
-            <!--<b><?//$APPLICATION->ShowTitle(false)?></b>-->
+            <h1><?$APPLICATION->ShowProperty("H1");?></h1>
         </div>
