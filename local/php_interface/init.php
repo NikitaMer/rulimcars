@@ -46,7 +46,7 @@ function OnAfterIBlockElementAddHandler(&$arFields) {
         'YEAR_CAR' => $arCar['YEAR_CAR']['VALUE'],
         'DETAIL_CAR' => $arCarPic['DETAIL_PAGE_URL'],
         'TYPE_CAR_CIR' => $arCar['TYPE_CAR_CIR']['VALUE'],
-        'TYPE_CAR_LAT' => $arCar['TYPE_CAR_LAT']['DESCRIPTION'],
+        'TYPE_CAR_LAT' => $arCar['TYPE_CAR_CIR']['DESCRIPTION'],
         'CAR_PICTURE' => CFile::GetPath($arCarPic['DETAIL_PICTURE']),
         'DATE_CREATE' => $DateCreate,
     );

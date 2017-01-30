@@ -11,11 +11,11 @@
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
-// Приводим цены в лучший вид 
+// Приводим цены в лучший вид
 $price = array();
 foreach($arResult['DAY_PRICE'] as $key){
     $price[] = stristr($key['PRICE'], '.', true);        
-}
+} 
 // Добавляем текст, который должен быть JS кодом, в HEAD
 $this->SetViewTarget("myFuncHeadCar");
     echo $arResult['PROPERTIES']['SCRIPT_IN_HEAD']['~VALUE']['TEXT'];
@@ -140,29 +140,16 @@ $this->SetViewTarget("myFuncCar");?>
                     <table>
                         <tr>
                             <?// Выводим автомобили
-                            foreach($arResult["PROPERTIES"]["SIMILAR_CAR"]["VALUE"] as $arItem):
-                            $car_prop = GetIBlockElement($arItem);?>                                                        
+                            foreach($arResult["PROPERTIES"]["SIMILAR_CAR"]["CAR_VALUE"] as $arItem):?>                                                        
                                 <td id="carsbloc" class="table_car">                                                            
-                                    <img src="<?=CFile::GetPath($car_prop["PREVIEW_PICTURE"])?>" alt="" />
+                                    <img src="<?=$arItem["PREVIEW_PICTURE"]?>" alt="" />
                                 </td>                                
                             <?endforeach;?>
                         </tr>
                         <tr>
-                            <?foreach($arResult["PROPERTIES"]["SIMILAR_CAR"]["VALUE"] as $arItem):
-                            $car_prop = GetIBlockElement($arItem);
-                            $carcatolog = CIBlockElement::GetProperty(12, $arItem, array("sort"=>"asc"), array("CODE"=>"CATALOG"))->Fetch(); 
-                            $CPrice = CPrice::GetList(array(), array("IBLOCK_ID" => 17,"PRODUCT_ID" => $carcatolog['VALUE'],));
-                            $dayprice =array();
-                            while($CPrice1 = $CPrice->Fetch()){
-                                $dayprice[] = $CPrice1;
-                            }
-                            // Приводим цены в лучший вид 
-                            $price = array();
-                            foreach($dayprice as $key){
-                                $price[] = stristr($key['PRICE'], '.', true);        
-                            }?>
+                            <?foreach($arResult["PROPERTIES"]["SIMILAR_CAR"]["CAR_VALUE"] as $arItem):?>
                                 <td>
-                                    <a href="<?=$car_prop["DETAIL_PAGE_URL"]?>"><?echo $car_prop["NAME"]?><br/><?=GetMessage("FROM_MINI")?> <?=min($price)?> <span>&#8381;</span></a>
+                                    <a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><?echo $arItem["NAME"]?><br/><?=GetMessage("FROM_MINI")?> <?=$arItem["PRICE"]?> <span>&#8381;</span></a>
                                 </td>                                
                             <?endforeach;?>
                         </tr>

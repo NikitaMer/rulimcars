@@ -88,5 +88,5 @@ $APPLICATION->ShowViewContent("myFuncBodyCar");?>
         </div>
         <div class="container">
         <div class="<?if($_SERVER['REDIRECT_STATUS'] == 200) {?>inner_name<?} else {?> title  <?} if($_SERVER['SCRIPT_URL'] == "/rent/") { ?> title_left <? } ?>">
-            <h1><?$APPLICATION->ShowProperty("H1");?></h1>
+            <h1><?$APPLICATION->ShowTitle(false);?></h1>
         </div>
