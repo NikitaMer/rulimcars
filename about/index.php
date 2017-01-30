@@ -1,7 +1,8 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetPageProperty("title", "О Компании RulimCars - аренда авто в Москве");
 $APPLICATION->SetPageProperty("H1", "О Компании RulimCars");
-$APPLICATION->SetTitle("О Компании RulimCars - аренда авто в Москве");
+$APPLICATION->SetTitle("О Компании RulimCars");
 ?>
 <div class="content">
 <p style="text-align: justify;">

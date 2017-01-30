@@ -16,7 +16,6 @@ $res =  $_POST["RESULT"];
 $rent = $_POST["RENT"];
 if ($name != null && $phone != null){
     $el = new CIBlockElement;
-    
     $PROP = array();
     $PROP["CAR"] = $auto;  
     $PROP["PHONE"] = $phone;        

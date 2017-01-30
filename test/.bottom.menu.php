@@ -1,11 +1,11 @@
 <?
 $aMenuLinks = Array(
-	Array(
-		"Привет", 
-		"/", 
-		Array(), 
-		Array(), 
-		"" 
-	)
+    Array(
+        "Привет", 
+        "/", 
+        Array(), 
+        Array(), 
+        "" 
+    )
 );
 ?>

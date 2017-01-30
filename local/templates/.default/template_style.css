@@ -380,7 +380,7 @@ footer {
 }
 .number{
     width: 153.75px;
-    margin: 41.25px 15px 0px 15px;
+    margin: 30px 15px 0px 15px;
 }
 #day{
     padding-top: 15px;
@@ -556,7 +556,7 @@ h1{
 }
 .red_line {
     position: relative;
-    top: 81px;
+    top: 70px;
     z-index: 0;
     height: 3px;
     background: #e93f45;

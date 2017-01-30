@@ -83,7 +83,7 @@ IncludeTemplateLangFile(__FILE__);
                 </div>
             </div>
             <div class="feedback">
-                <a href="#" class="a">Обратная связь</a>
+                <!--<a href="#" class="a">Обратная связь</a>-->
             </div>
         </div>
         </footer>
