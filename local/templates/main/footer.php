@@ -4,7 +4,7 @@ IncludeTemplateLangFile(__FILE__);
 ?> 
 </div>        
         <footer>
-        <div <?if($_SERVER['SCRIPT_URL'] != "/404.php"){?>class="invisible"<?}?>>
+        <div <?if (defined('ERROR_404') != true){?>class="invisible"<?}?>>
             <?$APPLICATION->IncludeComponent(
 	"car:car.list", 
 	".default", 
