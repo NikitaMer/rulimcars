@@ -4,7 +4,23 @@ IncludeTemplateLangFile(__FILE__);
 ?> 
 </div>        
         <footer>
-        <div class="<?if($_SERVER['SCRIPT_URL'] == "/rent/" || $_SERVER['REDIRECT_STATUS'] == 200) { ?> invisible <? } ?>">
+        <div <?if($_SERVER['SCRIPT_URL'] != "/404.php"){?>class="invisible"<?}?>>
+            <?$APPLICATION->IncludeComponent(
+	"car:car.list", 
+	".default", 
+	array(
+		"CAR" => array(
+			0 => "54",
+			1 => "55",
+			2 => "56",
+		),
+		"TYPE_SORT" => "ID",
+		"COMPONENT_TEMPLATE" => ".default"
+	),
+	false
+);?>
+        </div>
+        <div class="<?if($_SERVER['SCRIPT_URL'] == "/rent/" || $_SERVER['SCRIPT_URL'] == "/404.php" || $_SERVER['REDIRECT_STATUS'] == 200) { ?>invisible<? } ?>">
         <?$APPLICATION->IncludeComponent(
             "bitrix:menu", 
             "bot_menu", 
