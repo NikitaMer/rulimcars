@@ -90,5 +90,17 @@ $(document).ready(function () {
     В ближайшее время с вами свяжется сотрудник нашей компании и обсудит с вами детали, вы так же можете позвонить самостоятельно по бесплатному номеру 8(800)777 59 90.
 <?}?>
 </div>   
-
+<div>
+    <?$APPLICATION->IncludeComponent(
+        "car:car.list", 
+        ".default", 
+        array(
+            "CAR" => array(
+            ),
+            "TYPE_SORT" => "ID",
+            "COMPONENT_TEMPLATE" => ".default"
+        ),
+        false
+    );?>
+</div>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

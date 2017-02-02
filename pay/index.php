@@ -69,7 +69,21 @@ $APPLICATION->SetTitle("Способы оплаты");
 	),
 	false
 );?>
-</div></div>
+</div>
+</div>
+<div>
+    <?$APPLICATION->IncludeComponent(
+        "car:car.list", 
+        ".default", 
+        array(
+            "CAR" => array(
+            ),
+            "TYPE_SORT" => "ID",
+            "COMPONENT_TEMPLATE" => ".default"
+        ),
+        false
+    );?>
+</div>
     <div class="content">
         <div class="seo">
              <?$APPLICATION->IncludeComponent(
