@@ -104,6 +104,19 @@ $APPLICATION->SetTitle("Прокат автомобилей в Москве");
 	),
 	false
 );?>
+<div>
+    <?$APPLICATION->IncludeComponent(
+	    "car:car.list", 
+	    ".default", 
+	    array(
+		    "CAR" => array(
+		    ),
+		    "TYPE_SORT" => "ID",
+		    "COMPONENT_TEMPLATE" => ".default"
+	    ),
+	    false
+    );?>
+</div>
 <div class="content <?if($_SERVER['SCRIPT_URL'] != '/') {?>invisible<?}?>">
     <div class="seo">
          <?$APPLICATION->IncludeComponent(
