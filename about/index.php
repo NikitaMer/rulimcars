@@ -18,5 +18,19 @@ $APPLICATION->SetTitle("О Компании RulimCars");
 </p>
  <br>
  <br>
- </div>   
+ </div>
+     <div class="content">
+        <div class="seo">
+             <?$APPLICATION->IncludeComponent(
+                "bitrix:main.include",
+                ".default",
+                Array(
+                    "AREA_FILE_SHOW" => "page",
+                    "AREA_FILE_SUFFIX" => "inc",
+                    "COMPONENT_TEMPLATE" => ".default",
+                    "EDIT_TEMPLATE" => ""
+                )
+            );?>
+        </div>
+    </div>   
  <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

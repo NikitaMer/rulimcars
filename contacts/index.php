@@ -79,7 +79,7 @@ $APPLICATION->SetTitle("Контакты RulimCars");
 	"bitrix:map.google.view", 
 	".default", 
 	array(
-		"API_KEY" => "",
+		"API_KEY" => "AIzaSyCqblkSttUsixd84hvUviKebl3mX2tNoq0",
 		"CONTROLS" => array(
 			0 => "SMALL_ZOOM_CONTROL",
 			1 => "TYPECONTROL",
