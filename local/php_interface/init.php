@@ -1,9 +1,16 @@
 <?php 
-function my_dump($var){
-    echo "<pre>";
-    print_r($var);
-    echo "</pre>";
-}
+function my_dump($array, $adminCheck = false) {
+        global $USER;
+        $USER = new Cuser;
+        if ($adminCheck) {
+            if (!$USER->IsAdmin()) {
+                return false;
+            }
+        }
+        echo "<pre>";
+        print_r($array);
+        echo "</pre>";
+    }
 /**
 * Редирект на страницу со / в конце* 
 */

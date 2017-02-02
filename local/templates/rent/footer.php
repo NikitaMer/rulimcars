@@ -3,44 +3,7 @@
 IncludeTemplateLangFile(__FILE__);
 ?> 
 </div>        
-        <footer>
-        <div <?if (defined('ERROR_404') != true){?>class="invisible"<?}?>>
-            <?$APPLICATION->IncludeComponent(
-	            "car:car.list", 
-	            ".default", 
-	            array(
-		            "CAR" => array(
-			            0 => "54",
-			            1 => "55",
-			            2 => "56",
-		            ),
-		            "TYPE_SORT" => "ID",
-		            "COMPONENT_TEMPLATE" => ".default"
-	            ),
-	            false
-            );?>
-        </div>
-        <div class="<?if($_SERVER['SCRIPT_URL'] == "/rent/" || $_SERVER['SCRIPT_URL'] == "/404.php" || $_SERVER['REDIRECT_STATUS'] == 200) { ?>invisible<? } ?>">
-        <?$APPLICATION->IncludeComponent(
-            "bitrix:menu", 
-            "bot_menu", 
-            array(
-                "ALLOW_MULTI_SELECT" => "N",
-                "CHILD_MENU_TYPE" => "left",
-                "COMPONENT_TEMPLATE" => "bot_menu",
-                "DELAY" => "N",
-                "MAX_LEVEL" => "1",
-                "MENU_CACHE_GET_VARS" => array(),
-                "MENU_CACHE_TIME" => "3600",
-                "MENU_CACHE_TYPE" => "A",
-                "MENU_CACHE_USE_GROUPS" => "Y",
-                "MENU_THEME" => "yellow",
-                "ROOT_MENU_TYPE" => "bottom",
-                "USE_EXT" => "N"
-            ),
-            false
-        );?>
-        </div>        
+        <footer>       
         <div class="footer">
             <div class="bot_addres">
             Наш офис расположен по адресу:

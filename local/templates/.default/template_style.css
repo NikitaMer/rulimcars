@@ -432,6 +432,10 @@ h1{
     text-align: center;
 }
 .title_left{
+    margin-bottom: 22.5px;
+    width: 705px;
+    margin: 0 auto;
+    margin-top: 30px;
     text-align: left;
 }
 .form {
