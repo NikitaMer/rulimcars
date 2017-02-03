@@ -1,7 +1,7 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Аренда авто", 
+		"Аренда авто в Москве", 
 		"/", 
 		Array(), 
 		Array(), 
@@ -9,7 +9,14 @@ $aMenuLinks = Array(
 	),
 	Array(
 		"Аренда фургона", 
-		"/lada_largus/", 
+		"/largus_furgon/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Аренда газели без водителя", 
+		"/gazel-next-prom/", 
 		Array(), 
 		Array(), 
 		"" 
