@@ -142,7 +142,7 @@ $this->SetViewTarget("myFuncCar");?>
                             <?// Выводим автомобили
                             foreach($arResult["PROPERTIES"]["SIMILAR_CAR"]["CAR_VALUE"] as $arItem):?>                                                        
                                 <td id="carsbloc" class="table_car">                                                            
-                                    <img src="<?=$arItem["PREVIEW_PICTURE"]?>" alt="" />
+                                    <a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><img src="<?=$arItem["PREVIEW_PICTURE"]?>" alt="" /></a>
                                 </td>                                
                             <?endforeach;?>
                         </tr>
@@ -171,6 +171,6 @@ $this->SetViewTarget("myFuncCar");?>
 <ul>
 <?
 foreach($arResult['PROPERTIES']['TEXT_LINK']['DESCRIPTION'] as $key => $arTextLink):?>
-    <li><a href="<?=$arResult['PROPERTIES']['LINK']['VALUE'][$key]?>"><?=$arTextLink?></a></li>
+    <li><a href="<?=$arResult['PROPERTIES']['TEXT_LINK']['VALUE'][$key]?>"><?=$arTextLink?></a></li>
 <?endforeach?>
 </ul>

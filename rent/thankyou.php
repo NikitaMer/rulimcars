@@ -36,15 +36,15 @@ if ($name != null && $phone != null){
  // Добавляем заявку в инфоблок "Заявки" 
     $el->Add($arLoadProductArray);
     
-          
+         
 $productid = GetIBlockElement($auto);     
-$product = array('ID' => $auto, 'NAME' => $productid['NAME'], 'PRICE' => $res/$rent, 'CURRENCY' => 'RUB', 'QUANTITY' => $rent);
+$product = array('ID' => $auto, 'NAME' => $productid['NAME'], 'PRICE' => $res/$rent, 'CURRENCY' => 'RUB', 'QUANTITY' => $rent, );
                 
 $basket = Bitrix\Sale\Basket::create(SITE_ID);
 $item = $basket->createItem("catalog", $product["ID"]);
 unset($product["ID"]);
 $item->setFields($product);
-    
+//my_dump($item->getAvailableFields());     
 $order = Bitrix\Sale\Order::create(SITE_ID, 1);
 $order->setPersonTypeId(1);
 $order->setBasket($basket);
