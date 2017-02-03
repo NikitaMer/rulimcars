@@ -115,7 +115,7 @@ $APPLICATION->SetTitle("Прокат автомобилей в Москве");
 	    false
     );?>
 </div>
-<div class="content <?if($_SERVER['SCRIPT_URL'] != '/') {?>invisible<?}?>">
+<div class="content <?if($_SERVER['REDIRECT_STATUS'] == 200) {?>invisible<?}?>">
     <div class="seo">
          <?$APPLICATION->IncludeComponent(
     "bitrix:main.include", 
