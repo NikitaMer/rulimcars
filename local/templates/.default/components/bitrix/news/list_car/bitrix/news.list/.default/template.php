@@ -75,7 +75,7 @@ foreach($arItem['DAY_PRICE'] as $key){
             <?foreach ($arItem["PROPERTIES"]["ICON"]["VALUE"] as $key => $value):?>
                       <?$icon = GetIBlockElement("$value");?>                                       
                 <div class="characteristics">                     
-                    <img src="/img/<?if ($k == 1):?>grey<?else:?>white<?endif;?>/<?=$icon["CODE"]?>.png" alt="" /><br/>                   
+                    <a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><img src="/img/<?if ($k == 1):?>grey<?else:?>white<?endif;?>/<?=$icon["CODE"]?>.png" alt="" /></a><br/>                
                     <?=$arItem["PROPERTIES"]["TEXT_ICON"]["VALUE"][$key]['TEXT']?>
                 </div>
             <?endforeach;?>
