@@ -11,7 +11,8 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 /** @var string $templateFolder */
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
-$this->setFrameMode(false);?>                    
+$this->setFrameMode(false);
+unset($_SESSION['id']);?>                    
 <div class="form">
 <script>
 $(document).ready(function () {        

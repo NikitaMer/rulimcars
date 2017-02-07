@@ -15,6 +15,7 @@ $date = $_POST["DATE"];
 $res =  $_POST["RESULT"];
 $rent = $_POST["RENT"];
 if ($name != null && $phone != null){
+if ($_SESSION['id'] != 1 ){
     $el = new CIBlockElement;
     $PROP = array();
     $PROP["CAR"] = $auto;  
@@ -36,32 +37,49 @@ if ($name != null && $phone != null){
  // Добавляем заявку в инфоблок "Заявки" 
     $el->Add($arLoadProductArray);
     
-         
-$productid = GetIBlockElement($auto);     
-$product = array('ID' => $auto, 'NAME' => $productid['NAME'], 'PRICE' => $res/$rent, 'CURRENCY' => 'RUB', 'QUANTITY' => $rent, );
-                
+$car_catolog = CIBlockElement::GetProperty(12, $auto, array("sort"=>"asc"), array("CODE"=>"CATALOG"))->Fetch();        
+$catolog = GetIBlockElement($car_catolog['VALUE']);     
+$product = array(
+    'ID' => $car_catolog['VALUE'], 
+    'NAME' => $catolog['NAME'], 
+    'PRICE' => $res/$rent, 
+    'CURRENCY' => 'RUB', 
+    'QUANTITY' => $rent,    
+);
+              
 $basket = Bitrix\Sale\Basket::create(SITE_ID);
-$item = $basket->createItem("catalog", $product["ID"]);
+$item = $basket->createItem("catalog", $product['ID']);
+
 unset($product["ID"]);
 $item->setFields($product);
-//my_dump($item->getAvailableFields());     
+//my_dump($car); 
 $order = Bitrix\Sale\Order::create(SITE_ID, 1);
 $order->setPersonTypeId(1);
 $order->setBasket($basket);
+$order->setField('USER_DESCRIPTION', $text);
+
 $shipmentCollection = $order->getShipmentCollection();
 $shipment = $shipmentCollection->createItem(Bitrix\Sale\Delivery\Services\Manager::getObjectById(1));
 
-//$shipmentItemCollection = $shipment->getShipmentItemCollection();
+$shipmentItemCollection = $shipment->getShipmentItemCollection();
 
-//$item = $shipmentItemCollection->createItem($basketItem);
-//$item->setQuantity($basketItem->getQuantity());
+foreach ($basket as $basketItem)
+{
+    $item = $shipmentItemCollection->createItem($basketItem);
+    $item->setQuantity($basketItem->getQuantity());
+}
 
 $paymentCollection = $order->getPaymentCollection();
 $payment = $paymentCollection->createItem(Bitrix\Sale\PaySystem\Manager::getObjectById(1));
 $payment->setField("SUM", $order->getPrice());
 $payment->setField("CURRENCY", $order->getCurrency());
-
-$result = $order->save();?>
+$propertyCollection = $order->getPropertyCollection();
+$somePropValueName = $propertyCollection->getItemByOrderPropertyId(1)->setValue($name);
+$somePropValuePhone = $propertyCollection->getItemByOrderPropertyId(2)->setValue($phone);
+$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(3)->setValue($email);
+$result = $order->save();
+}
+?>
 
 <div class="content">
 <?
@@ -103,4 +121,6 @@ $(document).ready(function () {
         false
     );?>
 </div>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?//$_SESSION['id']=1;
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+ 
