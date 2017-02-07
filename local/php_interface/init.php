@@ -14,14 +14,14 @@ function my_dump($array, $adminCheck = false) {
 /**
 * Редирект на страницу со / в конце* 
 */
-function checkSlash(){
-    global $APPLICATION;
-    $url = $APPLICATION->GetCurPage();
-    $url_last_symbol = substr($url, -1);
-    if ($url_last_symbol != "/"){
-        LocalRedirect($url."/", true, "301 Moved permanently");
+    function checkSlash(){
+        global $APPLICATION;
+        $url = $APPLICATION->GetCurPage();
+        $url_last_symbol = substr($url, -1);
+        if (defined('ERROR_404') && ERROR_404=='Y' && $url_last_symbol != "/"){
+            LocalRedirect($url."/", true, "301 Moved permanently");
+        }
     }
-}
 /**
 * Отправка письма при добавление элемента в инфоблок Заявки
 */

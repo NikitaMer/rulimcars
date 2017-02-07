@@ -13,7 +13,7 @@
 $this->setFrameMode(true);
 ?>
 <?
-
+checkSlash();
  ?>
 <?if($arParams["USE_RSS"]=="Y"):?>
 	<?
