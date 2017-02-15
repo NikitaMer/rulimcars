@@ -1,4 +1,6 @@
-<?php 
+<?php
+// подключение констант и отладочных функций
+require_once(dirname(__FILE__) . "/include/.config.php");
 function my_dump($array, $adminCheck = false) {
         global $USER;
         $USER = new Cuser;
