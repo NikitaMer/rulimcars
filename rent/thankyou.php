@@ -15,70 +15,101 @@ $date = $_POST["DATE"];
 $res =  $_POST["RESULT"];
 $rent = $_POST["RENT"];
 if ($name != null && $phone != null){
-if ($_SESSION['id'] != 1 ){
-    $el = new CIBlockElement;
-    $PROP = array();
-    $PROP["CAR"] = $auto;  
-    $PROP["PHONE"] = $phone;        
-    $PROP["EMAIL"] = $email;
-    $PROP["NAME"] = $name;
-    $PROP["DATE"] = $date;
-    $PROP["RESULT"] = $res;
-    $PROP["RENT"] = $rent;
-    $PROP["COMMENT"] = $text;         
-    $arLoadProductArray = Array(
-        "IBLOCK_SECTION_ID" => false,        
-        "IBLOCK_ID"      => 10,
-        "PROPERTY_VALUES"=> $PROP,
-        "NAME"           => $name,
-        "ACTIVE"         => "Y",          
-        "DETAIL_TEXT"    => $text,
-    );
- // Добавляем заявку в инфоблок "Заявки" 
-    $el->Add($arLoadProductArray);
-    
-$car_catolog = CIBlockElement::GetProperty(12, $auto, array("sort"=>"asc"), array("CODE"=>"CATALOG"))->Fetch();        
-$catolog = GetIBlockElement($car_catolog['VALUE']);     
-$product = array(
-    'ID' => $car_catolog['VALUE'], 
-    'NAME' => $catolog['NAME'], 
-    'PRICE' => $res/$rent, 
-    'CURRENCY' => 'RUB', 
-    'QUANTITY' => $rent,    
-);
-              
-$basket = Bitrix\Sale\Basket::create(SITE_ID);
-$item = $basket->createItem("catalog", $product['ID']);
+    if ($_SESSION['id'] != 1 ){
+        $el = new CIBlockElement;
+        $PROP = array();
+        $PROP["CAR"] = $auto;  
+        $PROP["PHONE"] = $phone;        
+        $PROP["EMAIL"] = $email;
+        $PROP["NAME"] = $name;
+        $PROP["DATE"] = $date;
+        $PROP["RESULT"] = $res;
+        $PROP["RENT"] = $rent;
+        $PROP["COMMENT"] = $text;         
+        $arLoadProductArray = Array(
+            "IBLOCK_SECTION_ID" => false,        
+            "IBLOCK_ID"      => 10,
+            "PROPERTY_VALUES"=> $PROP,
+            "NAME"           => $name,
+            "ACTIVE"         => "Y",          
+            "DETAIL_TEXT"    => $text,
+        );
+         // Добавляем заявку в инфоблок "Заявки" 
+            $el->Add($arLoadProductArray);
+            
+        $car_catolog = CIBlockElement::GetProperty(12, $auto, array("sort"=>"asc"), array("CODE"=>"CATALOG"))->Fetch();        
+        $catolog = GetIBlockElement($car_catolog['VALUE']);     
+        $product = array(
+            'ID' => $car_catolog['VALUE'], 
+            'NAME' => $catolog['NAME'], 
+            'PRICE' => $res/$rent, 
+            'CURRENCY' => 'RUB', 
+            'QUANTITY' => $rent,    
+        );
+        // Генерируем случайный 
+        $arr = array('a','b','c','d','e','f',
+                 'g','h','i','j','k','l',
+                 'm','n','o','p','r','s',
+                 't','u','v','x','y','z',
+                 'A','B','C','D','E','F',
+                 'G','H','I','J','K','L',
+                 'M','N','O','P','R','S',
+                 'T','U','V','X','Y','Z',
+                 '1','2','3','4','5','6',
+                 '7','8','9','0');
+        $pass = "";
+        for($i = 0; $i < 6; $i++)
+        {
+          // Вычисляем случайный индекс массива
+          $index = rand(0, count($arr) - 1);
+          $pass .= $arr[$index];
+        }
+        // Создаем пользователя
+        $user = new CUser;
+        $arFields = Array(
+            "NAME"              => $name,
+            "EMAIL"             => $email,
+            "LOGIN"             => $name,
+            "PERSONAL_PHONE"    => $phone,
+            "LID"               => SITE_ID,
+            "ACTIVE"            => "Y",
+            "GROUP_ID"          => array(1),
+            "PASSWORD"          => $pass,
+            "CONFIRM_PASSWORD"  => $pass,
+            );
+        $user_ID = $user->Add($arFields);
+        
+        $basket = Bitrix\Sale\Basket::create(SITE_ID);
+        $item = $basket->createItem("catalog", $product['ID']);
+        unset($product["ID"]);
+        $item->setFields($product);
+        //my_dump($car); 
+        $order = Bitrix\Sale\Order::create(SITE_ID, $user_ID);
+        $order->setPersonTypeId(1);
+        $order->setBasket($basket);
+        $order->setField('USER_DESCRIPTION', $text);
 
-unset($product["ID"]);
-$item->setFields($product);
-//my_dump($car); 
-$order = Bitrix\Sale\Order::create(SITE_ID, 1);
-$order->setPersonTypeId(1);
-$order->setBasket($basket);
-$order->setField('USER_DESCRIPTION', $text);
+        $shipmentCollection = $order->getShipmentCollection();
+        $shipment = $shipmentCollection->createItem(Bitrix\Sale\Delivery\Services\Manager::getObjectById(1));
 
-$shipmentCollection = $order->getShipmentCollection();
-$shipment = $shipmentCollection->createItem(Bitrix\Sale\Delivery\Services\Manager::getObjectById(1));
+        $shipmentItemCollection = $shipment->getShipmentItemCollection();
 
-$shipmentItemCollection = $shipment->getShipmentItemCollection();
+        foreach ($basket as $basketItem)
+        {
+            $item = $shipmentItemCollection->createItem($basketItem);
+            $item->setQuantity($basketItem->getQuantity());
+        }
 
-foreach ($basket as $basketItem)
-{
-    $item = $shipmentItemCollection->createItem($basketItem);
-    $item->setQuantity($basketItem->getQuantity());
-}
-
-$paymentCollection = $order->getPaymentCollection();
-$payment = $paymentCollection->createItem(Bitrix\Sale\PaySystem\Manager::getObjectById(1));
-$payment->setField("SUM", $order->getPrice());
-$payment->setField("CURRENCY", $order->getCurrency());
-$propertyCollection = $order->getPropertyCollection();
-$somePropValueName = $propertyCollection->getItemByOrderPropertyId(1)->setValue($name);
-$somePropValuePhone = $propertyCollection->getItemByOrderPropertyId(2)->setValue($phone);
-$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(3)->setValue($email);
-$result = $order->save();
-}
+        $paymentCollection = $order->getPaymentCollection();
+        $payment = $paymentCollection->createItem(Bitrix\Sale\PaySystem\Manager::getObjectById(1));
+        $payment->setField("SUM", $order->getPrice());
+        $payment->setField("CURRENCY", $order->getCurrency());
+        $propertyCollection = $order->getPropertyCollection();
+        $somePropValueName = $propertyCollection->getItemByOrderPropertyId(1)->setValue($name);
+        $somePropValuePhone = $propertyCollection->getItemByOrderPropertyId(2)->setValue($phone);
+        $somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(3)->setValue($email);
+        $result = $order->save();
+    }
 ?>
 
 <div class="content">

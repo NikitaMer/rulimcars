@@ -6,6 +6,7 @@ $APPLICATION->SetPageProperty("H1", "Прокат автомобилей в Мо
 $APPLICATION->SetPageProperty("title", "Аренда авто в Москве недорого, прокат автомобилей с водителем и без. Грузоперевозки.");
 $APPLICATION->SetTitle("Прокат автомобилей в Москве");
 ?><?$APPLICATION->IncludeComponent(
+
     "bitrix:news", 
     "list_car", 
     array(

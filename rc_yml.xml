@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="windows-1251"?>
-<yml_catalog date="2016-16-12 17:22">
+<yml_catalog date="2017-14-02 09:00">
 <shop>
 <name>Прокат Авто в Москве RulimCars</name>
 <company>ООО &quot;Омега&quot;</company>
@@ -36,6 +36,75 @@
 <age>18</age>
 <param name="Пассажирских мест">1+4</param>
 <param name="Тип двигателя">бензиновый</param>
+<param name="Кондиционер">есть</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Гидроусилитель руля">есть</param>
+<param name="ABS">есть</param>
+</offer>
+
+<offer id="2" available="true" >
+<url>http://rulimcars.ru/largus_furgon/?utm_source=yandex.market&amp;utm_medium=cpc&amp;utm_campaign=market&amp;utm_content=largus_furgon</url>
+<price>1600</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_lada_largus_furgon_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Лада Ларгус Фургон посуточно</name>
+<vendor>Lada</vendor>
+<model>Largus KS0Y5L</model>
+<description>Прокат автомобиля Лада Ларгус Фургон в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды 1 суток. Залог от 5000 руб.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+2</param>
+<param name="Тип двигателя">бензиновый</param>
+<param name="Кондиционер">нет</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Гидроусилитель руля">есть</param>
+<param name="ABS">нет</param>
+</offer>
+
+<offer id="3" available="true" >
+<url>http://rulimcars.ru/lada_largus_furgon_new/?utm_source=yandex.market&amp;utm_medium=cpc&amp;utm_campaign=market&amp;utm_content=lada_largus_furgon_new</url>
+<price>1700</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_lada_largus_furgon_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Лада Ларгус Фургон посуточно</name>
+<vendor>Lada</vendor>
+<model>Largus FS0Y5L, FS035L</model>
+<description>Прокат автомобиля Лада Ларгус Фургон в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды 1 суток. Залог от 5000 руб.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+2</param>
+<param name="Тип двигателя">бензиновый</param>
+<param name="Кондиционер">есть</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Гидроусилитель руля">есть</param>
+<param name="ABS">есть</param>
+</offer>
+
+<offer id="4" available="true" >
+<url>http://rulimcars.ru/peugeot_boxer_h2_l2/?utm_source=yandex.market&amp;utm_medium=cpc&amp;utm_campaign=market&amp;utm_content=peugeot_boxer_h2_l2</url>
+<price>2900</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_peugeot_boxer_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Пежо Боксер Фургон посуточно</name>
+<vendor>Peugeot</vendor>
+<model>Boxer H2L2</model>
+<description>Прокат автомобиля Пежо Боксер Фургон в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды 1 суток. Залог от 10000 руб.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+3</param>
+<param name="Тип двигателя">дизель</param>
 <param name="Кондиционер">есть</param>
 <param name="Аудиосистема">есть</param>
 <param name="Парктроники">есть</param>
