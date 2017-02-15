@@ -73,7 +73,7 @@ if ($name != null && $phone != null){
             "PERSONAL_PHONE"    => $phone,
             "LID"               => SITE_ID,
             "ACTIVE"            => "Y",
-            "GROUP_ID"          => array(1),
+            "GROUP_ID"          => array(CLIENT_GROUP_ID),
             "PASSWORD"          => $pass,
             "CONFIRM_PASSWORD"  => $pass,
             );
@@ -85,12 +85,12 @@ if ($name != null && $phone != null){
         $item->setFields($product);
         //my_dump($car); 
         $order = Bitrix\Sale\Order::create(SITE_ID, $user_ID);
-        $order->setPersonTypeId(1);
+        $order->setPersonTypeId(CLIENT_GROUP_ID);
         $order->setBasket($basket);
         $order->setField('USER_DESCRIPTION', $text);
 
         $shipmentCollection = $order->getShipmentCollection();
-        $shipment = $shipmentCollection->createItem(Bitrix\Sale\Delivery\Services\Manager::getObjectById(1));
+        $shipment = $shipmentCollection->createItem(Bitrix\Sale\Delivery\Services\Manager::getObjectById(CLIENT_GROUP_ID));
 
         $shipmentItemCollection = $shipment->getShipmentItemCollection();
 
@@ -101,7 +101,7 @@ if ($name != null && $phone != null){
         }
 
         $paymentCollection = $order->getPaymentCollection();
-        $payment = $paymentCollection->createItem(Bitrix\Sale\PaySystem\Manager::getObjectById(1));
+        $payment = $paymentCollection->createItem(Bitrix\Sale\PaySystem\Manager::getObjectById(CLIENT_GROUP_ID));
         $payment->setField("SUM", $order->getPrice());
         $payment->setField("CURRENCY", $order->getCurrency());
         $propertyCollection = $order->getPropertyCollection();
