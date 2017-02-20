@@ -84,7 +84,7 @@ $APPLICATION->SetTitle("Дополнительные услуги");
 </div>
 <div>
     <?$APPLICATION->IncludeComponent(
-        "car:car.list", 
+        "webgk:car.list", 
         ".default", 
         array(
             "CAR" => array(

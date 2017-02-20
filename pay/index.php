@@ -73,7 +73,7 @@ $APPLICATION->SetTitle("Способы оплаты");
 </div>
 <div>
     <?$APPLICATION->IncludeComponent(
-        "car:car.list", 
+        "webgk:car.list", 
         ".default", 
         array(
             "CAR" => array(

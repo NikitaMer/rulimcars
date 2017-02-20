@@ -27,9 +27,7 @@ function my_dump($array, $adminCheck = false) {
 /**
 * Отправка письма при добавление элемента в инфоблок Заявки
 */
-AddEventHandler("iblock", "OnAfterIBlockElementAdd", Array("MyClass", "OnAfterIBlockElementAddHandler")); 
-class MyClass 
-{ 
+AddEventHandler("iblock", "OnAfterIBlockElementAdd", Array("OnAfterIBlockElementAddHandler")); 
 function OnAfterIBlockElementAddHandler(&$arFields) {
   $SITE_ID = 's1'; 
   $IBLOCK_ID = 10; 
@@ -65,5 +63,4 @@ function OnAfterIBlockElementAddHandler(&$arFields) {
         CEvent::Send($EVENT_TYPE, $SITE_ID, $arMailFields,"Y", 46);
     }
   }
-}
 }
