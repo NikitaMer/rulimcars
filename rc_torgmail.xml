@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<torg_price date="2016-16-12 17:22">
+<shop>
+<shopname>Прокат Авто в Москве RulimCars</shopname>
+<company>ООО &quot;Омега&quot;</company>
+<url>http://rulimcars.ru</url>
+
+<currencies>
+<currency  id="RUR" rate="1"/>
+</currencies>
+
+<categories>
+<category id="1">Транспортные Услуги</category>
+<category id="2" parentId="1">Аренда автомобилей</category>
+<category id="3" parentId="1">Аренда автомобилей с водителем</category>
+</categories>
+
+
+<offers>
+<offer id="1" available="true" cbid="3.00">
+<url>http://rulimcars.ru/largus-universal/?utm_source=torg.mail.ru&amp;utm_medium=cpc&amp;utm_campaign=torgmail&amp;utm_content=largus-universal</url>
+<price>1500</price>
+<currencyId>RUB</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_lada_largus_universal_rulimcars.png</picture>
+<typePrefix>Аренда</typePrefix>
+<vendor>Лада</vendor>
+<model>Ларгус универсал KS0Y5L</model>
+<description>Прокат автомобиля Lada Largus Универсал (5 мест) в Москве посуточно без водителя. Двигатель бензиновый, 1.6м3. Посадочных мест 1+4.</description>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<local_delivery_cost>1000</local_delivery_cost>
+</offer>
+
+<offer id="2" available="true" cbid="3.00">
+<url>http://rulimcars.ru/largus_furgon/?utm_source=torg.mail.ru&amp;utm_medium=cpc&amp;utm_campaign=torgmail&amp;utm_content=largus_furgon</url>
+<price>1200</price>
+<currencyId>RUB</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_lada_largus_furgon_rulimcars.png</picture>
+<typePrefix>Аренда</typePrefix>
+<vendor>Лада</vendor>
+<model>Ларгус фургон FS015L</model>
+<description>Прокат автомобиля Lada Largus Фургон в Москве посуточно без водителя. Двигатель бензиновый, 1.6м3. Посадочных мест 1+1.</description>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<local_delivery_cost>1000</local_delivery_cost>
+</offer>
+
+<offer id="3" available="true" cbid="3.00">
+<url>http://rulimcars.ru/peugeot_boxer_h2_l2/?utm_source=torg.mail.ru&amp;utm_medium=cpc&amp;utm_campaign=torgmail&amp;utm_content=peugeot_boxer_h2_l2</url>
+<price>2500</price>
+<currencyId>RUB</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_peugeot_boxer_rulimcars.png</picture>
+<typePrefix>Аренда</typePrefix>
+<vendor>Peugeot</vendor>
+<model>Boxer фургон 2L2H</model>
+<description>Прокат автомобиля Пежо Боксер цельнометаллический фургон (средняя база, средняя крыша) в Москве посуточно без водителя. Двигатель дизель, 2.2м3 HDi. Посадочных мест 1+2</description>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<local_delivery_cost>1000</local_delivery_cost>
+</offer>
+
+<offer id="4" available="true" cbid="3.00">
+<url>http://rulimcars.ru/fiat_ducato_2h_2l/?utm_source=torg.mail.ru&amp;utm_medium=cpc&amp;utm_campaign=torgmail&amp;utm_content=fiat_ducato_2h_2l</url>
+<price>2500</price>
+<currencyId>RUB</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_fiat_ducato_rulimcars.png</picture>
+<typePrefix>Аренда</typePrefix>
+<vendor>Fiat</vendor>
+<model>Ducato фургон 2L2H</model>
+<description>Прокат автомобиля Фиат Дукато цельнометаллический фургон (средняя база, средняя крыша) в Москве посуточно без водителя. Двигатель дизель, 2.3м3 Multijet. Посадочных мест 1+2</description>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<local_delivery_cost>1000</local_delivery_cost>
+</offer>
+</offers>
+</shop>
+</torg_price>

@@ -8,8 +8,15 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"Аренда фургона без водителя", 
+		"Аренда фургона", 
 		"/lada_largus_furgon_new/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Аренда авто без водителя", 
+		"/", 
 		Array(), 
 		Array(), 
 		"" 
