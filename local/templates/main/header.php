@@ -60,15 +60,17 @@ if (substr_count($_SERVER['HTTP_HOST'], dev) == 0){?>
                 </div>
                 <div class="top_address"> 
                         <?$APPLICATION->IncludeComponent(
-                            "bitrix:main.include",
-                            "",
-                            Array(
-                                "AREA_FILE_SHOW" => "file",
-                                "AREA_FILE_SUFFIX" => "inc",
-                                "EDIT_TEMPLATE" => "",
-                                "PATH" => "/include/address.php"
-                            )
-                        );?>
+	"bitrix:main.include", 
+	".default", 
+	array(
+		"AREA_FILE_SHOW" => "file",
+		"AREA_FILE_SUFFIX" => "inc",
+		"EDIT_TEMPLATE" => "",
+		"PATH" => "/include/address2.php",
+		"COMPONENT_TEMPLATE" => ".default"
+	),
+	false
+);?>
                 </div>
             </div>
         </header>
