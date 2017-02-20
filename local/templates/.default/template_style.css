@@ -156,14 +156,6 @@ footer {
 .footer > div {
     color: #fff;
 }
-.footer > div a {
-    color: #fff;
-    text-decoration:none;
-    font-size: 15px;
-    /*font-family: HelveticaNeueCyr-Bold;*/
-    border-bottom: 2px solid white;
-
-}
 .bot_addres{
     width: 245px;
 }
@@ -201,7 +193,7 @@ footer {
 }
 .price_name, .price_name a{    
     color: #E93F3F;
-    width: 255px;
+    width: 245px;
     text-decoration: none;
 } 
 .car_rent{
@@ -209,8 +201,8 @@ footer {
     display: block;
     width: 380px;
     height: 255px;
-    margin-bottom: 70px;
-    margin-top: 17px;
+    margin-bottom: 15px;
+    margin-top: 65px;
 }
 .car_rent img{
     position:absolute;
@@ -439,7 +431,7 @@ h1{
     text-align: left;
 }
 .form {
-    height: 620px;
+    height: 580px;
     display: flex;
     width: 840px;
     margin: 50px auto 20px auto ;
@@ -455,7 +447,7 @@ h1{
 }
 .form label{
     display:inline-block;
-    padding: 7.5px;
+    padding: 7px;
 }
 .form input, .form textarea, .form select{
     color: #5d5d5d;
@@ -479,7 +471,7 @@ h1{
     padding-right: 0px;
 }
 .form textarea{
-    height: 130px;
+    height: 100px;
     padding-top: 7.5px;
 }
 .form select{
@@ -492,7 +484,7 @@ h1{
     height: 55px;
     border-width: 0px;
     border-style: none;
-    margin-top: 20px;
+    margin-top: 54px;
 }
 .form .button1{
     width: 347px;
@@ -500,19 +492,22 @@ h1{
     border-width: 0px;
     border-style: none;
     margin-top: 0px !important;
-    margin-bottom: 55px;
+    margin-bottom: 45px;
 }
 .form p{
     padding-bottom: 20px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid;
-    border-bottom-color: #8B8B88;
+    margin-bottom: 20px;       
     font-size: 20px;
+}
+form p{                 
+    padding-bottom: 0px !important;
+    padding-left: 20px;
+    margin-bottom: 20px;       
+    font-size: 20px; 
 }
 .form .day{
     padding-bottom: 20px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #e93f45;
+    margin-bottom: 20px;             
     color: #5d5d5d;
 }
 .form .result{
@@ -588,7 +583,7 @@ h1{
     border-color: #c1c1c0;
 }
 .horizontalgrey1{
-    top: 530px;
+    top: 490px;
     padding-bottom: 108px;
     background-color: #f8f8f8;
     width: 9999px;
@@ -602,7 +597,7 @@ h1{
 .horizontalgrey3{
     width: 9999px;
     vertical-align: baseline;
-    top: 295px;
+    top: 190px;
     right: 48%;    
 }
 .verticalgrey{
@@ -610,7 +605,7 @@ h1{
     width: 1px;
     border-left: 1px solid;
     border-color: #c1c1c0;
-    height: 660px;
+    height: 620px;
     left: 52%;
     top: -20px;
 }
@@ -620,4 +615,8 @@ h1{
 .nogood{
     background: #ffeeee; 
     color:#f2393a;   
+}
+.social_network_img{
+    height: 40px;
+    padding: 1px;        
 }

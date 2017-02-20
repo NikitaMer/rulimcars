@@ -80,7 +80,7 @@ $APPLICATION->SetTitle("Прокат автомобилей в Москве");
 		"SET_LAST_MODIFIED" => "N",
 		"SET_STATUS_404" => "Y",
 		"SET_TITLE" => "N",
-		"SHOW_404" => "N",
+		"SHOW_404" => "Y",
 		"SORT_BY1" => "sort ",
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "DESC",
@@ -104,7 +104,7 @@ $APPLICATION->SetTitle("Прокат автомобилей в Москве");
 );?>
 <div>
     <?$APPLICATION->IncludeComponent(
-	    "car:car.list", 
+	    "webgk:car.list", 
 	    ".default", 
 	    array(
 		    "CAR" => array(

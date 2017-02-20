@@ -27,9 +27,7 @@ function my_dump($array, $adminCheck = false) {
 /**
 * Отправка письма при добавление элемента в инфоблок Заявки
 */
-AddEventHandler("iblock", "OnAfterIBlockElementAdd", Array("MyClass", "OnAfterIBlockElementAddHandler")); 
-class MyClass 
-{ 
+AddEventHandler("iblock", "OnAfterIBlockElementAdd", Array("OnAfterIBlockElementAddHandler")); 
 function OnAfterIBlockElementAddHandler(&$arFields) {
   $SITE_ID = 's1'; 
   $IBLOCK_ID = 10; 
@@ -66,4 +64,25 @@ function OnAfterIBlockElementAddHandler(&$arFields) {
     }
   }
 }
+//AddEventHandler("main", "OnEpilog", "fixCatalogDuplication");
+function fixCatalogDuplication(){
+    $subdir = explode('/', $GLOBALS["APPLICATION"] -> GetCurPage()); 
+    $obCod = CIBlockElement::GetList(Array("SORT"=>"ASC"), Array("IBLOCK_ID"=>12,'GLOBAL_ACTIVE'=>'Y'));
+    while($arCod = $obCod->GetNext()){
+        $cod[] = $arCod['DETAIL_PAGE_URL'];        
+    }
+    //my_dump($GLOBALS);
+    /*if(strpos($subdir[2],'faq') === false){
+        if($subdir[1] == 'faq'){
+            
+            $cod[0] = '/faq/';
+            while($arCod = $obCod->GetNext()){
+                $cod[] = $arCod['SECTION_PAGE_URL'];
+            }
+            if(!in_array($GLOBALS["APPLICATION"] -> GetCurPage(),$cod)){
+                LocalRedirect("/404.php", "404 Not Found",301);
+                exit();    
+            }
+        }
+    }*/
 }
