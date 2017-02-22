@@ -72,14 +72,14 @@ IncludeTemplateLangFile(__FILE__);
             </div>
             <div>
                 <div class="social_network_1">
-                    <a href="#"><img class="social_network_img" src="/img/vk.png" alt=""></a>
-                    <a href="#"><img class="social_network_img" src="/img/fb.png" alt=""></a>
-                    <a href="#"><img class="social_network_img" src="/img/tw.png" alt=""></a>
+					<a href="http://vk.com/rulimcars"><img class="social_network_img" src="/img/vk.png" alt=""></a>
+                    <a href="http://facebook.com/rulimcars"><img class="social_network_img" src="/img/fb.png" alt=""></a>
+                    <a href="http://twitter.com/rulimcars"><img class="social_network_img" src="/img/tw.png" alt=""></a>
                 </div>
                 <div class="social_network_2">
-                    <a href="#"><img class="social_network_img" src="/img/ok.png" alt=""></a>      
-                    <a href="#"><img class="social_network_img" src="/img/av.png" alt=""></a>      
-                    <a href="#"><img class="social_network_img" src="/img/yt.png" alt=""></a>      
+                    <a href="http://ok.ru/rulimcars"><img class="social_network_img" src="/img/ok.png" alt=""></a>      
+                    <a href="http://avito.ru/rulimcars"><img class="social_network_img" src="/img/av.png" alt=""></a>      
+                    <a href="https://www.youtube.com/channel/UCw5s142kq0HqU5vkDghPTtw"><img class="social_network_img" src="/img/yt.png" alt=""></a>      
                 </div>
             </div>
         </div>

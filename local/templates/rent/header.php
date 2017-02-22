@@ -27,17 +27,17 @@ $APPLICATION->ShowViewContent("myFuncBodyCar");?>
             <div class="header">
                 <div class="top_contacts">
                     <div class="phone_alloka"><?$APPLICATION->IncludeComponent(
-	"bitrix:main.include", 
-	".default", 
-	array(
-		"AREA_FILE_SHOW" => "file",
-		"AREA_FILE_SUFFIX" => "inc",
-		"EDIT_TEMPLATE" => "",
-		"PATH" => "/include/phone_header.php",
-		"COMPONENT_TEMPLATE" => ".default"
-	),
-	false
-);?></div>
+	                                            "bitrix:main.include", 
+	                                            ".default", 
+	                                            array(
+		                                            "AREA_FILE_SHOW" => "file",
+		                                            "AREA_FILE_SUFFIX" => "inc",
+		                                            "EDIT_TEMPLATE" => "",
+		                                            "PATH" => "/include/phone_header.php",
+		                                            "COMPONENT_TEMPLATE" => ".default"
+	                                            ),
+	                                            false
+                                            );?></div>
                     <div class="email"><?$APPLICATION->IncludeComponent(
 	                                        "bitrix:main.include", 
 	                                        ".default", 
@@ -56,15 +56,17 @@ $APPLICATION->ShowViewContent("myFuncBodyCar");?>
                 </div>
                 <div class="top_address"> 
                         <?$APPLICATION->IncludeComponent(
-                            "bitrix:main.include",
-                            "",
-                            Array(
-                                "AREA_FILE_SHOW" => "file",
-                                "AREA_FILE_SUFFIX" => "inc",
-                                "EDIT_TEMPLATE" => "",
-                                "PATH" => "/include/address.php"
-                            )
-                        );?>
+	"bitrix:main.include", 
+	".default", 
+	array(
+		"AREA_FILE_SHOW" => "file",
+		"AREA_FILE_SUFFIX" => "inc",
+		"EDIT_TEMPLATE" => "",
+		"PATH" => "/include/address2.php",
+		"COMPONENT_TEMPLATE" => ".default"
+	),
+	false
+);?>
                 </div>
             </div>
         </header>
