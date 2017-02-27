@@ -13,8 +13,9 @@ $email = $_POST["EMAIL"];
 $text = $_POST["TEXT"];
 $date = $_POST["DATE"];
 $res =  $_POST["RESULT"];
-$rent = $_POST["RENT"]; 
-if ($name != null && $phone != null){
+$rent = $_POST["RENT"];
+//error_reporting(E_ALL);
+//my_dump($_POST);   
     if ($_SESSION['id'] != 1 ){
         $el = new CIBlockElement;
         $PROP = array();
@@ -83,7 +84,6 @@ if ($name != null && $phone != null){
         $item = $basket->createItem("catalog", $product['ID']);
         unset($product["ID"]);
         $item->setFields($product);
-        //my_dump($car); 
         $order = Bitrix\Sale\Order::create(SITE_ID, $user_ID);
         $order->setPersonTypeId(CLIENT_GROUP_ID);
         $order->setBasket($basket);
@@ -105,15 +105,16 @@ if ($name != null && $phone != null){
         $payment->setField("SUM", $order->getPrice());
         $payment->setField("CURRENCY", $order->getCurrency());
         $propertyCollection = $order->getPropertyCollection();
-        $somePropValueName = $propertyCollection->getItemByOrderPropertyId(1)->setValue($name);
-        $somePropValuePhone = $propertyCollection->getItemByOrderPropertyId(2)->setValue($phone);
-        $somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(3)->setValue($email);
+        //$somePropValueName = $propertyCollection->getItemByOrderPropertyId(1)->setValue($name);
+        //$somePropValuePhone = $propertyCollection->getItemByOrderPropertyId(2)->setValue($phone);
+        //$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(3)->setValue($email);
         $result = $order->save();
     }
 ?>
 
 <div class="content">
 <?
+if ($name != null && $phone != null){
 $CBEor = CIBlockElement::GetList(array(), array("IBLOCK_ID" => 10));
 while($CBEorder = $CBEor->Fetch()){    
     if ($CBEorder['NAME'] == $name){
@@ -141,7 +142,7 @@ $(document).ready(function () {
 </div>   
 <div>
     <?$APPLICATION->IncludeComponent(
-        "car:car.list", 
+        "webgk:car.list", 
         ".default", 
         array(
             "CAR" => array(
