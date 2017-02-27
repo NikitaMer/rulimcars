@@ -23,6 +23,7 @@ function my_dump($array, $adminCheck = false) {
         if (defined('ERROR_404') && ERROR_404=='Y' && $url_last_symbol != "/"){
             LocalRedirect($url."/", true, "301 Moved permanently");
         }
+        my_dump($url_last_symbol);
     }
 /**
 * Отправка письма при добавление элемента в инфоблок Заявки

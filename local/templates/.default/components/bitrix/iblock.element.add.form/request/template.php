@@ -12,7 +12,8 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(false);
-unset($_SESSION['id']);?>                    
+session_start();
+$_SESSION['id']=0;?>                    
 <div class="form">
 <script>
 $(document).ready(function () {        
@@ -59,12 +60,12 @@ $(document).ready(function () {
         $('#result').val('');     
     }else{
         present_selprice = car[presentcar]['Price'];
-        if(($("#select").val() == "0" && $("#rent").val() == "0") || $("#select").val() == "0"){
+        
            $('#rentday').find('a').text("от "+present_selprice[present_selprice.length-1]+" до "+present_selprice[0]);
-           $('#rentday').find('a').css("color" , "#e93f45");  
+           $('#rentday').find('a').css("color" , "#5d5d5d");  
            $('#rentres').find('a').text("Выберите срок аренды");   
            $('#result').val('');   
-        }
+    
     }    
     $("#rent").change(function(){        
         if(($("#select").val() == "0" && $("#rent").val() == "0") || $("#select").val() == "0"){

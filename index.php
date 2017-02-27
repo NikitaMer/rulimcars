@@ -133,4 +133,4 @@ $APPLICATION->SetTitle("Прокат автомобилей в Москве");
 );?>
     </div>
 </div>
-<?checkSlash();require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
