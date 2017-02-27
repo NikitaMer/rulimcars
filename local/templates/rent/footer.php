@@ -6,40 +6,6 @@ IncludeTemplateLangFile(__FILE__);
         <footer>       
         <div class="footer">
             <div class="bot_addres">
-				Наш офис расположен по адресу:<?$APPLICATION->IncludeComponent(
-    "bitrix:main.include", 
-    ".default", 
-    array(
-        "AREA_FILE_SHOW" => "file",
-        "AREA_FILE_SUFFIX" => "inc",
-        "EDIT_TEMPLATE" => "",
-        "PATH" => "/include/address2.php",
-        "COMPONENT_TEMPLATE" => ".default"
-    ),
-    false
-);                       ?>
-            <br/>
-            <br/>
-
-            <div class="copyright">Copyright 2014-<span>2017</span>, all rights reserved</div>
-            
-            </div>
-            <div class="bot_contacts">
-                <div class="phone">Тел: <?$APPLICATION->IncludeComponent(
-    "bitrix:main.include", 
-    ".default", 
-    array(
-        "AREA_FILE_SHOW" => "file",
-        "AREA_FILE_SUFFIX" => "inc",
-        "EDIT_TEMPLATE" => "",
-        "PATH" => "/include/phone_footer.php",
-        "COMPONENT_TEMPLATE" => ".default"
-    ),
-    false
-);?>
-                </div>
-                <br/>
-                <div class="email">
                 <?$APPLICATION->IncludeComponent(
                     "bitrix:main.include", 
                     ".default", 
@@ -47,25 +13,26 @@ IncludeTemplateLangFile(__FILE__);
                         "AREA_FILE_SHOW" => "file",
                         "AREA_FILE_SUFFIX" => "inc",
                         "EDIT_TEMPLATE" => "",
-                        "PATH" => "/include/email.php",
+                        "PATH" => "/include/address.php",
                         "COMPONENT_TEMPLATE" => ".default"
                     ),
                     false
-                );?><br/>
-                <?$APPLICATION->IncludeComponent(
-                    "bitrix:main.include",
-                    "",
-                    Array(
-                        "AREA_FILE_SHOW" => "file",
-                        "AREA_FILE_SUFFIX" => "inc",
-                        "EDIT_TEMPLATE" => "",
-                        "PATH" => "/include/email2.php"
-                    )
                 );?>
-                </div>
             </div>
-
-        </div>
+            <div class="bot_contacts">
+                <?$APPLICATION->IncludeComponent(
+                        "bitrix:main.include", 
+                        ".default", 
+                        array(
+                            "AREA_FILE_SHOW" => "file",
+                            "AREA_FILE_SUFFIX" => "inc",
+                            "EDIT_TEMPLATE" => "",
+                            "PATH" => "/include/contacts.php",
+                            "COMPONENT_TEMPLATE" => ".default"
+                        ),
+                        false
+                    );?>
+            </div>
         </footer>
     </div>    
 </body>
