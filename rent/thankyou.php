@@ -13,9 +13,7 @@ $email = $_POST["EMAIL"];
 $text = $_POST["TEXT"];
 $date = $_POST["DATE"];
 $res =  $_POST["RESULT"];
-$rent = $_POST["RENT"];
-//error_reporting(E_ALL);
-//my_dump($_POST);   
+$rent = $_POST["RENT"];  
     if ($_SESSION['id'] != 1 ){
         $el = new CIBlockElement;
         $PROP = array();
@@ -105,9 +103,9 @@ $rent = $_POST["RENT"];
         $payment->setField("SUM", $order->getPrice());
         $payment->setField("CURRENCY", $order->getCurrency());
         $propertyCollection = $order->getPropertyCollection();
-        //$somePropValueName = $propertyCollection->getItemByOrderPropertyId(1)->setValue($name);
-        //$somePropValuePhone = $propertyCollection->getItemByOrderPropertyId(2)->setValue($phone);
-        //$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(3)->setValue($email);
+        if ($name  != null){$somePropValueName = $propertyCollection->getItemByOrderPropertyId(1)->setValue($name);}
+        if ($phone != null){$somePropValuePhone = $propertyCollection->getItemByOrderPropertyId(2)->setValue($phone);}
+        if ($email != null){$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(3)->setValue($email);}
         $result = $order->save();
     }
 ?>
