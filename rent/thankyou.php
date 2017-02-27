@@ -13,7 +13,7 @@ $email = $_POST["EMAIL"];
 $text = $_POST["TEXT"];
 $date = $_POST["DATE"];
 $res =  $_POST["RESULT"];
-$rent = $_POST["RENT"];
+$rent = $_POST["RENT"]; 
 if ($name != null && $phone != null){
     if ($_SESSION['id'] != 1 ){
         $el = new CIBlockElement;
