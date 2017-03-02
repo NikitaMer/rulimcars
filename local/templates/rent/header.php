@@ -27,15 +27,17 @@ $APPLICATION->ShowViewContent("myFuncBodyCar");?>
             <div class="header">
                 <div class="top_contacts">
                     <div class="phone_alloka"><?$APPLICATION->IncludeComponent(
-                            "bitrix:main.include",
-                            "",
-                            Array(
-                                "AREA_FILE_SHOW" => "file",
-                                "AREA_FILE_SUFFIX" => "inc",
-                                "EDIT_TEMPLATE" => "",
-                                "PATH" => "/include/phone.php"
-                            )
-                        );?></div>
+	                                            "bitrix:main.include", 
+	                                            ".default", 
+	                                            array(
+		                                            "AREA_FILE_SHOW" => "file",
+		                                            "AREA_FILE_SUFFIX" => "inc",
+		                                            "EDIT_TEMPLATE" => "",
+		                                            "PATH" => "/include/phone_header.php",
+		                                            "COMPONENT_TEMPLATE" => ".default"
+	                                            ),
+	                                            false
+                                            );?></div>
                     <div class="email"><?$APPLICATION->IncludeComponent(
 	                                        "bitrix:main.include", 
 	                                        ".default", 
@@ -54,38 +56,20 @@ $APPLICATION->ShowViewContent("myFuncBodyCar");?>
                 </div>
                 <div class="top_address"> 
                         <?$APPLICATION->IncludeComponent(
-                            "bitrix:main.include",
-                            "",
-                            Array(
-                                "AREA_FILE_SHOW" => "file",
-                                "AREA_FILE_SUFFIX" => "inc",
-                                "EDIT_TEMPLATE" => "",
-                                "PATH" => "/include/address.php"
-                            )
-                        );?>
+	"bitrix:main.include", 
+	".default", 
+	array(
+		"AREA_FILE_SHOW" => "file",
+		"AREA_FILE_SUFFIX" => "inc",
+		"EDIT_TEMPLATE" => "",
+		"PATH" => "/include/address2.php",
+		"COMPONENT_TEMPLATE" => ".default"
+	),
+	false
+);?>
                 </div>
             </div>
         </header>
-        <div <?if($_SERVER['SCRIPT_URL'] == "/rent/") { ?>class=" invisible "<? } ?>>
-        <?$APPLICATION->IncludeComponent(
-            "bitrix:menu",
-            "top_menu",
-            Array(
-                "ALLOW_MULTI_SELECT" => "N",
-                "CHILD_MENU_TYPE" => "left",
-                "COMPONENT_TEMPLATE" => "horizontal_multilevel",
-                "DELAY" => "N",
-                "MAX_LEVEL" => "1",
-                "MENU_CACHE_GET_VARS" => "",
-                "MENU_CACHE_TIME" => "3600",
-                "MENU_CACHE_TYPE" => "A",
-                "MENU_CACHE_USE_GROUPS" => "Y",
-                "MENU_THEME" => "yellow",
-                "ROOT_MENU_TYPE" => "top",
-                "USE_EXT" => "N"
-            )
-        );?>
-        </div>
         <div class="container">
         <div class="title_left">
             <h1><?$APPLICATION->ShowTitle(false);?></h1>

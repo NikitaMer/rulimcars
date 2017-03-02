@@ -6,7 +6,7 @@ IncludeTemplateLangFile(__FILE__);
         <footer>
         <div <?if (defined('ERROR_404') != true){?>class="invisible"<?}?>>
             <?$APPLICATION->IncludeComponent(
-	            "car:car.list", 
+	            "webgk:car.list", 
 	            ".default", 
 	            array(
 		            "CAR" => array(
@@ -43,37 +43,6 @@ IncludeTemplateLangFile(__FILE__);
         </div>        
         <div class="footer">
             <div class="bot_addres">
-            Наш офис расположен по адресу:
-            <?$APPLICATION->IncludeComponent(
-                            "bitrix:main.include",
-                            "",
-                            Array(
-                                "AREA_FILE_SHOW" => "file",
-                                "AREA_FILE_SUFFIX" => "inc",
-                                "EDIT_TEMPLATE" => "",
-                                "PATH" => "/include/address.php"
-                            )
-                        );?>
-            <br/>
-            <br/>
-
-            <div class="copyright">Copyright 2014-<span>2017</span>, all rights reserved</div>
-            
-            </div>
-            <div class="bot_contacts">
-                <div class="phone">Тел: <?$APPLICATION->IncludeComponent(
-                                            "bitrix:main.include",
-                                            "",
-                                            Array(
-                                                "AREA_FILE_SHOW" => "file",
-                                                "AREA_FILE_SUFFIX" => "inc",
-                                                "EDIT_TEMPLATE" => "",
-                                                "PATH" => "/include/phone.php"
-                                            )
-                                        );?>
-                </div>
-                <br/>
-                <div class="email">
                 <?$APPLICATION->IncludeComponent(
                     "bitrix:main.include", 
                     ".default", 
@@ -81,25 +50,37 @@ IncludeTemplateLangFile(__FILE__);
                         "AREA_FILE_SHOW" => "file",
                         "AREA_FILE_SUFFIX" => "inc",
                         "EDIT_TEMPLATE" => "",
-                        "PATH" => "/include/email.php",
+                        "PATH" => "/include/address.php",
                         "COMPONENT_TEMPLATE" => ".default"
                     ),
                     false
-                );?><br/>
-                <?$APPLICATION->IncludeComponent(
-                    "bitrix:main.include",
-                    "",
-                    Array(
-                        "AREA_FILE_SHOW" => "file",
-                        "AREA_FILE_SUFFIX" => "inc",
-                        "EDIT_TEMPLATE" => "",
-                        "PATH" => "/include/email2.php"
-                    )
                 );?>
-                </div>
             </div>
-            <div class="feedback">
-                <!--<a href="#" class="a">Обратная связь</a>-->
+            <div class="bot_contacts">
+                <?$APPLICATION->IncludeComponent(
+                        "bitrix:main.include", 
+                        ".default", 
+                        array(
+                            "AREA_FILE_SHOW" => "file",
+                            "AREA_FILE_SUFFIX" => "inc",
+                            "EDIT_TEMPLATE" => "",
+                            "PATH" => "/include/contacts.php",
+                            "COMPONENT_TEMPLATE" => ".default"
+                        ),
+                        false
+                    );?>
+            </div>
+            <div>
+                <div class="social_network_1">
+					<a href="http://vk.com/rulimcars"><img class="social_network_img" src="/img/vk.png" alt=""></a>
+                    <a href="http://facebook.com/rulimcars"><img class="social_network_img" src="/img/fb.png" alt=""></a>
+                    <a href="http://twitter.com/rulimcars"><img class="social_network_img" src="/img/tw.png" alt=""></a>
+                </div>
+                <div class="social_network_2">
+                    <a href="http://ok.ru/rulimcars"><img class="social_network_img" src="/img/ok.png" alt=""></a>      
+                    <a href="http://avito.ru/rulimcars"><img class="social_network_img" src="/img/av.png" alt=""></a>      
+                    <a href="https://www.youtube.com/channel/UCw5s142kq0HqU5vkDghPTtw"><img class="social_network_img" src="/img/yt.png" alt=""></a>      
+                </div>
             </div>
         </div>
         </footer>

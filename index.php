@@ -1,5 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetPageProperty("description", "Прокат авто с водителем, без водителя, аренда автомобилей дешево и удобно, услуги грузоперевозки, переезды, Москва и Московская область, у нас вы можете взять авто в аренду рядом с метро Водный стадион.");
+$APPLICATION->SetPageProperty("keywords", "аренда авто, аренда автомобиля, прокат авто, прокат автомобиля, автопрокат, аренда машины, аренда фургона, прокат фургона, аренда авто в Москве, аренда авто без водителя");
 $APPLICATION->SetPageProperty("H1", "Прокат автомобилей в Москве");
 $APPLICATION->SetPageProperty("title", "Аренда авто в Москве недорого, прокат автомобилей с водителем и без. Грузоперевозки.");
 $APPLICATION->SetTitle("Прокат автомобилей в Москве");
@@ -80,7 +82,7 @@ $APPLICATION->SetTitle("Прокат автомобилей в Москве");
 		"SET_LAST_MODIFIED" => "N",
 		"SET_STATUS_404" => "Y",
 		"SET_TITLE" => "N",
-		"SHOW_404" => "N",
+		"SHOW_404" => "Y",
 		"SORT_BY1" => "sort ",
 		"SORT_BY2" => "SORT",
 		"SORT_ORDER1" => "DESC",
@@ -104,7 +106,7 @@ $APPLICATION->SetTitle("Прокат автомобилей в Москве");
 );?>
 <div>
     <?$APPLICATION->IncludeComponent(
-	    "car:car.list", 
+	    "webgk:car.list", 
 	    ".default", 
 	    array(
 		    "CAR" => array(
@@ -131,4 +133,4 @@ $APPLICATION->SetTitle("Прокат автомобилей в Москве");
 );?>
     </div>
 </div>
-<?checkSlash();require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

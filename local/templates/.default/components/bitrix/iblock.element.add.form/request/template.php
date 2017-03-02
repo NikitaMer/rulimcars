@@ -12,11 +12,18 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(false);
-unset($_SESSION['id']);?>                    
+$_SESSION['id']=0;?>                    
 <div class="form">
 <script>
 $(document).ready(function () {        
-    var car = {<?foreach ($arResult['ALL_CAR'] as $key=>$car){?>
+    var car = {
+        '0' : {
+          'Name' : false,  
+          'Year' : false,  
+          'Day' : [false,''],  
+          'Price' : false,  
+        },    
+    <?foreach ($arResult['ALL_CAR'] as $key=>$car){?>
     '<?=$key?>' : {
         'Name' : '<?=$car['NAME']?>',
         'Year' : '<?=$car['PROPERTIES']['YEAR_CAR']?>',
@@ -30,8 +37,10 @@ $(document).ready(function () {
     },
     <?}?>};
     <?if ($arResult['RES_CAR']['ID'] != null){?>
-    presentcar = <?=$arResult['RES_CAR']['ID']?>;
-    PresentCar(car[presentcar]['Name'], car[presentcar]['Year'], presentcar, car[presentcar]['Price'][0]);
+        presentcar = <?=$arResult['RES_CAR']['ID']?>;
+        PresentCar(car[presentcar]['Name'], car[presentcar]['Year'], presentcar, car[presentcar]['Price'][0]);
+    <?}else{?>
+        presentcar = false;
     <?}?>
     $("#select").click(function(){
         oldcarid = $('#select option:selected').attr('value');     
@@ -42,33 +51,57 @@ $(document).ready(function () {
         $('#selectimg').find('img').attr("src",$('#select option:selected').attr('data_path'));
         $("#rent").change();
         ChangeCar(newcarid, car[newcarid]['Name'], car[newcarid]['Year'], car[newcarid]['Price'][0], oldcarid, car[oldcarid]['Name'], car[oldcarid]['Year'], car[oldcarid]['Price'][0]);       
-    });    
-    $("#rent").change(function(){        
-        if ($("#rent").val() === "0"){            
-           $('#rentday').find('a').text(" ");
-           $('#rentres').find('a').text(" ");   
+    });
+    if (presentcar == false){
+        $('#rentday').find('a').text("Выберите автомобиль");
+        $('#rentday').find('a').css("color" , "#e93f45");  
+        $('#rentres').find('a').text("Выберите срок аренды");
+        $('#result').val('');     
+    }else{
+        present_selprice = car[presentcar]['Price'];
+        
+           $('#rentday').find('a').text("от "+present_selprice[present_selprice.length-1]+" до "+present_selprice[0]);
+           $('#rentday').find('a').css("color" , "#5d5d5d");  
+           $('#rentres').find('a').text("Выберите срок аренды");   
            $('#result').val('');   
-        }
-        var i;
-        selday = car[$('#select option:selected').attr('value')]['Day'];
-        selday.pop();   
-        selprice = car[$('#select option:selected').attr('value')]['Price'];    
-        for (i = 0; i <= selday.length; i+=2) {            
-            if (selday[selday.length-1]<=Number($("#rent").val())){                
-                $('#rentday').find('a').text(selprice[selprice.length-1]);                     
-                $('#rentday').find('a').append("<span>&#8381;</span>");  
-                $('#rentres').find('a').text($("#rent").val()*selprice[selprice.length-1]);
-                $('#rentres').find('a').append("<span>&#8381;</span>");
-                $('#result').val($("#rent").val()*selprice[selprice.length-1]);
-                break;    
-            }           
-            if (selday[i] <= Number($("#rent").val()) && selday[i+1] >= Number($("#rent").val())){
-                $('#rentday').find('a').text(selprice[i/2]);                     
-                $('#rentday').find('a').append("<span>&#8381;</span>");  
-                $('#rentres').find('a').text($("#rent").val()*selprice[i/2]);
-                $('#rentres').find('a').append("<span>&#8381;</span>");
-                $('#result').val($("#rent").val()*selprice[i/2]);
-                break;    
+    
+    }    
+    $("#rent").change(function(){        
+        if(($("#select").val() == "0" && $("#rent").val() == "0") || $("#select").val() == "0"){
+           $('#rentday').find('a').text("Выберите автомобиль");
+           $('#rentday').find('a').css("color" , "#e93f45");  
+           $('#rentres').find('a').text("Выберите срок аренды");   
+           $('#result').val('');   
+        }else if ($("#rent").val() == "0"){
+           selprice = car[$('#select option:selected').attr('value')]['Price'];            
+           $('#rentday').find('a').text("от "+selprice[selprice.length-1]+" до "+selprice[0]);
+           $('#rentday').find('a').css("color" , "#5d5d5d");
+           $('#rentres').find('a').text("Выберите срок аренды");   
+           $('#result').val(''); 
+        }else{
+            var i;
+            selday = car[$('#select option:selected').attr('value')]['Day'];   
+            selprice = car[$('#select option:selected').attr('value')]['Price'];
+            $('#rentday').find('a').css("color" , "#5d5d5d");    
+            for (i = 0; i<=selday.length-1 ; i+=2) {            
+                if (selday[selday.length-2]<=Number($("#rent").val())){                
+                    $('#rentday').find('a').text(selprice[selprice.length-1]);                     
+                    $('#rentday').find('a').append("<span>&#8381;</span>");  
+                    $('#rentres').find('a').text($("#rent").val()*selprice[selprice.length-1]);
+                    $('#rentres').find('a').append("<span>&#8381;</span>");
+                    $('#result').val($("#rent").val()*selprice[selprice.length-1]);
+                    i = 0;                    
+                    break;    
+                }           
+                if (selday[i] <= Number($("#rent").val()) && selday[i+1] >= Number($("#rent").val())){
+                    $('#rentday').find('a').text(selprice[i/2]);                     
+                    $('#rentday').find('a').append("<span>&#8381;</span>");  
+                    $('#rentres').find('a').text($("#rent").val()*selprice[i/2]);
+                    $('#rentres').find('a').append("<span>&#8381;</span>");
+                    $('#result').val($("#rent").val()*selprice[i/2]);
+                    i = 0;                    
+                    break;    
+                }
             }
         }                                               
     });
@@ -76,16 +109,17 @@ $(document).ready(function () {
 </script>
     <div>
         <div class="horizontalgrey horizontalgrey1"></div>
-            <div class="car_rent" id="selectimg">
-                    <img src="<?=CFile::GetPath($arResult['RES_CAR']['PREVIEW_PICTURE'])?>" alt=""/>         
-            </div>                
         <div class="cost">
             <p><?=GetMessage("COST")?></p>                    
             <div class="day" id="rentday"><?=GetMessage("DAY")?><a></a></div>      
             <div class="result" id="rentres"><?=GetMessage("RESULT")?><a></a></div>              
         </div>
+        <div class="car_rent" id="selectimg">
+            <img src="<?=CFile::GetPath($arResult['RES_CAR']['PREVIEW_PICTURE'])?>" alt=""/>         
+        </div>                
+        
         <div class="text"><?=GetMessage("FINAL_PRICE")?></div>
-        </div>
+    </div>
         <div class="horizontalgrey horizontalgrey3"></div>
         <div class="verticalgrey"></div>   
     <form method="post" action="/rent/thankyou.php" class="rentpost">

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:g="http://base.google.com/ns/1.0">
+	<title>Example - Online Store</title>
+	<link rel="self" href="http://www.example.com"/>
+	<updated>20011-07-11T12:00:00Z</updated> 
+		
+	<entry>
+		<g:id>largus-universal</g:id>
+		<g:title>Аренда Лада Ларгус Универсал</g:title>
+		<g:description>Прокат автомобиля Лада Ларгус Универсал в Москве посуточно без водителя.</g:description>
+		<g:link>http://rulimcars.ru/largus-universal/</g:link>
+		<g:image_link>http://rulimcars.ru/img/arenda_lada_largus_universal_rulimcars.png</g:image_link>
+		<g:condition>used</g:condition>
+		<g:availability>in stock</g:availability>
+		<g:price>1500.00 RUB</g:price>
+		<g:shipping>
+			<g:country>RU</g:country>
+			<g:location_id>1011969</g:location_id>
+			<g:service>Подача автомобиля</g:service>
+			<g:price>1000.00 RUB</g:price>
+		</g:shipping>
+			
+		<g:brand>Lada</g:brand>
+		<g:mpn>KS0Y5L</g:mpn>
+		
+		<g:google_product_category>916</g:google_product_category>
+		<g:product_type>Аренда автомобиля &gt; Аренда автомобиля без водителя</g:product_type>
+	</entry>
+		
+		<entry>
+		<g:id>largus_furgon</g:id>
+		<g:title>Аренда Лада Ларгус Фургон</g:title>
+		<g:description>Прокат автомобиля Лада Ларгус Фургон в Москве посуточно без водителя.</g:description>
+		<g:link>http://rulimcars.ru/largus_furgon/</g:link>
+		<g:image_link>http://rulimcars.ru/img/arenda_lada_largus_furgon_rulimcars.png</g:image_link>
+		<g:condition>used</g:condition>
+		<g:availability>in stock</g:availability>
+		<g:price>1200.00 RUB</g:price>
+		<g:shipping>
+			<g:country>RU</g:country>
+			<g:location_id>1011969</g:location_id>
+			<g:service>Подача автомобиля</g:service>
+			<g:price>1000.00 RUB</g:price>
+		</g:shipping>
+			
+		<g:brand>Lada</g:brand>
+		<g:mpn>FS015L</g:mpn>
+		
+		<g:google_product_category>916</g:google_product_category>
+		<g:product_type>Аренда автомобиля &gt; Аренда автомобиля без водителя</g:product_type>
+	</entry>
+</feed>
