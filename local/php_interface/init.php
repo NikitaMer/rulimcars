@@ -1,5 +1,5 @@
 <?php
-// подключение констант и отладочных функций
+// ГЇГ®Г¤ГЄГ«ГѕГ·ГҐГ­ГЁГҐ ГЄГ®Г­Г±ГІГ Г­ГІ ГЁ Г®ГІГ«Г Г¤Г®Г·Г­Г»Гµ ГґГіГ­ГЄГ¶ГЁГ©
 require_once(dirname(__FILE__) . "/include/.config.php");
 function my_dump($array, $adminCheck = false) {
         global $USER;
@@ -14,7 +14,7 @@ function my_dump($array, $adminCheck = false) {
         echo "</pre>";
     }
 /**
-* Редирект на страницу со / в конце* 
+* ГђГҐГ¤ГЁГ°ГҐГЄГІ Г­Г  Г±ГІГ°Г Г­ГЁГ¶Гі Г±Г® / Гў ГЄГ®Г­Г¶ГҐ* 
 */
 AddEventHandler("main", "OnProlog", "checkSlash");
     function checkSlash(){
@@ -28,9 +28,10 @@ AddEventHandler("main", "OnProlog", "checkSlash");
         
     }
 /**
-* Отправка письма при добавление элемента в инфоблок Заявки
+* ГЋГІГЇГ°Г ГўГЄГ  ГЇГЁГ±ГјГ¬Г  ГЇГ°ГЁ Г¤Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ ГЅГ«ГҐГ¬ГҐГ­ГІГ  Гў ГЁГ­ГґГ®ГЎГ«Г®ГЄ Г‡Г ГїГўГЄГЁ
 */
-AddEventHandler("iblock", "OnAfterIBlockElementAdd", Array("OnAfterIBlockElementAddHandler")); 
+
+AddEventHandler("iblock", "OnAfterIBlockElementAdd", "OnAfterIBlockElementAddHandler");
 function OnAfterIBlockElementAddHandler(&$arFields) {
   $SITE_ID = 's1'; 
   $IBLOCK_ID = 10; 
