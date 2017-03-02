@@ -20,8 +20,9 @@ AddEventHandler("main", "OnProlog", "checkSlash");
     function checkSlash(){
         global $APPLICATION;
         $url = $APPLICATION->GetCurPage();
-        $url_last_symbol = substr($url, -1);
-        if (defined('ERROR_404') && ERROR_404=='Y' && $url_last_symbol != "/"){
+        $url_last_symbol = substr($url, -1);        
+        $url_3_last_symbol = substr($url, -3);
+        if ($url_last_symbol != "/" && $url_3_last_symbol != "php"){
             LocalRedirect($url."/", true, "301 Moved permanently");
         }          
         

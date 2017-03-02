@@ -13,7 +13,7 @@ $email = $_POST["EMAIL"];
 $text = $_POST["TEXT"];
 $date = $_POST["DATE"];
 $res =  $_POST["RESULT"];
-$rent = $_POST["RENT"];  
+$rent = $_POST["RENT"];   
     if ($_SESSION['id'] != 1 ){
         $el = new CIBlockElement;
         $PROP = array();
@@ -65,10 +65,11 @@ $rent = $_POST["RENT"];
         }
         // Создаем пользователя
         $user = new CUser;
+        $rnd = substr($pass,0,-3);
         $arFields = Array(
             "NAME"              => $name,
             "EMAIL"             => $email,
-            "LOGIN"             => $name,
+            "LOGIN"             => $name.$rnd,
             "PERSONAL_PHONE"    => $phone,
             "LID"               => SITE_ID,
             "ACTIVE"            => "Y",
