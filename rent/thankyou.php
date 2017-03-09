@@ -1,11 +1,11 @@
 <?
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php"); 
 $APPLICATION->SetPageProperty("H1", "Спасибо за обращение!");
 $APPLICATION->SetTitle("Спасибо за обращение!");
 CModule::IncludeModule("iblock");
 CModule::IncludeModule("sale");
 CModule::IncludeModule("statistic");
-CModule::IncludeModule("catalog");
+CModule::IncludeModule("catalog"); 
 $name = $_POST["NAME"];    
 $phone = $_POST["PHONE"];
 $auto = $_POST["AUTO"];
