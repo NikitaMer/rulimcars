@@ -1,7 +1,6 @@
-<?php
-// ïîäêëþ÷åíèå êîíñòàíò è îòëàäî÷íûõ ôóíêöèé
+<?php 
 require_once(dirname(__FILE__) . "/include/.config.php");
-function my_dump($array, $adminCheck = false) {
+function arshow($array, $adminCheck = false) {
         global $USER;
         $USER = new Cuser;
         if ($adminCheck) {
@@ -14,7 +13,7 @@ function my_dump($array, $adminCheck = false) {
         echo "</pre>";
     }
 /**
-* Ðåäèðåêò íà ñòðàíèöó ñî / â êîíöå* 
+*  Ставим / в конце URL если его нет 
 */
 AddEventHandler("main", "OnProlog", "checkSlash");
     function checkSlash(){
@@ -28,7 +27,7 @@ AddEventHandler("main", "OnProlog", "checkSlash");
         
     }
 /**
-* Îòïðàâêà ïèñüìà ïðè äîáàâëåíèå ýëåìåíòà â èíôîáëîê Çàÿâêè
+* Отправка письма при добавлении в инфоблок Заявки
 */
 
 AddEventHandler("iblock", "OnAfterIBlockElementAdd", "OnAfterIBlockElementAddHandler");
@@ -42,7 +41,6 @@ function OnAfterIBlockElementAddHandler(&$arFields) {
     $arCarPic = CIBlockElement::GetByID($arQuestion['CAR']['VALUE'])->GetNextElement()->GetFields();
     $DateTimeCreate = CIBlockElement::GetByID($arFields['ID'])->GetNextElement()->GetFields();
     $DateCreate = strstr(str_replace(".","_",$DateTimeCreate['DATE_CREATE'])," ", true);
-    
     $arMailFields = array(
         'NAME' => $arQuestion['NAME']['VALUE'],
         'ID' => $arFields['ID'],
@@ -58,13 +56,13 @@ function OnAfterIBlockElementAddHandler(&$arFields) {
         'DETAIL_CAR' => $arCarPic['DETAIL_PAGE_URL'],
         'TYPE_CAR_CIR' => $arCar['TYPE_CAR_CIR']['VALUE'],
         'TYPE_CAR_LAT' => $arCar['TYPE_CAR_CIR']['DESCRIPTION'],
-        'CAR_PICTURE' => CFile::GetPath($arCarPic['DETAIL_PICTURE']),
+        'CAR_PICTURE' => "http://".$_SERVER['HTTP_HOST'].CFile::GetPath($arCarPic['DETAIL_PICTURE']),
         'DATE_CREATE' => $DateCreate,
     );
     if($arMailFields['RENT'] == 0 ) {
         CEvent::Send($EVENT_TYPE, $SITE_ID, $arMailFields,"Y", 47);
     }else{
         CEvent::Send($EVENT_TYPE, $SITE_ID, $arMailFields,"Y", 46);
-    }
+    }      
   }
 }
