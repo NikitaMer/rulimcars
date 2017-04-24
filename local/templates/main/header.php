@@ -6,26 +6,23 @@ IncludeTemplateLangFile(__FILE__);
 <html lang="<?=LANGUAGE_ID?>">
 <head>
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
-    <?include($_SERVER["DOCUMENT_ROOT"]."/include/meta.php");
-     if (substr_count($_SERVER['HTTP_HOST'], dev) == 0){?>
+    <?include($_SERVER["DOCUMENT_ROOT"]."/include/meta.php");?>
      <script type="text/javascript">
          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
          })(window,document,'script','dataLayer','GTM-WDVQ4V2');
      </script>
-    <?}?>
     <?$APPLICATION->ShowViewContent('myFuncHeadCar');
     $APPLICATION->ShowViewContent('myFuncCar');?>
 </head>
 <body>
 <?$APPLICATION->ShowPanel();
 $APPLICATION->ShowViewContent("myFuncBodyCar");
-if (substr_count($_SERVER['HTTP_HOST'], dev) == 0){?>
+?>
     <noscript>
         <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WDVQ4V2"
         height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </noscript>
-<?}?>
     <div class="wrap">
         <header>
             <div class="header">
