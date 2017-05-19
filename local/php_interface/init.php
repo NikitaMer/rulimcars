@@ -37,7 +37,8 @@ function OnAfterIBlockElementAddHandler(&$arFields) {
   $EVENT_TYPE = 'NEW_ELEMENT_INFOBLOCK'; 
   if($arFields['IBLOCK_ID']==$IBLOCK_ID) {
     $arQuestion = CIBlockElement::GetByID($arFields['ID'])->GetNextElement()->GetProperties();
-    $arCar = CIBlockElement::GetByID($arQuestion['CAR']['VALUE'])->GetNextElement()->GetProperties();
+    $arCarProp = CIBlockElement::GetByID($arQuestion['CAR']['VALUE'])->GetNextElement()->GetProperties();
+    $arCar = CIBlockElement::GetByID($arQuestion['CAR']['VALUE'])->GetNext();
     $arCarPic = CIBlockElement::GetByID($arQuestion['CAR']['VALUE'])->GetNextElement()->GetFields();
     $DateTimeCreate = CIBlockElement::GetByID($arFields['ID'])->GetNextElement()->GetFields();
     $DateCreate = strstr(str_replace(".","_",$DateTimeCreate['DATE_CREATE'])," ", true);
@@ -51,11 +52,11 @@ function OnAfterIBlockElementAddHandler(&$arFields) {
         'PHONE' => $arQuestion['PHONE']['VALUE'],
         'RESULT_DAY' => $arQuestion['RESULT']['VALUE']/$arQuestion['RENT']['VALUE'],
         'COMMENT' => $arQuestion['COMMENT']['VALUE'],
-        'NAME_CAR' => $arCar['NAME_CAR']['VALUE'],
-        'YEAR_CAR' => $arCar['YEAR_CAR']['VALUE'],
+        'NAME_CAR' => $arCar['NAME'],
+        'YEAR_CAR' => $arCarProp['YEAR_CAR']['VALUE'],
         'DETAIL_CAR' => $arCarPic['DETAIL_PAGE_URL'],
-        'TYPE_CAR_CIR' => $arCar['TYPE_CAR_CIR']['VALUE'],
-        'TYPE_CAR_LAT' => $arCar['TYPE_CAR_CIR']['DESCRIPTION'],
+        'TYPE_CAR_CIR' => $arCarProp['TYPE_CAR_CIR']['VALUE'],
+        'TYPE_CAR_LAT' => $arCarProp['TYPE_CAR_CIR']['DESCRIPTION'],
         'CAR_PICTURE' => "http://".$_SERVER['HTTP_HOST'].CFile::GetPath($arCarPic['DETAIL_PICTURE']),
         'DATE_CREATE' => $DateCreate,
     );
