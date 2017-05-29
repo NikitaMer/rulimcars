@@ -16,6 +16,7 @@ IncludeTemplateLangFile(__FILE__);
         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-WDVQ4V2');</script>
         <!-- End Google Tag Manager -->
+        
 </head>
 <body>
 <?$APPLICATION->ShowPanel();

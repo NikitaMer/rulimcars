@@ -129,9 +129,28 @@ $car = GetIBlockElement($auto);
 ?>
 
 <script type="text/javascript">
-$(document).ready(function () {
+$(document).ready(function () {    
+    ga('require', 'ecommerce');
     var carName = {'Name' : '<?=$car['NAME']?>'};
-    OrderCar(<?=$order['ID']?>,<?=$res?>, null, carName['Name'], <?=$car['PROPERTIES']['YEAR_CAR']['VALUE']?>, <?=$car['ID']?>, <?=$res/$rent?>, <?=$rent?>);
+    OrderCar('<?=$order['ID']?>','<?=$res?>', null, carName['Name'], '<?=$car['PROPERTIES']['YEAR_CAR']['VALUE']?>', '<?=$car['ID']?>', '<?=$res/$rent?>', '<?=$rent?>');
+    // код электронной коммерции
+    ga('ecommerce:addTransaction', {
+      'id': '<?=$order['ID']?>',                     // Transaction ID. Required.
+      'affiliation': 'Rulimcars',   // Affiliation or store name.
+      'revenue': '<?=$res?>',               // Grand Total.
+      'shipping': '0',                  // Shipping.
+      'tax': '0'                     // Tax.
+    });
+    ga('ecommerce:addItem', {
+      'id': '<?=$order['ID']?>',
+      'name': '<?=$car['NAME']?>',
+      'sku': '<?=$auto?>',
+      'category': 'Car',
+      'price': '<?=$res/$rent?>',
+      'quantity': '<?=$rent?>',
+      'currency': 'RUB' // local currency code.
+    });
+    ga('ecommerce:send');
 });
 </script>
     <?=$name?>, Вы оформили заявку №<?=$order['ID']?> на аренду автомобиля <?=$car['NAME']?><?if ($rent != 0){?> сроком на <?=$rent?> суток, стоимость <?=$res?> руб. (<?=$res/$rent?> руб/суток). <?}else{?>.<?}?> 
