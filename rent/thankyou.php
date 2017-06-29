@@ -129,11 +129,11 @@ $car = GetIBlockElement($auto);
 ?>
 
 <script type="text/javascript">
-$(document).ready(function () {    
-    ga('require', 'ecommerce');
+$(document).ready(function () {     
     var carName = {'Name' : '<?=$car['NAME']?>'};
     OrderCar('<?=$order['ID']?>','<?=$res?>', null, carName['Name'], '<?=$car['PROPERTIES']['YEAR_CAR']['VALUE']?>', '<?=$car['ID']?>', '<?=$res/$rent?>', '<?=$rent?>');
     // код электронной коммерции
+    ga('require', 'ecommerce');
     ga('ecommerce:addTransaction', {
       'id': '<?=$order['ID']?>',                     // Transaction ID. Required.
       'affiliation': 'Rulimcars',   // Affiliation or store name.

@@ -620,3 +620,12 @@ form p{
     height: 40px;
     padding: 1px;        
 }
+._black{
+    color: black !important;           
+}
+._black h1{
+    color: black !important;           
+}
+.background_black{
+  background-color: black !important;  
+}

@@ -14,7 +14,7 @@
 	<?if ($arItem["IS_PARENT"]):?>
 
 		<?if ($arItem["DEPTH_LEVEL"] == 1):?>
-			<li><a href="<?=$arItem["LINK"]?>" class="<?if ($arItem["SELECTED"]):?>red_word<?endif?>"><?=$arItem["TEXT"]?></a>
+			<li><a href="<?=$arItem["LINK"]?>" class="<?if ($arItem["SELECTED"]):?>red_word <?$APPLICATION->ShowViewContent("black");?><?endif?>"><?=$arItem["TEXT"]?></a>
 				<ul>
 		<?else:?>
 			<li<?if ($arItem["SELECTED"]):?> class="red_word"<?endif?>><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a>
@@ -26,7 +26,7 @@
 		<?if ($arItem["PERMISSION"] > "D"):?>
 
 			<?if ($arItem["DEPTH_LEVEL"] == 1):?>
-				<li><a href="<?=$arItem["LINK"]?>" class="<?if ($arItem["SELECTED"]):?>red_word<?endif?>"><?=$arItem["TEXT"]?></a></li>
+				<li><a href="<?=$arItem["LINK"]?>" class="<?if ($arItem["SELECTED"]):?>red_word <?$APPLICATION->ShowViewContent("black");?><?endif?>"><?=$arItem["TEXT"]?></a></li>
 			<?else:?>
 				<li<?if ($arItem["SELECTED"]):?> class="red_word"<?endif?>><a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a></li>
 			<?endif?>
