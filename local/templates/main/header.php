@@ -29,7 +29,7 @@ $APPLICATION->ShowViewContent("myFuncBodyCar");
         <header>
             <div class="header">
                 <div class="top_contacts">
-                    <div class="phone_alloka"><?$APPLICATION->IncludeComponent(
+                    <div class="phone_alloka <?$APPLICATION->ShowViewContent("black");?>"><?$APPLICATION->IncludeComponent(
 	                                                "bitrix:main.include", 
 	                                                ".default", 
 	                                                array(
@@ -55,7 +55,7 @@ $APPLICATION->ShowViewContent("myFuncBodyCar");
                                         );?></div>
                 </div>
                 <div class="logo">
-                    <a<?if ($_SERVER['SCRIPT_URL'] == "/rent/"): ?> <?else:?> href="/"<?endif;?> ><img src="/img/logo.bmp" alt="" /></a>
+                    <a<?if ($_SERVER['SCRIPT_URL'] == "/rent/"): ?> <?else:?> href="/"<?endif;?> ><img src="/img/logo<?$APPLICATION->ShowViewContent("black");?>.bmp" alt="" /></a>
                 </div>
                 <div class="top_address"> 
                         <?$APPLICATION->IncludeComponent(
@@ -94,6 +94,6 @@ $APPLICATION->ShowViewContent("myFuncBodyCar");
         );?>
         </div>
         <div class="container">
-        <div class="<?if($_SERVER['REDIRECT_STATUS'] == 200) {?>inner_name<?} else {?> title  <?} if($_SERVER['SCRIPT_URL'] == "/rent/") { ?> title_left <? } ?>">
+        <div class="<?if($_SERVER['REDIRECT_STATUS'] == 200) {?>inner_name<?} else {?> title  <?} if($_SERVER['SCRIPT_URL'] == "/rent/") { ?> title_left <? } ?> <?$APPLICATION->ShowViewContent("black");?>">
             <h1><?$APPLICATION->ShowTitle(false);?></h1>
         </div>

@@ -1,5 +1,5 @@
-<?php 
-require_once(dirname(__FILE__) . "/include/.config.php");
+<?php                                                
+require_once(dirname(__FILE__) . "/include/.config.php");               
 function arshow($array, $adminCheck = false) {
         global $USER;
         $USER = new Cuser;
@@ -11,7 +11,7 @@ function arshow($array, $adminCheck = false) {
         echo "<pre>";
         print_r($array);
         echo "</pre>";
-    }
+    }               
 /**
 *  Ставим / в конце URL если его нет 
 */

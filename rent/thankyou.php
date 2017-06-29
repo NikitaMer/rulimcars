@@ -189,12 +189,35 @@
                     }
                 }
             });
-
-        </script>
-        <?=$name?>, Вы оформили заявку №<?=$order['ID']?> на аренду автомобиля <?=$car['NAME']?><?if ($rent != 0){?> сроком на <?=$rent?> суток, стоимость <?=$res?> руб. (<?=$res/$rent?> руб/суток). <?}else{?>.<?}?> 
-        <?if ($email != null){?>На адрес <?=$email?> отправлена информация с детализацией вашей заявки.<?}?>
-        В ближайшее время с вами свяжется сотрудник нашей компании и обсудит с вами детали, вы так же можете позвонить самостоятельно по бесплатному номеру 8(800)777 59 90.
-        <?}?>
+<script type="text/javascript">
+$(document).ready(function () {     
+    var carName = {'Name' : '<?=$car['NAME']?>'};
+    OrderCar('<?=$order['ID']?>','<?=$res?>', null, carName['Name'], '<?=$car['PROPERTIES']['YEAR_CAR']['VALUE']?>', '<?=$car['ID']?>', '<?=$res/$rent?>', '<?=$rent?>');
+    // код электронной коммерции
+    ga('require', 'ecommerce');
+    ga('ecommerce:addTransaction', {
+      'id': '<?=$order['ID']?>',                     // Transaction ID. Required.
+      'affiliation': 'Rulimcars',   // Affiliation or store name.
+      'revenue': '<?=$res?>',               // Grand Total.
+      'shipping': '0',                  // Shipping.
+      'tax': '0'                     // Tax.
+    });
+    ga('ecommerce:addItem', {
+      'id': '<?=$order['ID']?>',
+      'name': '<?=$car['NAME']?>',
+      'sku': '<?=$auto?>',
+      'category': 'Car',
+      'price': '<?=$res/$rent?>',
+      'quantity': '<?=$rent?>',
+      'currency': 'RUB' // local currency code.
+    });
+    ga('ecommerce:send');
+});
+</script>
+    <?=$name?>, Вы оформили заявку №<?=$order['ID']?> на аренду автомобиля <?=$car['NAME']?><?if ($rent != 0){?> сроком на <?=$rent?> суток, стоимость <?=$res?> руб. (<?=$res/$rent?> руб/суток). <?}else{?>.<?}?> 
+    <?if ($email != null){?>На адрес <?=$email?> отправлена информация с детализацией вашей заявки.<?}?>
+    В ближайшее время с вами свяжется сотрудник нашей компании и обсудит с вами детали, вы так же можете позвонить самостоятельно по бесплатному номеру 8(800)777 59 90.
+<?}?>
 </div>   
 <div>
     <?$APPLICATION->IncludeComponent(
