@@ -26,7 +26,7 @@
 <typePrefix>Аренда</typePrefix>
 <vendor>Лада</vendor>
 <model>Ларгус универсал KS0Y5L</model>
-<description>Прокат автомобиля Lada Largus Универсал (5 мест) в Москве посуточно без водителя. Двигатель бензиновый, 1.6м3. Посадочных мест 1+4.</description>
+<description>Прокат автомобиля Lada Largus Универсал (5 мест) в Москве посуточно без водителя. Двигатель бензиновый, 1.6 л. Посадочных мест 1+4.</description>
 <delivery>true</delivery>
 <pickup>true</pickup>
 <local_delivery_cost>1000</local_delivery_cost>
@@ -41,7 +41,7 @@
 <typePrefix>Аренда</typePrefix>
 <vendor>Лада</vendor>
 <model>Ларгус фургон FS015L</model>
-<description>Прокат автомобиля Lada Largus Фургон в Москве посуточно без водителя. Двигатель бензиновый, 1.6м3. Посадочных мест 1+1.</description>
+<description>Прокат автомобиля Lada Largus Фургон в Москве посуточно без водителя. Двигатель бензиновый, 1.6 л. Посадочных мест 1+1.</description>
 <delivery>true</delivery>
 <pickup>true</pickup>
 <local_delivery_cost>1000</local_delivery_cost>
@@ -56,7 +56,7 @@
 <typePrefix>Аренда</typePrefix>
 <vendor>Peugeot</vendor>
 <model>Boxer фургон 2L2H</model>
-<description>Прокат автомобиля Пежо Боксер цельнометаллический фургон (средняя база, средняя крыша) в Москве посуточно без водителя. Двигатель дизель, 2.2м3 HDi. Посадочных мест 1+2</description>
+<description>Прокат автомобиля Пежо Боксер цельнометаллический фургон (средняя база, средняя крыша) в Москве посуточно без водителя. Двигатель дизель, 2.2 л HDi. Посадочных мест 1+2</description>
 <delivery>true</delivery>
 <pickup>true</pickup>
 <local_delivery_cost>1000</local_delivery_cost>
@@ -71,11 +71,57 @@
 <typePrefix>Аренда</typePrefix>
 <vendor>Fiat</vendor>
 <model>Ducato фургон 2L2H</model>
-<description>Прокат автомобиля Фиат Дукато цельнометаллический фургон (средняя база, средняя крыша) в Москве посуточно без водителя. Двигатель дизель, 2.3м3 Multijet. Посадочных мест 1+2</description>
+<description>Прокат автомобиля Фиат Дукато цельнометаллический фургон (средняя база, средняя крыша) в Москве посуточно без водителя. Двигатель дизель, 2.3л Multijet. Посадочных мест 1+2</description>
 <delivery>true</delivery>
 <pickup>true</pickup>
 <local_delivery_cost>1000</local_delivery_cost>
 </offer>
+
+<offer id="5" available="true" cbid="3.00">
+<url>http://rulimcars.ru/volkswagen-polo/?utm_source=torg.mail.ru&amp;utm_medium=cpc&amp;utm_campaign=torgmail&amp;utm_content=volkswagen_polo</url>
+<price>1800</price>
+<currencyId>RUB</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_volkswagen_polo_rulimcars.png</picture>
+<typePrefix>Аренда</typePrefix>
+<vendor>Volkswagen</vendor>
+<model>Polo VI</model>
+<description>Прокат автомобиля Фольксваген Поло седан в Москве посуточно без водителя. Двигатель бензиновый, 1.6л, АКПП, Кондиционер. Посадочных мест 1+4</description>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<local_delivery_cost>1000</local_delivery_cost>
+</offer>
+
+<offer id="6" available="true" cbid="3.00">
+<url>http://rulimcars.ru/range_rover_vogue/?utm_source=torg.mail.ru&amp;utm_medium=cpc&amp;utm_campaign=torgmail&amp;utm_content=range_rover_vogue</url>
+<price>13500</price>
+<currencyId>RUB</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_range_rover_vogue_rulimcars.png</picture>
+<typePrefix>Аренда</typePrefix>
+<vendor>Land Rover</vendor>
+<model>Range Rover Vogue</model>
+<description>Прокат автомобиля Рендж Ровер в Москве посуточно без водителя. Двигатель дизель, 3.0л, АКПП, Кондиционер. Посадочных мест 1+4</description>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<local_delivery_cost>1000</local_delivery_cost>
+</offer>
+
+<offer id="7" available="true" cbid="3.00">
+<url>http://rulimcars.ru/infiniti_qx/?utm_source=torg.mail.ru&amp;utm_medium=cpc&amp;utm_campaign=torgmail&amp;utm_content=infiniti_qx</url>
+<price>9900</price>
+<currencyId>RUB</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_infiniti_qx56_rulimcars.png</picture>
+<typePrefix>Аренда</typePrefix>
+<vendor>Infiniti</vendor>
+<model>QX56</model>
+<description>Прокат автомобиля Инфинити QX56 в Москве посуточно без водителя. Двигатель бензиновый, 5.6л, АКПП, Кондиционер. Посадочных мест 1+6</description>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<local_delivery_cost>1000</local_delivery_cost>
+</offer>
+
 </offers>
 </shop>
 </torg_price>

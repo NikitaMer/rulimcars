@@ -130,7 +130,7 @@
 
         <script type="text/javascript">
 
-           /*
+           <?/*
             ga('require', 'ecommerce');
             var carName = {'Name' : '<?=$car['NAME']?>'};
             OrderCar('<?=$order['ID']?>','<?=$res?>', null, carName['Name'], '<?=$car['PROPERTIES']['YEAR_CAR']['VALUE']?>', '<?=$car['ID']?>', '<?=$res/$rent?>', '<?=$rent?>');
@@ -154,7 +154,7 @@
                 'currency': 'RUB' // local currency code.
             });
             ga('ecommerce:send');
-            */
+            */ ?>
 
 
             var products = [];
@@ -163,7 +163,7 @@
                 {
                     "id": "<?=$car['NAME']?>",
                     "name": "<?=$car['NAME']?>",
-                    "price": <?=$res/$rent?>,
+                    "price": "<?=$res/$rent?>",
                     "quantity" : '<?=$rent?>',
                     'category': 'Car',
                 }
