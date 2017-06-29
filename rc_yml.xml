@@ -149,7 +149,7 @@
 <description>Прокат автомобиля Лада Ларгус Фургон в Москве посуточно без водителя.</description>
 <sales_notes>Стоимость аренды за сутки, при аренде 1-3 суток.</sales_notes>
 <age>18</age>
-<param name="Пассажирских мест">1+2</param>
+<param name="Пассажирских мест">1+1</param>
 <param name="Тип двигателя">бензиновый</param>
 <param name="Кондиционер">нет</param>
 <param name="Аудиосистема">есть</param>
@@ -172,7 +172,7 @@
 <description>Прокат автомобиля Лада Ларгус Фургон в Москве посуточно без водителя.</description>
 <sales_notes>Стоимость аренды за сутки, при аренде 4-8 суток.</sales_notes>
 <age>18</age>
-<param name="Пассажирских мест">1+2</param>
+<param name="Пассажирских мест">1+1</param>
 <param name="Тип двигателя">бензиновый</param>
 <param name="Кондиционер">нет</param>
 <param name="Аудиосистема">есть</param>
@@ -195,7 +195,7 @@
 <description>Прокат автомобиля Лада Ларгус Фургон в Москве посуточно без водителя.</description>
 <sales_notes>Стоимость аренды за сутки, при аренде 9-16 суток.</sales_notes>
 <age>18</age>
-<param name="Пассажирских мест">1+2</param>
+<param name="Пассажирских мест">1+1</param>
 <param name="Тип двигателя">бензиновый</param>
 <param name="Кондиционер">нет</param>
 <param name="Аудиосистема">есть</param>
@@ -218,7 +218,7 @@
 <description>Прокат автомобиля Лада Ларгус Фургон в Москве посуточно без водителя.</description>
 <sales_notes>Стоимость аренды за сутки, при аренде 17-30 суток.</sales_notes>
 <age>18</age>
-<param name="Пассажирских мест">1+2</param>
+<param name="Пассажирских мест">1+1</param>
 <param name="Тип двигателя">бензиновый</param>
 <param name="Кондиционер">нет</param>
 <param name="Аудиосистема">есть</param>
@@ -241,7 +241,7 @@
 <description>Прокат автомобиля Лада Ларгус Фургон в Москве посуточно без водителя.</description>
 <sales_notes>Стоимость аренды за сутки, при аренде на месяц.</sales_notes>
 <age>18</age>
-<param name="Пассажирских мест">1+2</param>
+<param name="Пассажирских мест">1+1</param>
 <param name="Тип двигателя">бензиновый</param>
 <param name="Кондиционер">нет</param>
 <param name="Аудиосистема">есть</param>
@@ -264,7 +264,7 @@
 <description>Прокат автомобиля Лада Ларгус Фургон в Москве посуточно без водителя.</description>
 <sales_notes>Стоимость аренды за сутки, при аренде 1-3 суток.</sales_notes>
 <age>18</age>
-<param name="Пассажирских мест">1+2</param>
+<param name="Пассажирских мест">1+1</param>
 <param name="Тип двигателя">бензиновый</param>
 <param name="Кондиционер">есть</param>
 <param name="Аудиосистема">есть</param>
@@ -287,7 +287,7 @@
 <description>Прокат автомобиля Лада Ларгус Фургон в Москве посуточно без водителя.</description>
 <sales_notes>Стоимость аренды за сутки, при аренде 4-8 суток.</sales_notes>
 <age>18</age>
-<param name="Пассажирских мест">1+2</param>
+<param name="Пассажирских мест">1+1</param>
 <param name="Тип двигателя">бензиновый</param>
 <param name="Кондиционер">есть</param>
 <param name="Аудиосистема">есть</param>
@@ -310,7 +310,7 @@
 <description>Прокат автомобиля Лада Ларгус Фургон в Москве посуточно без водителя.</description>
 <sales_notes>Стоимость аренды за сутки, при аренде 9-16 суток.</sales_notes>
 <age>18</age>
-<param name="Пассажирских мест">1+2</param>
+<param name="Пассажирских мест">1+1</param>
 <param name="Тип двигателя">бензиновый</param>
 <param name="Кондиционер">есть</param>
 <param name="Аудиосистема">есть</param>
@@ -333,7 +333,7 @@
 <description>Прокат автомобиля Лада Ларгус Фургон в Москве посуточно без водителя.</description>
 <sales_notes>Стоимость аренды за сутки, при аренде 17-30 суток.</sales_notes>
 <age>18</age>
-<param name="Пассажирских мест">1+2</param>
+<param name="Пассажирских мест">1+1</param>
 <param name="Тип двигателя">бензиновый</param>
 <param name="Кондиционер">есть</param>
 <param name="Аудиосистема">есть</param>
@@ -356,7 +356,7 @@
 <description>Прокат автомобиля Лада Ларгус Фургон в Москве посуточно без водителя.</description>
 <sales_notes>Стоимость аренды за сутки, при аренде на месяц.</sales_notes>
 <age>18</age>
-<param name="Пассажирских мест">1+2</param>
+<param name="Пассажирских мест">1+1</param>
 <param name="Тип двигателя">бензиновый</param>
 <param name="Кондиционер">есть</param>
 <param name="Аудиосистема">есть</param>
@@ -379,7 +379,7 @@
 <description>Прокат автомобиля Пежо Боксер Фургон в Москве посуточно без водителя.</description>
 <sales_notes>Стоимость аренды за сутки, при аренде 1-3 суток.</sales_notes>
 <age>18</age>
-<param name="Пассажирских мест">1+3</param>
+<param name="Пассажирских мест">1+2</param>
 <param name="Тип двигателя">дизель</param>
 <param name="Кондиционер">есть</param>
 <param name="Аудиосистема">есть</param>
@@ -402,7 +402,7 @@
 <description>Прокат автомобиля Пежо Боксер Фургон в Москве посуточно без водителя.</description>
 <sales_notes>Стоимость аренды за сутки, при аренде 4-8 суток.</sales_notes>
 <age>18</age>
-<param name="Пассажирских мест">1+3</param>
+<param name="Пассажирских мест">1+2</param>
 <param name="Тип двигателя">дизель</param>
 <param name="Кондиционер">есть</param>
 <param name="Аудиосистема">есть</param>
@@ -448,7 +448,7 @@
 <description>Прокат автомобиля Пежо Боксер Фургон в Москве посуточно без водителя.</description>
 <sales_notes>Стоимость аренды за сутки, при аренде 17-30 суток.</sales_notes>
 <age>18</age>
-<param name="Пассажирских мест">1+3</param>
+<param name="Пассажирских мест">1+2</param>
 <param name="Тип двигателя">дизель</param>
 <param name="Кондиционер">есть</param>
 <param name="Аудиосистема">есть</param>
@@ -471,13 +471,383 @@
 <description>Прокат автомобиля Пежо Боксер Фургон в Москве посуточно без водителя.</description>
 <sales_notes>Стоимость аренды за сутки, при аренде на месяц.</sales_notes>
 <age>18</age>
-<param name="Пассажирских мест">1+3</param>
+<param name="Пассажирских мест">1+2</param>
 <param name="Тип двигателя">дизель</param>
 <param name="Кондиционер">есть</param>
 <param name="Аудиосистема">есть</param>
 <param name="Парктроники">есть</param>
 <param name="Гидроусилитель руля">есть</param>
 <param name="ABS">есть</param>
+</offer>
+
+<offer id="21" available="true" >
+<url>http://rulimcars.ru/volkswagen-polo/?utm_source=yandex.market&amp;utm_medium=cpc&amp;utm_campaign=volkswagen_polo&amp;utm_content=volkswagen_polo_1mes</url>
+<price>1800</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_volkswagen_polo_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Фольксваген Поло посуточно</name>
+<vendor>Volkswagen</vendor>
+<model>Polo VI</model>
+<description>Прокат автомобиля Фольксваген Поло седан в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды за сутки, при аренде на месяц.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+4</param>
+<param name="Тип двигателя">бензин</param>
+<param name="КПП">автомат</param>
+<param name="Кондиционер">есть</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Усилитель руля">есть</param>
+<param name="ABS">есть</param>
+</offer>
+
+<offer id="22" available="true" >
+<url>http://rulimcars.ru/volkswagen-polo/?utm_source=yandex.market&amp;utm_medium=cpc&amp;utm_campaign=volkswagen_polo&amp;utm_content=volkswagen_polo_17-30</url>
+<price>1900</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_volkswagen_polo_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Фольксваген Поло посуточно</name>
+<vendor>Volkswagen</vendor>
+<model>Polo VI</model>
+<description>Прокат автомобиля Фольксваген Поло седан в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды за сутки, при аренде 17-30 суток.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+4</param>
+<param name="Тип двигателя">бензин</param>
+<param name="КПП">автомат</param>
+<param name="Кондиционер">есть</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Усилитель руля">есть</param>
+<param name="ABS">есть</param>
+</offer>
+
+<offer id="23" available="true" >
+<url>http://rulimcars.ru/volkswagen-polo/?utm_source=yandex.market&amp;utm_medium=cpc&amp;utm_campaign=volkswagen_polo&amp;utm_content=volkswagen_polo_9-16</url>
+<price>2000</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_volkswagen_polo_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Фольксваген Поло посуточно</name>
+<vendor>Volkswagen</vendor>
+<model>Polo VI</model>
+<description>Прокат автомобиля Фольксваген Поло седан в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды за сутки, при аренде 9-16 суток.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+4</param>
+<param name="Тип двигателя">бензин</param>
+<param name="КПП">автомат</param>
+<param name="Кондиционер">есть</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Усилитель руля">есть</param>
+<param name="ABS">есть</param>
+</offer>
+
+<offer id="24" available="true" >
+<url>http://rulimcars.ru/volkswagen-polo/?utm_source=yandex.market&amp;utm_medium=cpc&amp;utm_campaign=volkswagen_polo&amp;utm_content=volkswagen_polo_4-8</url>
+<price>2100</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_volkswagen_polo_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Фольксваген Поло посуточно</name>
+<vendor>Volkswagen</vendor>
+<model>Polo VI</model>
+<description>Прокат автомобиля Фольксваген Поло седан в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды за сутки, при аренде 4-8 суток.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+4</param>
+<param name="Тип двигателя">бензин</param>
+<param name="КПП">автомат</param>
+<param name="Кондиционер">есть</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Усилитель руля">есть</param>
+<param name="ABS">есть</param>
+</offer>
+
+<offer id="25" available="true" >
+<url>http://rulimcars.ru/volkswagen-polo/?utm_source=yandex.market&amp;utm_medium=cpc&amp;utm_campaign=volkswagen_polo&amp;utm_content=volkswagen_polo_1-3</url>
+<price>2200</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_volkswagen_polo_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Фольксваген Поло посуточно</name>
+<vendor>Volkswagen</vendor>
+<model>Polo VI</model>
+<description>Прокат автомобиля Фольксваген Поло седан в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды за сутки, при аренде 1-3 суток.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+4</param>
+<param name="Тип двигателя">бензин</param>
+<param name="КПП">автомат</param>
+<param name="Кондиционер">есть</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Усилитель руля">есть</param>
+<param name="ABS">есть</param>
+</offer>
+
+<offer id="26" available="true" >
+<url>http://rulimcars.ru/range_rover_vogue/?utm_source=yandex.market&amp;utm_medium=cpc&amp;utm_campaign=range_rover_vogue&amp;utm_content=range_rover_vogue_1mes</url>
+<price>13500</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_range_rover_vogue_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Рендж Ровер посуточно</name>
+<vendor>Land Rover</vendor>
+<model>Range Rover Vogue</model>
+<description>Прокат автомобиля Рендж Ровер в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды за сутки, при аренде на месяц.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+4</param>
+<param name="Тип двигателя">дизель</param>
+<param name="КПП">автомат</param>
+<param name="Кондиционер">есть</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Усилитель руля">есть</param>
+<param name="ABS">есть</param>
+<param name="Привод">полный</param>
+</offer>
+
+<offer id="27" available="true" >
+<url>http://rulimcars.ru/range_rover_vogue/?utm_source=yandex.market&amp;utm_medium=cpc&amp;utm_campaign=range_rover_vogue&amp;utm_content=range_rover_vogue_17-30</url>
+<price>13800</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_range_rover_vogue_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Рендж Ровер посуточно</name>
+<vendor>Land Rover</vendor>
+<model>Range Rover Vogue</model>
+<description>Прокат автомобиля Рендж Ровер в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды за сутки, при аренде 17-30 суток.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+4</param>
+<param name="Тип двигателя">дизель</param>
+<param name="КПП">автомат</param>
+<param name="Кондиционер">есть</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Усилитель руля">есть</param>
+<param name="ABS">есть</param>
+<param name="Привод">полный</param>
+</offer>
+
+<offer id="28" available="true" >
+<url>http://rulimcars.ru/range_rover_vogue/?utm_source=yandex.market&amp;utm_medium=cpc&amp;utm_campaign=range_rover_vogue&amp;utm_content=range_rover_vogue_9-16</url>
+<price>14200</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_range_rover_vogue_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Рендж Ровер посуточно</name>
+<vendor>Land Rover</vendor>
+<model>Range Rover Vogue</model>
+<description>Прокат автомобиля Рендж Ровер в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды за сутки, при аренде 9-16 суток.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+4</param>
+<param name="Тип двигателя">дизель</param>
+<param name="КПП">автомат</param>
+<param name="Кондиционер">есть</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Усилитель руля">есть</param>
+<param name="ABS">есть</param>
+<param name="Привод">полный</param>
+</offer>
+
+<offer id="29" available="true" >
+<url>http://rulimcars.ru/range_rover_vogue/?utm_source=yandex.market&amp;utm_medium=cpc&amp;utm_campaign=range_rover_vogue&amp;utm_content=range_rover_vogue_4-8</url>
+<price>14600</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_range_rover_vogue_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Рендж Ровер посуточно</name>
+<vendor>Land Rover</vendor>
+<model>Range Rover Vogue</model>
+<description>Прокат автомобиля Рендж Ровер в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды за сутки, при аренде 4-8 суток.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+4</param>
+<param name="Тип двигателя">дизель</param>
+<param name="КПП">автомат</param>
+<param name="Кондиционер">есть</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Усилитель руля">есть</param>
+<param name="ABS">есть</param>
+<param name="Привод">полный</param>
+</offer>
+
+<offer id="30" available="true" >
+<url>http://rulimcars.ru/range_rover_vogue/?utm_source=yandex.market&amp;utm_medium=cpc&amp;utm_campaign=range_rover_vogue&amp;utm_content=range_rover_vogue_1-3</url>
+<price>14900</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_range_rover_vogue_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Рендж Ровер посуточно</name>
+<vendor>Land Rover</vendor>
+<model>Range Rover Vogue</model>
+<description>Прокат автомобиля Рендж Ровер в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды за сутки, при аренде 1-3 суток.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+4</param>
+<param name="Тип двигателя">дизель</param>
+<param name="КПП">автомат</param>
+<param name="Кондиционер">есть</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Усилитель руля">есть</param>
+<param name="ABS">есть</param>
+<param name="Привод">полный</param>
+</offer>
+
+<offer id="31" available="true" >
+<url>http://rulimcars.ru/infiniti_qx/?utm_source=yandex.market&amp;utm_medium=cpc&amp;utm_campaign=infiniti_qx&amp;utm_content=infiniti_qx_1mes</url>
+<price>9900</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_infiniti_qx56_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Инфинити QX56 посуточно</name>
+<vendor>Infiniti</vendor>
+<model>QX56</model>
+<description>Прокат автомобиля Инфинити QX56 в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды за сутки, при аренде на месяц.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+6</param>
+<param name="Тип двигателя">бензин</param>
+<param name="КПП">автомат</param>
+<param name="Кондиционер">есть</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Усилитель руля">есть</param>
+<param name="ABS">есть</param>
+<param name="Привод">полный</param>
+</offer>
+
+<offer id="32" available="true" >
+<url>http://rulimcars.ru/infiniti_qx/?utm_source=yandex.market&amp;utm_medium=cpc&amp;utm_campaign=infiniti_qx&amp;utm_content=infiniti_qx_17-30</url>
+<price>10100</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_infiniti_qx56_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Инфинити QX56 посуточно</name>
+<vendor>Infiniti</vendor>
+<model>QX56</model>
+<description>Прокат автомобиля Инфинити QX56 в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды за сутки, при аренде 17-30 суток.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+6</param>
+<param name="Тип двигателя">бензин</param>
+<param name="КПП">автомат</param>
+<param name="Кондиционер">есть</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Усилитель руля">есть</param>
+<param name="ABS">есть</param>
+<param name="Привод">полный</param>
+</offer>
+
+<offer id="33" available="true" >
+<url>http://rulimcars.ru/infiniti_qx/?utm_source=yandex.market&amp;utm_medium=cpc&amp;utm_campaign=infiniti_qx&amp;utm_content=infiniti_qx_9-16</url>
+<price>10500</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_infiniti_qx56_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Инфинити QX56 посуточно</name>
+<vendor>Infiniti</vendor>
+<model>QX56</model>
+<description>Прокат автомобиля Инфинити QX56 в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды за сутки, при аренде 9-16 суток.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+6</param>
+<param name="Тип двигателя">бензин</param>
+<param name="КПП">автомат</param>
+<param name="Кондиционер">есть</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Усилитель руля">есть</param>
+<param name="ABS">есть</param>
+<param name="Привод">полный</param>
+</offer>
+
+<offer id="34" available="true" >
+<url>http://rulimcars.ru/infiniti_qx/?utm_source=yandex.market&amp;utm_medium=cpc&amp;utm_campaign=infiniti_qx&amp;utm_content=infiniti_qx_4-8</url>
+<price>11200</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_infiniti_qx56_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Инфинити QX56 посуточно</name>
+<vendor>Infiniti</vendor>
+<model>QX56</model>
+<description>Прокат автомобиля Инфинити QX56 в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды за сутки, при аренде 4-8 суток.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+6</param>
+<param name="Тип двигателя">бензин</param>
+<param name="КПП">автомат</param>
+<param name="Кондиционер">есть</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Усилитель руля">есть</param>
+<param name="ABS">есть</param>
+<param name="Привод">полный</param>
+</offer>
+
+<offer id="35" available="true" >
+<url>http://rulimcars.ru/infiniti_qx/?utm_source=yandex.market&amp;utm_medium=cpc&amp;utm_campaign=infiniti_qx&amp;utm_content=infiniti_qx_1-3</url>
+<price>11900</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_infiniti_qx56_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Инфинити QX56 посуточно</name>
+<vendor>Infiniti</vendor>
+<model>QX56</model>
+<description>Прокат автомобиля Инфинити QX56 в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды за сутки, при аренде 1-3 суток.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+6</param>
+<param name="Тип двигателя">бензин</param>
+<param name="КПП">автомат</param>
+<param name="Кондиционер">есть</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Усилитель руля">есть</param>
+<param name="ABS">есть</param>
+<param name="Привод">полный</param>
 </offer>
 
 </offers>
