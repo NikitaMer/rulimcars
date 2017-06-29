@@ -60,8 +60,7 @@ if($arResult["PROPERTIES"]["BLACK"]["VALUE"] == "Black"){
         echo $black;
     $this->EndViewTarget();                
 }
-
-arshow($GLOBALS["black"]);?>
+?>
 <div class="background_white">            
     <div class="button_case1">
         <div id="car_headrentcar">
