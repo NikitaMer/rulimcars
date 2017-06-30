@@ -66,6 +66,16 @@ $(document).ready(function () {
             return true;
         }        
     });
+    $('#rentday').find('a').on("click",function(){  
+        for(var i=0;i<2;i++){ 
+            $('#select').fadeOut('slow').fadeIn('fast');
+        }                                                                                                                           
+    });
+    $('#rentres').find('a').on("click",function(){
+        for(var i=0;i<2;i++){
+            $('#rent').fadeOut('slow').fadeIn('fast');    
+        }                                                                                                                                 
+    });
 });
 /**
 * Код для Google Tag Manager при смене селектора автомобиля на стр. "Заявка на аренду"
