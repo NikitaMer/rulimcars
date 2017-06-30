@@ -616,6 +616,10 @@ form p{
     background: #ffeeee; 
     color:#f2393a;   
 }
+.no_good{
+    background-color: red; 
+    color:#f2393a;   
+}
 .social_network_img{
     height: 40px;
     padding: 1px;        
