@@ -66,11 +66,13 @@ $(document).ready(function () {
             return true;
         }        
     });
+    // Мигание селектора для выбора машин
     $('#rentday').find('a').on("click",function(){  
         for(var i=0;i<2;i++){ 
             $('#select').fadeOut('slow').fadeIn('fast');
         }                                                                                                                           
     });
+    // мигание селектора для выбора дня
     $('#rentres').find('a').on("click",function(){
         for(var i=0;i<2;i++){
             $('#rent').fadeOut('slow').fadeIn('fast');    

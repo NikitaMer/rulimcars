@@ -128,13 +128,19 @@
             $car = GetIBlockElement($auto); 
         ?>
 
-        <script type="text/javascript">
+<script type="text/javascript">
+            var products = [];
 
-           <?/*
+            products.push(
+                {
+                    "id": "<?=$car['NAME']?>",
+                    "name": "<?=$car['NAME']?>",
+                    "price": "<?=$res/$rent?>",
+                    "quantity" : '<?=$rent?>',
+                    'category': 'Car',
+                }
+            ); 
             ga('require', 'ecommerce');
-            var carName = {'Name' : '<?=$car['NAME']?>'};
-            OrderCar('<?=$order['ID']?>','<?=$res?>', null, carName['Name'], '<?=$car['PROPERTIES']['YEAR_CAR']['VALUE']?>', '<?=$car['ID']?>', '<?=$res/$rent?>', '<?=$rent?>');
-            // код электронной коммерции
             ga('ecommerce:addTransaction', {
                 'id': '<?=$order['ID']?>',                     // Transaction ID. Required.
                 'affiliation': 'Rulimcars',   // Affiliation or store name.
@@ -153,30 +159,6 @@
                 'quantity': '<?=$rent?>',
                 'currency': 'RUB' // local currency code.
             });
-            ga('ecommerce:send');
-            */ ?>
-
-
-            var products = [];
-
-            products.push(
-                {
-                    "id": "<?=$car['NAME']?>",
-                    "name": "<?=$car['NAME']?>",
-                    "price": "<?=$res/$rent?>",
-                    "quantity" : '<?=$rent?>',
-                    'category': 'Car',
-                }
-            ); 
-
-            ga('ecommerce:addItem', {
-                'id': '<?=$order['ID']?>',                     // Transaction ID. Required.
-                'name': '<?=$car['NAME']?>',    // Product name. Required.
-                'sku': '<?=$auto?>',                 // SKU/code.
-                'category': 'Car',         // Category or variation.
-                'price': '<?=$res/$rent?>',                 // Unit price.
-                'quantity': '<?=$rent?>',                   // Quantity.
-            });
 
             ga('ecommerce:send');
             dataLayer.push({
@@ -189,6 +171,7 @@
                     }
                 }
             });
+<?/*
 <script type="text/javascript">
 $(document).ready(function () {     
     var carName = {'Name' : '<?=$car['NAME']?>'};
@@ -212,7 +195,8 @@ $(document).ready(function () {
       'currency': 'RUB' // local currency code.
     });
     ga('ecommerce:send');
-});
+});*/
+?>
 </script>
     <?=$name?>, Вы оформили заявку №<?=$order['ID']?> на аренду автомобиля <?=$car['NAME']?><?if ($rent != 0){?> сроком на <?=$rent?> суток, стоимость <?=$res?> руб. (<?=$res/$rent?> руб/суток). <?}else{?>.<?}?> 
     <?if ($email != null){?>На адрес <?=$email?> отправлена информация с детализацией вашей заявки.<?}?>
