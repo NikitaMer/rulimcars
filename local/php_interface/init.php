@@ -61,9 +61,9 @@ function OnAfterIBlockElementAddHandler(&$arFields) {
         'DATE_CREATE' => $DateCreate,
     );
     if($arMailFields['RENT'] == 0 ) {
-        CEvent::Send($EVENT_TYPE, $SITE_ID, $arMailFields,"Y", 47);
+        CEvent::Send($EVENT_TYPE, $SITE_ID, $arMailFields,"Y", 50);
     }else{
-        CEvent::Send($EVENT_TYPE, $SITE_ID, $arMailFields,"Y", 46);
+        CEvent::Send($EVENT_TYPE, $SITE_ID, $arMailFields,"Y", 51);
     }      
   }
 }
