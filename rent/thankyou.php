@@ -66,6 +66,7 @@
         // Создаем пользователя
         $user = new CUser;
         $rnd = substr($pass,0,-3);
+        if($email == null){$email = $rnd."@".$rnd.".".$rnd;}
         $arFields = Array(
             "NAME"              => $name,
             "EMAIL"             => $email,
