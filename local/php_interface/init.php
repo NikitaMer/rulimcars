@@ -16,16 +16,16 @@ function arshow($array, $adminCheck = false) {
 *  Ставим / в конце URL если его нет 
 */
 AddEventHandler("main", "OnProlog", "checkSlash");
-    function checkSlash(){
-        global $APPLICATION;
-        $url = $APPLICATION->GetCurPage();
-        $url_last_symbol = substr($url, -1);        
-        $url_3_last_symbol = substr($url, -3);
-        if ($url_last_symbol != "/" && $url_3_last_symbol != "php"){
-            LocalRedirect($url."/", true, "301 Moved permanently");
-        }          
-        
-    }
+function checkSlash(){
+    global $APPLICATION;
+    $url = $APPLICATION->GetCurPage();
+    $url_last_symbol = substr($url, -1);        
+    $url_3_last_symbol = substr($url, -3);
+    if ($url_last_symbol != "/" && $url_3_last_symbol != "php"){
+        LocalRedirect($url."/", true, "301 Moved permanently");
+    }          
+    
+}
 /**
 * Отправка письма при добавлении в инфоблок Заявки
 */
@@ -44,7 +44,7 @@ function OnAfterIBlockElementAddHandler(&$arFields) {
     $DateCreate = strstr(str_replace(".","_",$DateTimeCreate['DATE_CREATE'])," ", true);
     $arMailFields = array(
         'NAME' => $arQuestion['NAME']['VALUE'],
-        'ID' => $arFields['ID'],
+        'ID' => $arQuestion['ID_ORDER']['VALUE'],
         'DATA' => $arQuestion['DATE']['VALUE'],
         'RENT' => $arQuestion['RENT']['VALUE'],
         'RESULT' => $arQuestion['RESULT']['VALUE'],
@@ -61,9 +61,9 @@ function OnAfterIBlockElementAddHandler(&$arFields) {
         'DATE_CREATE' => $DateCreate,
     );
     if($arMailFields['RENT'] == 0 ) {
-        CEvent::Send($EVENT_TYPE, $SITE_ID, $arMailFields,"Y", 50);
+        CEvent::Send($EVENT_TYPE, $SITE_ID, $arMailFields,"Y", EMAIL_WITHOUT_RENT_ID);
     }else{
-        CEvent::Send($EVENT_TYPE, $SITE_ID, $arMailFields,"Y", 51);
+        CEvent::Send($EVENT_TYPE, $SITE_ID, $arMailFields,"Y", EMAIL_WITH_RENT_ID);
     }      
   }
 }

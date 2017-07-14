@@ -13,29 +13,10 @@
     $text = $_POST["TEXT"];
     $date = $_POST["DATE"];
     $res =  $_POST["RESULT"];
-    $rent = $_POST["RENT"];   
+    $rent = $_POST["RENT"]; 
+    if ($name != null && $phone != null){  
     if ($_SESSION['id'] != 1 ){
-        $el = new CIBlockElement;
-        $PROP = array();
-        $PROP["CAR"] = $auto;  
-        $PROP["PHONE"] = $phone;        
-        $PROP["EMAIL"] = $email;
-        $PROP["NAME"] = $name;
-        $PROP["DATE"] = $date;
-        $PROP["RESULT"] = $res;
-        $PROP["RENT"] = $rent;
-        $PROP["COMMENT"] = $text;         
-        $arLoadProductArray = Array(
-            "IBLOCK_SECTION_ID" => false,        
-            "IBLOCK_ID"      => 10,
-            "PROPERTY_VALUES"=> $PROP,
-            "NAME"           => $name,
-            "ACTIVE"         => "Y",          
-            "DETAIL_TEXT"    => $text,
-        );
-        // Добавляем заявку в инфоблок "Заявки" 
-        $el->Add($arLoadProductArray);
-
+        // Формирование корзины и создание заказа
         $car_catolog = CIBlockElement::GetProperty(12, $auto, array("sort"=>"asc"), array("CODE"=>"CATALOG"))->Fetch();        
         $catolog = GetIBlockElement($car_catolog['VALUE']);     
         $product = array(
@@ -45,7 +26,7 @@
             'CURRENCY' => 'RUB', 
             'QUANTITY' => $rent,    
         );
-        // Генерируем случайный 
+        // Генерируем случайный пароль
         $arr = array('a','b','c','d','e','f',
             'g','h','i','j','k','l',
             'm','n','o','p','r','s',
@@ -64,6 +45,7 @@
             $pass .= $arr[$index];
         }
         // Создаем пользователя
+        // Так как заказ нужно привязывать к пользователю. Но регистрации на сайте нет. Поэтому выкручиваемся как можем.
         $user = new CUser;
         $rnd = substr($pass,0,-3);
         if($email == null){$email = $rnd."@".$rnd.".".$rnd;}
@@ -108,26 +90,35 @@
         if ($name  != null){$somePropValueName = $propertyCollection->getItemByOrderPropertyId(1)->setValue($name);}
         if ($phone != null){$somePropValuePhone = $propertyCollection->getItemByOrderPropertyId(2)->setValue($phone);}
         if ($email != null){$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(3)->setValue($email);}
-        $result = $order->save();
+        $result = $order->save();  
+        $orderId = $order->getId();     
+        
+        // Добавляем заявку в инфоблок "Заявки"
+        $el = new CIBlockElement;
+        $PROP = array();
+        $PROP["CAR"] = $auto;  
+        $PROP["PHONE"] = $phone;        
+        $PROP["EMAIL"] = $email;
+        $PROP["NAME"] = $name;
+        $PROP["DATE"] = $date;
+        $PROP["RESULT"] = $res;
+        $PROP["RENT"] = $rent;
+        $PROP["COMMENT"] = $text;         
+        $PROP["ID_ORDER"] = $orderId;         
+        $arLoadProductArray = Array(
+            "IBLOCK_SECTION_ID" => false,        
+            "IBLOCK_ID"      => 10,
+            "PROPERTY_VALUES"=> $PROP,
+            "NAME"           => $name,
+            "ACTIVE"         => "Y",          
+            "DETAIL_TEXT"    => $text,
+        );         
+        $IDiblock = $el->Add($arLoadProductArray);
     }
 ?>
 
 <div class="content">
-    <?
-        if ($name != null && $phone != null){
-            $CBEor = CIBlockElement::GetList(array(), array("IBLOCK_ID" => 10));
-            while($CBEorder = $CBEor->Fetch()){    
-                if ($CBEorder['NAME'] == $name){
-                    $order = $CBEorder; 
-                }
-            } 
-            $Corder = CIBlockElement::GetProperty(10, $order['ID']);
-            $proporder = array();
-            while($Cproporder = $Corder->Fetch()){
-                $proporder[$Cproporder['NAME']] =  $Cproporder['VALUE'];  
-            }
-            $car = GetIBlockElement($auto); 
-        ?>
+    <?$car = GetIBlockElement($auto);?>
 
 <script type="text/javascript">
             var products = [];
@@ -143,8 +134,8 @@
             ); 
             ga('require', 'ecommerce');
             ga('ecommerce:addTransaction', {
-                'id': '<?=$order['ID']?>',                     // Transaction ID. Required.
-                'affiliation': 'Rulimcars',   // Affiliation or store name.
+                'id': '<?=$orderId?>',                     // Transaction ID. Required.
+                'affiliation': 'Rulimcars',             // Affiliation or store name.
                 'revenue': '<?=$res?>',               // Grand Total.
                 'shipping': '0',                  // Shipping.
                 'tax': '0'                     // Tax.
@@ -152,7 +143,7 @@
 
 
             ga('ecommerce:addItem', {
-                'id': '<?=$order['ID']?>',
+                'id': '<?=$orderId?>',
                 'name': '<?=$car['NAME']?>',
                 'sku': '<?=$auto?>',
                 'category': 'Car',
@@ -166,42 +157,18 @@
                 "ecommerce": {
                     "purchase": {
                         "actionField": {
-                            "id" : "<?=$order['ID']?>"
+                            "id" : "<?=$orderId?>"
                         },
                         "products": products
                     }
                 }
             });
-<?/*
-<script type="text/javascript">
-$(document).ready(function () {     
-    var carName = {'Name' : '<?=$car['NAME']?>'};
-    OrderCar('<?=$order['ID']?>','<?=$res?>', null, carName['Name'], '<?=$car['PROPERTIES']['YEAR_CAR']['VALUE']?>', '<?=$car['ID']?>', '<?=$res/$rent?>', '<?=$rent?>');
-    // код электронной коммерции
-    ga('require', 'ecommerce');
-    ga('ecommerce:addTransaction', {
-      'id': '<?=$order['ID']?>',                     // Transaction ID. Required.
-      'affiliation': 'Rulimcars',   // Affiliation or store name.
-      'revenue': '<?=$res?>',               // Grand Total.
-      'shipping': '0',                  // Shipping.
-      'tax': '0'                     // Tax.
-    });
-    ga('ecommerce:addItem', {
-      'id': '<?=$order['ID']?>',
-      'name': '<?=$car['NAME']?>',
-      'sku': '<?=$auto?>',
-      'category': 'Car',
-      'price': '<?=$res/$rent?>',
-      'quantity': '<?=$rent?>',
-      'currency': 'RUB' // local currency code.
-    });
-    ga('ecommerce:send');
-});*/
-?>
 </script>
-    <?=$name?>, Вы оформили заявку №<?=$order['ID']?> на аренду автомобиля <?=$car['NAME']?><?if ($rent != 0){?> сроком на <?=$rent?> суток, стоимость <?=$res?> руб. (<?=$res/$rent?> руб/суток). <?}else{?>.<?}?> 
-    <?if ($email != null){?>На адрес <?=$email?> отправлена информация с детализацией вашей заявки.<?}?>
+
+    <?=$name?>, Вы оформили заявку №<?=$orderId?> на аренду автомобиля <?=$car['NAME']?><?if ($rent != 0){?> сроком на <?=$rent?> суток, стоимость <?=$res?> руб. (<?=$res/$rent?> руб/суток). <?}else{?>.<?}?> 
+    <?if ($email != null && $email != $rnd."@".$rnd.".".$rnd){?>На адрес <?=$email?> отправлена информация с детализацией вашей заявки.<?}?>
     В ближайшее время с вами свяжется сотрудник нашей компании и обсудит с вами детали, вы так же можете позвонить самостоятельно по бесплатному номеру 8(800)777 59 90.
+    
 <?}?>
 </div>   
 <div>
@@ -217,6 +184,6 @@ $(document).ready(function () {
             false
         );?>
 </div>
-<?$_SESSION['id']=1;
-    require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?$_SESSION['id'] = 1;
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
  
