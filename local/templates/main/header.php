@@ -8,7 +8,12 @@ IncludeTemplateLangFile(__FILE__);
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <?include($_SERVER["DOCUMENT_ROOT"]."/include/meta.php");?>    
     <?$APPLICATION->ShowViewContent('myFuncHeadCar');
-    $APPLICATION->ShowViewContent('myFuncCar');?>
+    $APPLICATION->ShowViewContent('myFuncCar');
+    //Actionpay
+    if (isset($_GET["actionpay"])){
+        setcookie("actionpay", $_GET["actionpay"], time()+60*60*24*30);
+    }
+    ?>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -16,6 +21,27 @@ IncludeTemplateLangFile(__FILE__);
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WDVQ4V2');</script>
     <!-- End Google Tag Manager -->
+    <!-- Actionpay -->
+    <script type="text/javascript"> 
+    (function (w, d) {
+        try {
+            var el = 'getElementsByTagName', rs = 'readyState';
+            if (d[rs] !== 'interactive' && d[rs] !== 'complete') {
+                var c = arguments.callee;
+                return setTimeout(function () { c(w, d) }, 100);
+            }                                                   
+            var s = d.createElement('script');                  
+            s.type = 'text/javascript';                         
+            s.async = s.defer = true;                           
+            s.src = '//aprtx.com/code/rulimcars/';              
+            var p = d[el]('body')[0] || d[el]('head')[0];       
+            if (p) p.appendChild(s);                            
+        } catch (x) { if (w.console) w.console.log(x); }        
+    })(window, document);                                       
+    </script>
+    <script> window.APRT_DATA = {pageType: 1};</script>
+    <!-- End Actionpay -->
+    
 </head>
 <body>
 <?$APPLICATION->ShowPanel();
