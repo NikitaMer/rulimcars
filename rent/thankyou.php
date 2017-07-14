@@ -120,7 +120,10 @@
 <div class="content">
     <?$car = GetIBlockElement($auto);?>
 
-<script type="text/javascript">
+    <script type="text/javascript">
+            //Actionpay
+            window.APRT_DATA = {pageType: 6};
+            
             var products = [];
 
             products.push(
@@ -163,12 +166,12 @@
                     }
                 }
             });
-</script>
+    </script>
 
     <?=$name?>, Вы оформили заявку №<?=$orderId?> на аренду автомобиля <?=$car['NAME']?><?if ($rent != 0){?> сроком на <?=$rent?> суток, стоимость <?=$res?> руб. (<?=$res/$rent?> руб/суток). <?}else{?>.<?}?> 
     <?if ($email != null && $email != $rnd."@".$rnd.".".$rnd){?>На адрес <?=$email?> отправлена информация с детализацией вашей заявки.<?}?>
     В ближайшее время с вами свяжется сотрудник нашей компании и обсудит с вами детали, вы так же можете позвонить самостоятельно по бесплатному номеру 8(800)777 59 90.
-    
+
 <?}?>
 </div>   
 <div>
@@ -184,6 +187,12 @@
             false
         );?>
 </div>
+    <?if (isset($orderId) && isset($res)){?>
+        <img src="http://www.qxplus.ru/scripts/sale.php?AccountId=109c164e&TotalCost=<?=$res?>&OrderID=<?=$orderId?>&ProductID=rulimcars_default" width="1" height="1" >
+    <?}?>
+    <?if (isset($_COOKIE["actionpay"]) && $_COOKIE["utm_source"]=="actionpay"){?>
+        <img src="//apypx.com/ok/14885.png?actionpay=<?=$_COOKIE["actionpay"]?>&apid=<?=$orderId?>&price=<?=$res?>" height="1" width="1" />
+    <?}?>
 <?$_SESSION['id'] = 1;
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
  
