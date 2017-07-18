@@ -187,12 +187,14 @@
             false
         );?>
 </div>
+<div style="display: none;">
     <?if (isset($orderId) && isset($res)){?>
         <img src="http://www.qxplus.ru/scripts/sale.php?AccountId=109c164e&TotalCost=<?=$res?>&OrderID=<?=$orderId?>&ProductID=rulimcars_default" width="1" height="1" >
     <?}?>
-    <?if (isset($_COOKIE["actionpay"]) && $_COOKIE["utm_source"]=="actionpay"){?>
+    <?if (isset($_COOKIE["actionpay"])){?>
         <img src="//apypx.com/ok/14885.png?actionpay=<?=$_COOKIE["actionpay"]?>&apid=<?=$orderId?>&price=<?=$res?>" height="1" width="1" />
-    <?}?>
+    <?}?> 
+</div>
 <?$_SESSION['id'] = 1;
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
  
