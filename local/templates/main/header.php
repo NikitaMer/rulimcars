@@ -13,6 +13,12 @@ IncludeTemplateLangFile(__FILE__);
     if (isset($_GET["actionpay"])){
         setcookie("actionpay", $_GET["actionpay"], time()+60*60*24*30);
     }
+    if (isset($_GET["utm_source"])){
+        setcookie("utm_source", $_GET["utm_source"], time()+60*60*24*30);
+    }
+    if (isset($_GET["utm_medium"])){
+        setcookie("utm_medium", $_GET["utm_medium"], time()+60*60*24*30);
+    }
     ?>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -39,9 +45,7 @@ IncludeTemplateLangFile(__FILE__);
         } catch (x) { if (w.console) w.console.log(x); }        
     })(window, document);                                       
     </script>
-    <script> window.APRT_DATA = {pageType: 1};</script>
-    <!-- End Actionpay -->
-    
+    <!-- End Actionpay -->    
 </head>
 <body>
 <?$APPLICATION->ShowPanel();

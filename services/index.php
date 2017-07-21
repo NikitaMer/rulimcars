@@ -3,7 +3,9 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("H1", "Дополнительные услуги");
 $APPLICATION->SetPageProperty("title", "Прокат авто, трансфер в Московских аэропортах, аренда авто с водителем.");
 $APPLICATION->SetTitle("Дополнительные услуги");
-?><div class="content">
+?>
+<script> window.APRT_DATA = {pageType: 0};</script>
+<div class="content">
     <div>
          <?$APPLICATION->IncludeComponent(
     "bitrix:main.include",
