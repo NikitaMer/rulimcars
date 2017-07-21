@@ -75,101 +75,73 @@ $APPLICATION->SetTitle("Контакты RulimCars");
     ),
     false
 );?>
-    </div>
-    <div class="map">
-         <?$APPLICATION->IncludeComponent(
-    "bitrix:map.google.view", 
-    ".default", 
-    array(
-        "API_KEY" => "AIzaSyCqblkSttUsixd84hvUviKebl3mX2tNoq0",
-        "CONTROLS" => array(
-            0 => "SMALL_ZOOM_CONTROL",
-            1 => "TYPECONTROL",
-            2 => "SCALELINE",
-        ),
-        "INIT_MAP_TYPE" => "ROADMAP",
-        "MAP_DATA" => "a:4:{s:10:\"google_lat\";d:55.83964073209986;s:10:\"google_lon\";d:37.487353370361355;s:12:\"google_scale\";i:16;s:10:\"PLACEMARKS\";a:1:{i:0;a:3:{s:4:\"TEXT\";s:9:\"RulimCars\";s:3:\"LON\";d:37.488559484482;s:3:\"LAT\";d:55.839699147438;}}}",
-        "MAP_HEIGHT" => "500",
-        "MAP_ID" => "",
-        "MAP_WIDTH" => "700",
-        "OPTIONS" => array(
-            0 => "ENABLE_SCROLL_ZOOM",
-            1 => "ENABLE_DBLCLICK_ZOOM",
-            2 => "ENABLE_DRAGGING",
-            3 => "ENABLE_KEYBOARD",
-        ),
-        "COMPONENT_TEMPLATE" => ".default"
-    ),
-    false
+	</div>
+	<div class="text">
+		<div class="partner">
+			 <a >Наши партнеры:</a> <?$APPLICATION->IncludeComponent(
+	"bitrix:main.include",
+	"",
+	Array(
+		"AREA_FILE_SHOW" => "file",
+		"AREA_FILE_SUFFIX" => "inc",
+		"EDIT_TEMPLATE" => "",
+		"PATH" => "/include/partner.php"
+	)
 );?>
-    </div>
-    <div class="text">
-        <div class="partner">
-             <a >Наши партнеры:</a> <?$APPLICATION->IncludeComponent(
-    "bitrix:main.include",
-    "",
-    Array(
-        "AREA_FILE_SHOW" => "file",
-        "AREA_FILE_SUFFIX" => "inc",
-        "EDIT_TEMPLATE" => "",
-        "PATH" => "/include/partner.php"
-    )
-);?>
-        </div>
-        <div class="mail">
-            <div class="mail_rent">
-                 По вопросам аренды автомобиля<br>
+		</div>
+		<div class="mail">
+			<div class="mail_rent">
+				 По вопросам аренды автомобиля<br>
  <a href="mailto:prokat@rulimcars.ru"><?$APPLICATION->IncludeComponent(
-    "bitrix:main.include",
-    "",
-    Array(
-        "AREA_FILE_SHOW" => "file",
-        "AREA_FILE_SUFFIX" => "inc",
-        "EDIT_TEMPLATE" => "",
-        "PATH" => "/include/email.php"
-    )
+	"bitrix:main.include",
+	"",
+	Array(
+		"AREA_FILE_SHOW" => "file",
+		"AREA_FILE_SUFFIX" => "inc",
+		"EDIT_TEMPLATE" => "",
+		"PATH" => "/include/email.php"
+	)
 );?></a>
-            </div>
-            <div class="mail_reviews">
-                 По вопросам предложений,<br>
-                 отзывов о работе и сотрудничества<br>
+			</div>
+			<div class="mail_reviews">
+				 По вопросам предложений,<br>
+				 отзывов о работе и сотрудничества<br>
  <a href="mailto:info@rulimcars.ru"><?$APPLICATION->IncludeComponent(
-    "bitrix:main.include",
-    "",
-    Array(
-        "AREA_FILE_SHOW" => "file",
-        "AREA_FILE_SUFFIX" => "inc",
-        "EDIT_TEMPLATE" => "",
-        "PATH" => "/include/email2.php"
-    )
+	"bitrix:main.include",
+	"",
+	Array(
+		"AREA_FILE_SHOW" => "file",
+		"AREA_FILE_SUFFIX" => "inc",
+		"EDIT_TEMPLATE" => "",
+		"PATH" => "/include/email2.php"
+	)
 );?></a>
-            </div>
-        </div>
-    </div>
+			</div>
+		</div>
+	</div>
 </div>
 <div>
-    <?$APPLICATION->IncludeComponent(
-        "webgk:car.list", 
-        ".default", 
-        array(
-            "CAR" => array(
-            ),
-            "TYPE_SORT" => "ID",
-            "COMPONENT_TEMPLATE" => ".default"
-        ),
-        false
-    );?>
+	 <?$APPLICATION->IncludeComponent(
+	"webgk:car.list",
+	".default",
+	Array(
+		"CAR" => array(),
+		"COMPONENT_TEMPLATE" => ".default",
+		"TYPE_SORT" => "ID"
+	)
+);?>
 </div>
 <div class="content">
-    <div class="seo">
-         <?$APPLICATION->IncludeComponent(
-    "bitrix:main.include",
-    "",
-    Array(
-        "AREA_FILE_SHOW" => "page",
-        "AREA_FILE_SUFFIX" => "inc",
-        "EDIT_TEMPLATE" => ""
-    )
+	<div class="seo">
+		 <?$APPLICATION->IncludeComponent(
+	"bitrix:main.include",
+	"",
+	Array(
+		"AREA_FILE_SHOW" => "page",
+		"AREA_FILE_SUFFIX" => "inc",
+		"EDIT_TEMPLATE" => ""
+	)
 );?>
-    </div>
-</div><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+	</div>
+</div>
+ <br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
