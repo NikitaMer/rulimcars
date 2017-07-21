@@ -5,7 +5,9 @@ $APPLICATION->SetPageProperty("description", "Прокат авто без во�
 $APPLICATION->SetPageProperty("keywords", "аренда авто, аренда авто Москва, прокат авто, прокат авто водный стадион, аренда авто водный стадион");
 $APPLICATION->SetPageProperty("title", "Контакты RulimCars - аренда автомобилей в Москве");
 $APPLICATION->SetTitle("Контакты RulimCars");
-?><div class="content">
+?>
+<script> window.APRT_DATA = {pageType: 0};</script>
+<div class="content">
     <div class="address_all">
          <?$APPLICATION->IncludeComponent(
     "bitrix:news.list", 
