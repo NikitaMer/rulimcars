@@ -2,7 +2,9 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetPageProperty("H1", "Способы оплаты");
 $APPLICATION->SetTitle("Способы оплаты");
-?><div class="content">
+?>
+<script> window.APRT_DATA = {pageType: 0};</script>
+<div class="content">
     <div class="address_all">
          <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list", 

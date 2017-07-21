@@ -4,6 +4,7 @@ $APPLICATION->SetPageProperty("title", "О Компании RulimCars - арен
 $APPLICATION->SetPageProperty("H1", "О Компании RulimCars");
 $APPLICATION->SetTitle("О Компании RulimCars");
 ?>
+<script> window.APRT_DATA = {pageType: 0};</script>
 <div class="content">
 <p style="text-align: justify;">
  <br>

@@ -28,6 +28,9 @@ $this->EndViewTarget();
 $this->SetViewTarget("myFuncAfterCar");
     echo $arResult['PROPERTIES']['SCRIPT_AFTER_BODY']['~VALUE']['TEXT'];
 $this->EndViewTarget();
+?>
+<script> window.APRT_DATA = {pageType: 0};</script>
+<?
 // Добавляем код в HEAD 
 $this->SetViewTarget("myFuncCar");?>
     <script>
