@@ -11,7 +11,23 @@ function arshow($array, $adminCheck = false) {
         echo "<pre>";
         print_r($array);
         echo "</pre>";
-    }               
+    }
+ /**
+ *
+ * @param mixed $data
+ * @param string $file
+ * @return void
+ *
+ * */
+
+function logger($data, $file = "log.log") {
+    $file = $_SERVER['DOCUMENT_ROOT'].'/'.$file;
+    file_put_contents(
+        $file,
+        var_export($data, 1)."\n",
+        FILE_APPEND
+    );
+}               
 /**
 *  Ð¡Ñ‚Ð°Ð²Ð¸Ð¼ / Ð² ÐºÐ¾Ð½Ñ†Ðµ URL ÐµÑÐ»Ð¸ ÐµÐ³Ð¾ Ð½ÐµÑ‚ 
 */
@@ -67,3 +83,19 @@ function OnAfterIBlockElementAddHandler(&$arFields) {
     }      
   }
 }
+
+// ñêëîíåíèå ïîñëå ÷èñåë
+function morpher($number, $word1, $word2, $word3) {
+    if (($number - $number % 10) % 100 != 10) {
+        if ($number % 10 == 1) {
+            $result = $word1;
+        } elseif ($number % 10 >= 2 && $number % 10 <= 4) {
+            $result = $word2;
+        } else {
+            $result = $word3;
+        }
+    } else {
+        $result = $word3;
+    }
+    return $result;
+};

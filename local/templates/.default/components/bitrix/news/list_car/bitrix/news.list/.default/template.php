@@ -9,7 +9,7 @@
 /** @var string $templateFile */
 /** @var string $templateFolder */
 /** @var string $componentPath */
-/** @var CBitrixComponent $component */  
+/** @var CBitrixComponent $component */ 
 ?>
 <div class="news-list">
 <?if($arParams["DISPLAY_TOP_PAGER"]):?>
@@ -18,11 +18,19 @@
 <?$i = 1;?>
 <?foreach($arResult["ITEMS"] as $arItem):
 if ($arItem['PROPERTIES']['SHOW_CAR']['VALUE_ENUM_ID'] == 13){
-// Приводим цены в лучший вид 
-$price = array();
-foreach($arItem['DAY_PRICE'] as $key){
-    $price[] = stristr($key['PRICE'], '.', true);        
-}         
+    // Приводим цены в лучший вид 
+    $price = array();
+    if($arItem['PROPERTIES']['TYPE_PRICE']['VALUE'] == "в сутки"){  
+        foreach($arItem['DAY_PRICE'] as $key){
+            $price[] = stristr($key['PRICE'], '.', true);        
+        }                            
+        $text_rate = GetMessage("PER_DAY");    
+    }else{
+        foreach($arItem['HOUR_PRICE'] as $key){
+            $price[] = stristr($key['PRICE'], '.', true);        
+        }                                
+        $text_rate = GetMessage("PER_HOUR");       
+    }                                                        
     $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
     $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
     ?> 
@@ -40,7 +48,7 @@ foreach($arItem['DAY_PRICE'] as $key){
                     </div>
                     <div id="main_pricecar" class="price">
                         <?=GetMessage("FROM")?> <a id="price" href="<?=$arItem["DETAIL_PAGE_URL"]?>"> <?=min($price)?> <span>&#8381;</span></a><br/>
-                        <?=GetMessage("PER_DAY")?>   <div id="main_morecar" class="more"><a id="more" href="<?=$arItem["DETAIL_PAGE_URL"]?>"><?=GetMessage("MORE")?></a></div>                                  
+                        <?=$text_rate?>   <div id="main_morecar" class="more"><a id="more" href="<?=$arItem["DETAIL_PAGE_URL"]?>"><?=GetMessage("MORE")?></a></div>                                  
                     </div>
                     <div id="main_rentcar">
                         <form method="post" action="/rent/">

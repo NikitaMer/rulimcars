@@ -12,8 +12,10 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 /** @var string $componentPath */
 /** @var CBitrixComponent $component */
 $this->setFrameMode(false);
-$_SESSION['id']=0;?>                    
+$_SESSION['id']=0;
+?>                    
 <div class="form">
+
 <script>
 $(document).ready(function () {        
     var car = {
@@ -41,10 +43,7 @@ $(document).ready(function () {
         PresentCar(car[presentcar]['Name'], car[presentcar]['Year'], presentcar, car[presentcar]['Price'][0]);
     <?}else{?>
         presentcar = false;
-    <?}?>
-    $("#select").click(function(){
-        oldcarid = $('#select option:selected').attr('value');     
-    });    
+    <?}?>    
     $("#select").change(function(){
         newcarid = $('#select option:selected').attr('value'); 
         src = $('#select option:selected').attr('data_path');        
@@ -58,13 +57,11 @@ $(document).ready(function () {
         $('#rentres').find('a').text("Выберите срок аренды");
         $('#result').val('');     
     }else{
-        present_selprice = car[presentcar]['Price'];
-        
-           $('#rentday').find('a').text("от "+present_selprice[present_selprice.length-1]+" до "+present_selprice[0]);
-           $('#rentday').find('a').css("color" , "#5d5d5d");  
-           $('#rentres').find('a').text("Выберите срок аренды");   
-           $('#result').val('');   
-    
+        present_selprice = car[presentcar]['Price'];        
+        $('#rentday').find('a').text("от "+present_selprice[present_selprice.length-1]+" до "+present_selprice[0]);
+        $('#rentday').find('a').css("color" , "#5d5d5d");  
+        $('#rentres').find('a').text("Выберите срок аренды");   
+        $('#result').val('');
     }    
     $("#rent").change(function(){        
         if(($("#select").val() == "0" && $("#rent").val() == "0") || $("#select").val() == "0"){
@@ -107,6 +104,7 @@ $(document).ready(function () {
     });
 });
 </script>
+*/?>
     <div>
         <div class="horizontalgrey horizontalgrey1"></div>
         <div class="cost">

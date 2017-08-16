@@ -13,9 +13,28 @@
 $this->setFrameMode(true);
 // Приводим цены в лучший вид
 $price = array();
-foreach($arResult['DAY_PRICE'] as $key){
-    $price[] = stristr($key['PRICE'], '.', true);        
-} 
+$price_sc = array();
+if($arResult['PROPERTIES']['TYPE_PRICE']['VALUE'] == "в сутки"){
+    foreach($arResult['DAY_PRICE'] as $key){
+        $price[] = stristr($key['PRICE'], '.', true);        
+    }
+    $rate = $arResult['DAY_PRICE'];
+    $text_rate = GetMessage("PER_DAY");
+    $word1 = 'сутки';    
+    $word2 = 'суток';   
+    $word3 = 'суток';  
+}else{
+    foreach($arResult['HOUR_PRICE'] as $key){
+        $price[] = stristr($key['PRICE'], '.', true);        
+    }
+    $rate = $arResult['HOUR_PRICE']; 
+    $text_rate = GetMessage("PER_HOUR");
+    $word1 = 'час';    
+    $word2 = 'часа';   
+    $word3 = 'часов';       
+}
+
+ 
 // Добавляем текст, который должен быть JS кодом, в HEAD
 $this->SetViewTarget("myFuncHeadCar");
     echo $arResult['PROPERTIES']['SCRIPT_IN_HEAD']['~VALUE']['TEXT'];
@@ -43,7 +62,7 @@ $this->SetViewTarget("myFuncCar");?>
             'products': [{
               'name': '<?=$arResult['NAME']." ".$arResult['PROPERTIES']['YEAR_CAR']['VALUE']?>',      
               'id': '<?=$arResult['CODE']?>',         
-              'price': '<?=$arResult['DAY_PRICE'][0]['PRICE']?>'         
+              'price': '<?=min($price)?>'         
              }]
            }
          },
@@ -75,7 +94,7 @@ if($arResult["PROPERTIES"]["BLACK"]["VALUE"] == "Black"){
     </div>
     <div class="inner_price <?=$black?>">
         <p><?=GetMessage("FROM")?> <a> <?=min($price)?> <span>&#8381;</span></a> <?=GetMessage("BEFORE")?> <a> <?=max($price)?> <span>&#8381;</span></a></p>
-            <?=GetMessage("PER_DAY")?>
+            <?=$text_rate?>
     </div>
     <div class="price_car">
         <?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arResult["DETAIL_PICTURE"])):?>
@@ -119,20 +138,21 @@ if($arResult["PROPERTIES"]["BLACK"]["VALUE"] == "Black"){
             ТАРИФЫ
         </div>
         <div class="cells <?=$black?>">
-        <?foreach ($arResult['DAY_PRICE'] as $value):?>
+        <?foreach ($rate as $value):?>
             <div class="cell">                    
                 <div class="red_circle <?=$background_black?>">
                     <div id="day">
                     <?if ($value['QUANTITY_TO'] == null):?>
-                    <span><?=$value['QUANTITY_FROM']?>+</span><br/>
+                        <span><?=$value['QUANTITY_FROM']?>+</span><br/>
+                        <?=morpher((int)$value['QUANTITY_FROM'],$word1,$word2,$word3)?>
                     <?else:?>
-                    <span><?=$value['QUANTITY_FROM']?>-<?=$value['QUANTITY_TO']?></span><br/>
-                    <?endif;?>
-                    суток
+                        <span><?=$value['QUANTITY_FROM']?>-<?=$value['QUANTITY_TO']?></span><br/>
+                        <?=morpher((int)$value['QUANTITY_TO'],$word1,$word2,$word3)?>
+                    <?endif;?>                    
                     </div>
                 </div>
                 <span><?=stristr($value['PRICE'], '.', true)?> <span>&#8381;</span></span><br/>
-                <?=GetMessage("PER_DAY")?>                        
+                <?=$text_rate?>                        
             </div>
         <?endforeach;?>                                       
         </div>
@@ -159,9 +179,13 @@ if($arResult["PROPERTIES"]["BLACK"]["VALUE"] == "Black"){
                     <?endforeach;?>
                 </tr>
                 <tr>
-                    <?foreach($arResult["PROPERTIES"]["SIMILAR_CAR"]["CAR_VALUE"] as $arItem):?>
+                    <?
+                    foreach($arResult["PROPERTIES"]["SIMILAR_CAR"]["CAR_VALUE"] as $arItem):
+                        foreach($arResult['DAY_PRICE'] as $key){
+                            $price_sc[] = stristr($key['PRICE'], '.', true);        
+                        } ?>
                         <td>
-                            <a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><?echo $arItem["NAME"]?><br/><?=GetMessage("FROM_MINI")?> <?=$arItem["PRICE"]?> <span>&#8381;</span></a>
+                            <a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><?echo $arItem["NAME"]?><br/><?=GetMessage("FROM_MINI")?> <?=min($price_sc)?> <span>&#8381;</span></a>
                         </td>                                
                     <?endforeach;?>
                 </tr>
@@ -169,6 +193,7 @@ if($arResult["PROPERTIES"]["BLACK"]["VALUE"] == "Black"){
         </div>         
     </div>
 <?}?>
+<?if($arResult['DETAIL_TEXT'] || $arResult['PREVIEW_TEXT']){?>
 <div class="content">
     <div class="seo">
         <?if ($arResult['DETAIL_TEXT'] == null){
@@ -177,7 +202,8 @@ if($arResult["PROPERTIES"]["BLACK"]["VALUE"] == "Black"){
             echo ($arResult['DETAIL_TEXT']);    
         }?>     
     </div>
-</div>
+</div> 
+<?}?>
 </div>
 <div class="nv_topnav">
 <ul>

@@ -48,7 +48,7 @@
         // Так как заказ нужно привязывать к пользователю. Но регистрации на сайте нет. Поэтому выкручиваемся как можем.
         $user = new CUser;
         $rnd = substr($pass,0,-3);
-        if($email == null){$email = $rnd."@".$rnd.".".$rnd;}
+        if($email == null){$email = "noemail@rulimcars.ru";}
         $arFields = Array(
             "NAME"              => $name,
             "EMAIL"             => $email,
@@ -118,13 +118,11 @@
 ?>
 
 <div class="content">
-    <?$car = GetIBlockElement($auto);?>
-    <script> window.APRT_DATA = {pageType: 1};</script>        
+    <?$car = GetIBlockElement($auto);?>       
         <script>
         window.dataLayer = window.dataLayer || [];
         dataLayer.push({
-           'transactionId': '<?=$orderId?>',          //номер заказа
-           'transactionTotal': '<?=$res?>',                //Итоговая стоимость заявки
+           'transactionId': '<?=$orderId?>',          //номер заказа             //Итоговая стоимость заявки
            'transactionProducts': [{
                'sku': '<?=$car['CODE']?>',                    //анкор автомобиля (символьный код)
                'name': '<?=$car['NAME']?> <?=$car["PROPERTY"]["YEAR"]["VALUE"]?>',                 //Наименование автомобиля + год
@@ -182,7 +180,7 @@
     </script>
 
     <?=$name?>, Вы оформили заявку №<?=$orderId?> на аренду автомобиля <?=$car['NAME']?><?if ($rent != 0){?> сроком на <?=$rent?> суток, стоимость <?=$res?> руб. (<?=$res/$rent?> руб/суток). <?}else{?>.<?}?> 
-    <?if ($email != null && $email != $rnd."@".$rnd.".".$rnd){?>На адрес <?=$email?> отправлена информация с детализацией вашей заявки.<?}?>
+    <?if ($email != null && $email != "noemail@rulimcars.ru"){?>На адрес <?=$email?> отправлена информация с детализацией вашей заявки.<?}?>
     В ближайшее время с вами свяжется сотрудник нашей компании и обсудит с вами детали, вы так же можете позвонить самостоятельно по бесплатному номеру 8(800)777 59 90.
 
 <?}?>
