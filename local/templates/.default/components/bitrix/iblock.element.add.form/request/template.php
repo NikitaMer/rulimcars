@@ -123,7 +123,7 @@ $(document).ready(function () {
         <div class="horizontalgrey horizontalgrey3"></div>
         <div class="verticalgrey"></div>   
     <form method="post" action="/rent/thankyou.php" class="rentpost">
-        <button type="submit" class="button1 button button_text_mini" id="order_footrequest" onclick="ga('send', 'event', 'rentbutton', 'go2rent', 'carheadrentcar');"><?=GetMessage("SEND_REQUEST")?></button>
+        <button type="submit" class="button1 button button_text_mini" id="order_footrequest" onclick="ga('send', 'event', 'rentbutton', 'go2rent', 'carheadrentcar'); yaCounter38525090.reachGoal('orderbutton'); return true;"><?=GetMessage("SEND_REQUEST")?></button>
         <p><?=GetMessage("PERSONAL_DATA")?></p>
         <label>
                <select class="select must" name="AUTO" id="select">
@@ -195,7 +195,7 @@ $(document).ready(function () {
         </label>
         <label><textarea class="textarea" id="text" placeholder="<?=GetMessage("PLAC_COMMENT")?>" name="TEXT"></textarea></label>
         <label class="invisible"><input autocomplete="off" type="text" id="result" class="input invisible" name="RESULT" placeholder="<?=GetMessage("PLAC_RESULT")?>" value="0"/></label>                            
-        <button type="submit" class="button button_text_mini" id="order_footrequest" onclick="ga('send', 'event', 'rentbutton', 'go2rent', 'carfootrentcar');"><?=GetMessage("SEND_REQUEST")?></button>
+        <button type="submit" class="button button_text_mini" id="order_footrequest" onclick="ga('send', 'event', 'rentbutton', 'go2rent', 'carfootrentcar'); yaCounter38525090.reachGoal('orderbutton'); return true;"><?=GetMessage("SEND_REQUEST")?></button>
     </form>
     <div class="horizontalgrey horizontalgrey2"></div>               
 </div> 

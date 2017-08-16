@@ -73,7 +73,7 @@ if($arResult["PROPERTIES"]["BLACK"]["VALUE"] == "Black"){
         <div id="car_headrentcar">
             <form method="post" action="/rent/">
                 <input type="hidden" name="AUTO" value="<?=$arResult['ID']?>">
-                <button type="submit" class="button <?=$background_black?>" onclick="ga('send', 'event', 'rentbutton', 'go2rent', 'carheadrentcar');"><?=GetMessage("RENT")?></button>
+                <button type="submit" class="button <?=$background_black?>" onclick="ga('send', 'event', 'rentbutton', 'go2rent', 'carheadrentcar'); yaCounter38525090.reachGoal('go2rent'); return true;"><?=GetMessage("RENT")?></button>
             </form>
         </div>
     </div>
@@ -144,7 +144,7 @@ if($arResult["PROPERTIES"]["BLACK"]["VALUE"] == "Black"){
             <div id="car_footrentcar">
                 <form method="post" action="/rent/">
                     <input type="hidden" name="AUTO" value="<?=$arResult['ID']?>">
-                    <button type="submit" class="button <?=$background_black?>" onclick="ga('send', 'event', 'rentbutton', 'go2rent', 'carheadrentcar');"><?=GetMessage("RENT")?></button>
+                    <button type="submit" class="button <?=$background_black?>" onclick="ga('send', 'event', 'rentbutton', 'go2rent', 'carheadrentcar'); yaCounter38525090.reachGoal('go2rent'); return true;"><?=GetMessage("RENT")?></button>
                 </form>
             </div>
         </div>
@@ -158,14 +158,14 @@ if($arResult["PROPERTIES"]["BLACK"]["VALUE"] == "Black"){
                     <?// Выводим автомобили
                     foreach($arResult["PROPERTIES"]["SIMILAR_CAR"]["CAR_VALUE"] as $arItem):?>                                                        
                         <td id="carsbloc" class="table_car">                                                            
-                            <a href="<?=$arItem["DETAIL_PAGE_URL"]?>" onclick="ga('send', 'event', 'carbutton', 'go2car', 'footercar');"><img src="<?=$arItem["PREVIEW_PICTURE"]?>" alt="" /></a>
+                            <a href="<?=$arItem["DETAIL_PAGE_URL"]?>" onclick="ga('send', 'event', 'carbutton', 'go2car', 'footercar'); yaCounter38525090.reachGoal('go2car'); return true;"><img src="<?=$arItem["PREVIEW_PICTURE"]?>" alt="" /></a>
                         </td>                                
                     <?endforeach;?>
                 </tr>
                 <tr>
                     <?foreach($arResult["PROPERTIES"]["SIMILAR_CAR"]["CAR_VALUE"] as $arItem):?>
                         <td>
-                            <a href="<?=$arItem["DETAIL_PAGE_URL"]?>" onclick="ga('send', 'event', 'carbutton', 'go2car', 'footercar');"><?echo $arItem["NAME"]?><br/><?=GetMessage("FROM_MINI")?> <?=$arItem["PRICE"]?> <span>&#8381;</span></a>
+                            <a href="<?=$arItem["DETAIL_PAGE_URL"]?>" onclick="ga('send', 'event', 'carbutton', 'go2car', 'footercar'); yaCounter38525090.reachGoal('go2car'); return true;"><?echo $arItem["NAME"]?><br/><?=GetMessage("FROM_MINI")?> <?=$arItem["PRICE"]?> <span>&#8381;</span></a>
                         </td>                                
                     <?endforeach;?>
                 </tr>
