@@ -119,8 +119,21 @@
 
 <div class="content">
     <?$car = GetIBlockElement($auto);?>
-
-    <script type="text/javascript">
+    <script> window.APRT_DATA = {pageType: 1};</script>        
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        dataLayer.push({
+           'transactionId': '<?=$orderId?>',          //номер заказа
+           'transactionTotal': '<?=$res?>',                //Итоговая стоимость заявки
+           'transactionProducts': [{
+               'sku': '<?=$car['CODE']?>',                    //анкор автомобиля (символьный код)
+               'name': '<?=$car['NAME']?> <?=$car["PROPERTY"]["YEAR"]["VALUE"]?>',                 //Наименование автомобиля + год
+               'price': '<?=$res/$rent?>',                       //стоимость суток аренды
+               'quantity': '<?=$rent?>'                           //количество суток аренды
+           }]
+        });
+        </script>
+    <script type="text/javascript">     
             //Actionpay
             window.APRT_DATA = {pageType: 6};
             
@@ -213,12 +226,14 @@
             false
         );?>
 </div>
-    <?if (isset($orderId) && isset($res)){?>
+<div style="display: none;">
+    <?if (isset($orderId) && isset($res) && isset($_COOKIE["utm_source"]) && isset($_COOKIE["utm_medium"])){?>
         <img src="http://www.qxplus.ru/scripts/sale.php?AccountId=109c164e&TotalCost=<?=$res?>&OrderID=<?=$orderId?>&ProductID=rulimcars_default" width="1" height="1" >
     <?}?>
-    <?if (isset($_COOKIE["actionpay"]) && $_COOKIE["utm_source"]=="actionpay"){?>
+    <?if (isset($_COOKIE["actionpay"])){?>
         <img src="//apypx.com/ok/14885.png?actionpay=<?=$_COOKIE["actionpay"]?>&apid=<?=$orderId?>&price=<?=$res?>" height="1" width="1" />
-    <?}?>
-<?$_SESSION['id'] = 1;
+    <?}?> 
+</div>
+<?$_SESSION['id'] = 1;  
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
  
