@@ -52,6 +52,10 @@ $this->SetViewTarget("myFuncCar");?>
          }
       });
     }
+    ga('require', 'ec');
+    ga('ec:addImpression', {
+      'name': 'Лада Ларгус Фургон', 
+    });
     </script>
 <?$this->EndViewTarget();
 
@@ -69,7 +73,7 @@ if($arResult["PROPERTIES"]["BLACK"]["VALUE"] == "Black"){
         <div id="car_headrentcar">
             <form method="post" action="/rent/">
                 <input type="hidden" name="AUTO" value="<?=$arResult['ID']?>">
-                <button type="submit" class="button <?=$background_black?>"><?=GetMessage("RENT")?></button>
+                <button type="submit" class="button <?=$background_black?>" onclick="ga('send', 'event', 'rentbutton', 'go2rent', 'carheadrentcar');"><?=GetMessage("RENT")?></button>
             </form>
         </div>
     </div>
@@ -140,7 +144,7 @@ if($arResult["PROPERTIES"]["BLACK"]["VALUE"] == "Black"){
             <div id="car_footrentcar">
                 <form method="post" action="/rent/">
                     <input type="hidden" name="AUTO" value="<?=$arResult['ID']?>">
-                    <button type="submit" class="button <?=$background_black?>"><?=GetMessage("RENT")?></button>
+                    <button type="submit" class="button <?=$background_black?>" onclick="ga('send', 'event', 'rentbutton', 'go2rent', 'carheadrentcar');"><?=GetMessage("RENT")?></button>
                 </form>
             </div>
         </div>
@@ -154,14 +158,14 @@ if($arResult["PROPERTIES"]["BLACK"]["VALUE"] == "Black"){
                     <?// Выводим автомобили
                     foreach($arResult["PROPERTIES"]["SIMILAR_CAR"]["CAR_VALUE"] as $arItem):?>                                                        
                         <td id="carsbloc" class="table_car">                                                            
-                            <a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><img src="<?=$arItem["PREVIEW_PICTURE"]?>" alt="" /></a>
+                            <a href="<?=$arItem["DETAIL_PAGE_URL"]?>" onclick="ga('send', 'event', 'carbutton', 'go2car', 'footercar');"><img src="<?=$arItem["PREVIEW_PICTURE"]?>" alt="" /></a>
                         </td>                                
                     <?endforeach;?>
                 </tr>
                 <tr>
                     <?foreach($arResult["PROPERTIES"]["SIMILAR_CAR"]["CAR_VALUE"] as $arItem):?>
                         <td>
-                            <a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><?echo $arItem["NAME"]?><br/><?=GetMessage("FROM_MINI")?> <?=$arItem["PRICE"]?> <span>&#8381;</span></a>
+                            <a href="<?=$arItem["DETAIL_PAGE_URL"]?>" onclick="ga('send', 'event', 'carbutton', 'go2car', 'footercar');"><?echo $arItem["NAME"]?><br/><?=GetMessage("FROM_MINI")?> <?=$arItem["PRICE"]?> <span>&#8381;</span></a>
                         </td>                                
                     <?endforeach;?>
                 </tr>
