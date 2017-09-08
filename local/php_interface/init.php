@@ -84,7 +84,7 @@ function OnAfterIBlockElementAddHandler(&$arFields) {
   }
 }
 
-// склонение после чисел
+// СЃРєР»РѕРЅРµРЅРёРµ РїРѕСЃР»Рµ С‡РёСЃРµР»
 function morpher($number, $word1, $word2, $word3) {
     if (($number - $number % 10) % 100 != 10) {
         if ($number % 10 == 1) {

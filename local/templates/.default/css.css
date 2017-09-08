@@ -1,0 +1,100 @@
+
+
+ /*////////////////////////////////////////////////////////////////////////*/
+
+
+.form {
+    height: 639px;
+    display: flex;
+    width: 840px;
+    margin: 50px auto 20px auto ;
+    position: relative;   
+}
+.form form{
+    display: block;
+    width: 361px;
+    margin-left: 25px;
+    padding-top: 25px;
+    position: relative;
+}
+.form label{
+    display:inline-block;
+    padding: 7px 7px 7px 7px;
+}
+.form input, .form textarea, .form select{
+    color: #5d5d5d;
+    resize: none;
+    width: 334px;
+    padding-left: 7.5px;
+    border: 1px solid #8B8B88;
+    border-radius: 5px;
+    font-size: 15.75px;    
+    font-family: sans-serif;
+    height: 41px;    
+}
+.form .date, .form .rent{
+    display: inline;
+}
+.form .date{
+    width: 153px;
+}
+.form .rent{
+    width: 165px;
+    padding-right: 0px;
+}
+.form textarea{
+    height: 100px;
+    padding-top: 7.5px;
+}
+.form select{
+    overflow: hidden;
+    width: 344px;
+    height: 45px;
+}
+.form .button{
+    width: 347px;
+    height: 55px;
+    border-width: 0px;
+    border-style: none;
+    margin-top: 54px;
+}
+.form .button1{
+    width: 347px;
+    height: 55px;
+    border-width: 0px;
+    border-style: none;
+    margin-top: -75px;
+    margin-left: 32px;
+    position: absolute;
+}
+.form p{
+    padding-bottom: 20px;
+    margin-bottom: 20px;       
+    font-size: 20px;
+}
+form p{                 
+    padding-bottom: 0px !important;
+    padding-left: 20px;
+    margin-bottom: 20px;       
+    font-size: 20px; 
+}
+.form .day{
+    padding-bottom: 20px;
+    margin-bottom: 20px;             
+    color: #5d5d5d;
+}
+.form .result{
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    color: #e93f45;
+}
+.form .text{
+    font-size: 14px;
+    height:auto;
+    float: left;
+    clear: left;
+    display: inline;
+    color: #8B8B88;    
+    position: relative;
+    top: 100px;
+}
