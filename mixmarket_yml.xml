@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<yml_catalog date="2017-18-02 01:00">
+<shop>
+<name>Прокат Авто в Москве RulimCars</name>
+<company>ООО &quot;Омега&quot;</company>
+<url>http://rulimcars.ru</url>
+
+<currencies>
+<currency  id="RUR" rate="1"/>
+</currencies>
+
+<categories>
+<category id="1">Транспортные Услуги</category>
+<category id="2" parentId="1">Аренда автомобилей</category>
+</categories>
+
+<delivery-options>
+<option cost="1000" days="" />
+</delivery-options>
+<cpa>0</cpa>
+
+<offers>
+<offer id="1" available="true" >
+<url>http://rulimcars.ru/largus-universal/?utm_source=mixmarket&amp;utm_medium=cpc&amp;utm_campaign=largus-universal&amp;utm_content=largus-universal</url>
+<price>1300</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_lada_largus_universal_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Лада Ларгус Универсал (5 мест) посуточно</name>
+<vendor>Lada</vendor>
+<model>Largus KS0Y5L</model>
+<description>Прокат автомобиля Лада Ларгус Универсал в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды за сутки, при аренде на месяц</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+4</param>
+<param name="Тип двигателя">бензиновый</param>
+<param name="Кондиционер">есть</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Гидроусилитель руля">есть</param>
+<param name="ABS">есть</param>
+</offer>
+
+<offer id="2" available="true" >
+<url>http://rulimcars.ru/largus_furgon/?utm_source=mixmarket&amp;utm_medium=cpc&amp;utm_campaign=largus_furgon&amp;utm_content=largus_furgon</url>
+<price>1200</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_lada_largus_furgon_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Лада Ларгус Фургон посуточно</name>
+<vendor>Lada</vendor>
+<model>Largus KS0Y5L</model>
+<description>Прокат автомобиля Лада Ларгус Фургон в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды за сутки, при аренде на месяц.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+1</param>
+<param name="Тип двигателя">бензиновый</param>
+<param name="Кондиционер">нет</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Гидроусилитель руля">есть</param>
+<param name="ABS">нет</param>
+</offer>
+
+<offer id="3" available="true" >
+<url>http://rulimcars.ru/lada_largus_furgon_new/?utm_source=mixmarket&amp;utm_medium=cpc&amp;utm_campaign=lada_largus_furgon_new&amp;utm_content=lada_largus_furgon_new</url>
+<price>1300</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_lada_largus_furgon_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Лада Ларгус Фургон посуточно</name>
+<vendor>Lada</vendor>
+<model>Largus FS0Y5L, FS035L</model>
+<description>Прокат автомобиля Лада Ларгус Фургон в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды за сутки, при аренде на месяц.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+1</param>
+<param name="Тип двигателя">бензиновый</param>
+<param name="Кондиционер">есть</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Гидроусилитель руля">есть</param>
+<param name="ABS">есть</param>
+</offer>
+
+<offer id="4" available="true" >
+<url>http://rulimcars.ru/peugeot_boxer_h2_l2/?utm_source=mixmarket&amp;utm_medium=cpc&amp;utm_campaign=peugeot_boxer_h2_l2&amp;utm_content=peugeot_boxer_h2_l2</url>
+<price>2500</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_peugeot_boxer_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Пежо Боксер Фургон посуточно</name>
+<vendor>Peugeot</vendor>
+<model>Boxer H2L2</model>
+<description>Прокат автомобиля Пежо Боксер Фургон в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды за сутки, при аренде на месяц.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+2</param>
+<param name="Тип двигателя">дизель</param>
+<param name="Кондиционер">есть</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Гидроусилитель руля">есть</param>
+<param name="ABS">есть</param>
+</offer>
+
+<offer id="5" available="true" >
+<url>http://rulimcars.ru/volkswagen-polo/?utm_source=mixmarket&amp;utm_medium=cpc&amp;utm_campaign=volkswagen_polo&amp;utm_content=volkswagen_polo</url>
+<price>1800</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_volkswagen_polo_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Фольксваген Поло посуточно</name>
+<vendor>Volkswagen</vendor>
+<model>Polo VI</model>
+<description>Прокат автомобиля Фольксваген Поло седан в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды за сутки, при аренде на месяц.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+4</param>
+<param name="Тип двигателя">бензин</param>
+<param name="КПП">автомат</param>
+<param name="Кондиционер">есть</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Усилитель руля">есть</param>
+<param name="ABS">есть</param>
+</offer>
+
+<offer id="6" available="true" >
+<url>http://rulimcars.ru/range_rover_vogue/?utm_source=mixmarket&amp;utm_medium=cpc&amp;utm_campaign=range_rover_vogue&amp;utm_content=range_rover_vogue</url>
+<price>13500</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_range_rover_vogue_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Рендж Ровер посуточно</name>
+<vendor>Land Rover</vendor>
+<model>Range Rover Vogue</model>
+<description>Прокат автомобиля Рендж Ровер в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды за сутки, при аренде на месяц.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+4</param>
+<param name="Тип двигателя">дизель</param>
+<param name="КПП">автомат</param>
+<param name="Кондиционер">есть</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Усилитель руля">есть</param>
+<param name="ABS">есть</param>
+<param name="Привод">полный</param>
+</offer>
+
+<offer id="7" available="true" >
+<url>http://rulimcars.ru/infiniti_qx/?utm_source=mixmarket&amp;utm_medium=cpc&amp;utm_campaign=infiniti_qx&amp;utm_content=infiniti_qx</url>
+<price>9900</price>
+<currencyId>RUR</currencyId>
+<categoryId>2</categoryId>
+<picture>http://rulimcars.ru/img/arenda_infiniti_qx56_rulimcars.png</picture>
+<delivery>true</delivery>
+<pickup>true</pickup>
+<name>Аренда Инфинити QX56 посуточно</name>
+<vendor>Infiniti</vendor>
+<model>QX56</model>
+<description>Прокат автомобиля Инфинити QX56 в Москве посуточно без водителя.</description>
+<sales_notes>Стоимость аренды за сутки, при аренде на месяц.</sales_notes>
+<age>18</age>
+<param name="Пассажирских мест">1+6</param>
+<param name="Тип двигателя">бензин</param>
+<param name="КПП">автомат</param>
+<param name="Кондиционер">есть</param>
+<param name="Аудиосистема">есть</param>
+<param name="Парктроники">есть</param>
+<param name="Усилитель руля">есть</param>
+<param name="ABS">есть</param>
+<param name="Привод">полный</param>
+</offer>
+
+</offers>
+</shop>
+</yml_catalog>
