@@ -6,10 +6,10 @@
 		
 	<entry>
 		<g:id>largus-universal</g:id>
-		<g:title>Аренда Лада Ларгус Универсал</g:title>
+		<g:title>Аренда Лада Ларгус Универсал посуточно</g:title>
 		<g:description>Прокат автомобиля Лада Ларгус Универсал в Москве посуточно без водителя.</g:description>
 		<g:link>http://rulimcars.ru/largus-universal/</g:link>
-		<g:image_link>http://rulimcars.ru/img/arenda_lada_largus_universal_rulimcars.png</g:image_link>
+		<g:image_link>http://rulimcars.ru/img/arenda_lada_largus_universal_rulimcars_500px.png</g:image_link>
 		<g:condition>used</g:condition>
 		<g:availability>in stock</g:availability>
 		<g:price>1500.00 RUB</g:price>
@@ -27,12 +27,12 @@
 		<g:product_type>Аренда автомобиля &gt; Аренда автомобиля без водителя</g:product_type>
 	</entry>
 		
-		<entry>
+	<entry>
 		<g:id>largus_furgon</g:id>
-		<g:title>Аренда Лада Ларгус Фургон</g:title>
+		<g:title>Аренда Лада Ларгус Фургон посуточно</g:title>
 		<g:description>Прокат автомобиля Лада Ларгус Фургон в Москве посуточно без водителя.</g:description>
 		<g:link>http://rulimcars.ru/largus_furgon/</g:link>
-		<g:image_link>http://rulimcars.ru/img/arenda_lada_largus_furgon_rulimcars.png</g:image_link>
+		<g:image_link>http://rulimcars.ru/img/arenda_lada_largus_furgon_rulimcars_500px.png</g:image_link>
 		<g:condition>used</g:condition>
 		<g:availability>in stock</g:availability>
 		<g:price>1200.00 RUB</g:price>
@@ -49,4 +49,166 @@
 		<g:google_product_category>916</g:google_product_category>
 		<g:product_type>Аренда автомобиля &gt; Аренда автомобиля без водителя</g:product_type>
 	</entry>
+	
+	<entry>
+		<g:id>vis-2349-refrigerator</g:id>
+		<g:title>Аренда ВИС 2349 рефрижератор посуточно</g:title>
+		<g:description>Прокат автомобиля ВИС 2349 рефрижератор в Москве посуточно без водителя.</g:description>
+		<g:link>http://rulimcars.ru/vis-2349-refrigerator/</g:link>
+		<g:image_link>http://rulimcars.ru/img/arenda_vis_2349_refrigerator_rulimcars_500px.png</g:image_link>
+		<g:condition>used</g:condition>
+		<g:availability>in stock</g:availability>
+		<g:price>2500.00 RUB</g:price>
+		<g:shipping>
+			<g:country>RU</g:country>
+			<g:location_id>1011969</g:location_id>
+			<g:service>Подача автомобиля</g:service>
+			<g:price>1000.00 RUB</g:price>
+		</g:shipping>
+			
+		<g:brand>ВИС</g:brand>
+		<g:mpn>2349</g:mpn>
+		
+		<g:google_product_category>916</g:google_product_category>
+		<g:product_type>Аренда автомобиля &gt; Аренда автомобиля без водителя</g:product_type>
+	</entry>
+	
+	<entry>
+		<g:id>volkswagen-polo</g:id>
+		<g:title>Аренда Volkswagen Polo посуточно</g:title>
+		<g:description>Прокат автомобиля Volkswagen Polo в Москве посуточно без водителя.</g:description>
+		<g:link>http://rulimcars.ru/volkswagen-polo/</g:link>
+		<g:image_link>http://rulimcars.ru/img/arenda_volkswagen_polo_rulimcars_500px.png</g:image_link>
+		<g:condition>used</g:condition>
+		<g:availability>in stock</g:availability>
+		<g:price>1800.00 RUB</g:price>
+		<g:shipping>
+			<g:country>RU</g:country>
+			<g:location_id>1011969</g:location_id>
+			<g:service>Подача автомобиля</g:service>
+			<g:price>1000.00 RUB</g:price>
+		</g:shipping>
+			
+		<g:brand>Volkswagen</g:brand>
+		<g:mpn>Polo</g:mpn>
+		
+		<g:google_product_category>916</g:google_product_category>
+		<g:product_type>Аренда автомобиля &gt; Аренда автомобиля без водителя</g:product_type>
+	</entry>
+	
+	<entry>
+		<g:id>peugeot_boxer_h2_l2</g:id>
+		<g:title>Аренда Peugeot Boxer фургон посуточно</g:title>
+		<g:description>Прокат автомобиля Peugeot Boxer фургон в Москве посуточно без водителя.</g:description>
+		<g:link>http://rulimcars.ru/peugeot_boxer_h2_l2/</g:link>
+		<g:image_link>http://rulimcars.ru/img/arenda_peugeot_boxer_rulimcars_500px.png</g:image_link>
+		<g:condition>used</g:condition>
+		<g:availability>in stock</g:availability>
+		<g:price>2500.00 RUB</g:price>
+		<g:shipping>
+			<g:country>RU</g:country>
+			<g:location_id>1011969</g:location_id>
+			<g:service>Подача автомобиля</g:service>
+			<g:price>1000.00 RUB</g:price>
+		</g:shipping>
+			
+		<g:brand>Peugeot</g:brand>
+		<g:mpn>Boxer</g:mpn>
+		
+		<g:google_product_category>916</g:google_product_category>
+		<g:product_type>Аренда автомобиля &gt; Аренда автомобиля без водителя</g:product_type>
+	</entry>
+	
+	<entry>
+		<g:id>range_rover_vogue</g:id>
+		<g:title>Аренда Range Rover Vogue посуточно</g:title>
+		<g:description>Прокат автомобиля Range Rover Vogue в Москве посуточно без водителя.</g:description>
+		<g:link>http://rulimcars.ru/range_rover_vogue/</g:link>
+		<g:image_link>http://rulimcars.ru/img/arenda_range_rover_vogue_rulimcars_500px.png</g:image_link>
+		<g:condition>used</g:condition>
+		<g:availability>in stock</g:availability>
+		<g:price>13500.00 RUB</g:price>
+		<g:shipping>
+			<g:country>RU</g:country>
+			<g:location_id>1011969</g:location_id>
+			<g:service>Подача автомобиля</g:service>
+			<g:price>1000.00 RUB</g:price>
+		</g:shipping>
+			
+		<g:brand>Land Rover</g:brand>
+		<g:mpn>Range Rover Vogue</g:mpn>
+		
+		<g:google_product_category>916</g:google_product_category>
+		<g:product_type>Аренда автомобиля &gt; Аренда автомобиля без водителя</g:product_type>
+	</entry>
+	
+	<entry>
+		<g:id>infiniti_qx</g:id>
+		<g:title>Аренда Infiniti QX56 посуточно</g:title>
+		<g:description>Прокат автомобиля Infiniti QX56 в Москве посуточно без водителя.</g:description>
+		<g:link>http://rulimcars.ru/infiniti_qx/</g:link>
+		<g:image_link>http://rulimcars.ru/img/arenda_infiniti_qx56_rulimcars_500px.png</g:image_link>
+		<g:condition>used</g:condition>
+		<g:availability>in stock</g:availability>
+		<g:price>9900.00 RUB</g:price>
+		<g:shipping>
+			<g:country>RU</g:country>
+			<g:location_id>1011969</g:location_id>
+			<g:service>Подача автомобиля</g:service>
+			<g:price>1000.00 RUB</g:price>
+		</g:shipping>
+			
+		<g:brand>Infiniti</g:brand>
+		<g:mpn>QX56</g:mpn>
+		
+		<g:google_product_category>916</g:google_product_category>
+		<g:product_type>Аренда автомобиля &gt; Аренда автомобиля без водителя</g:product_type>
+	</entry>
+	
+	<entry>
+		<g:id>gazel-next-prom</g:id>
+		<g:title>Аренда Газель Некст промтоварный фургон посуточно</g:title>
+		<g:description>Прокат автомобиля Газель Некст промтоварный фургон в Москве посуточно без водителя.</g:description>
+		<g:link>http://rulimcars.ru/gazel-next-prom/</g:link>
+		<g:image_link>http://rulimcars.ru/img/arenda_gazel_next_prom_rulimcars_500px.png</g:image_link>
+		<g:condition>used</g:condition>
+		<g:availability>in stock</g:availability>
+		<g:price>2000.00 RUB</g:price>
+		<g:shipping>
+			<g:country>RU</g:country>
+			<g:location_id>1011969</g:location_id>
+			<g:service>Подача автомобиля</g:service>
+			<g:price>1000.00 RUB</g:price>
+		</g:shipping>
+			
+		<g:brand>Газель</g:brand>
+		<g:mpn>Next</g:mpn>
+		
+		<g:google_product_category>916</g:google_product_category>
+		<g:product_type>Аренда автомобиля &gt; Аренда автомобиля без водителя</g:product_type>
+	</entry>
+	
+	<entry>
+		<g:id>gazel-next-cmf</g:id>
+		<g:title>Аренда Газель Некст цельнометаллический фургон посуточно</g:title>
+		<g:description>Прокат автомобиля Газель Некст цельнометаллический фургон в Москве посуточно без водителя.</g:description>
+		<g:link>http://rulimcars.ru/gazel-next-cmf/</g:link>
+		<g:image_link>http://rulimcars.ru/img/arenda_gazel_next_cmf_rulimcars_500px.png</g:image_link>
+		<g:condition>used</g:condition>
+		<g:availability>in stock</g:availability>
+		<g:price>2000.00 RUB</g:price>
+		<g:shipping>
+			<g:country>RU</g:country>
+			<g:location_id>1011969</g:location_id>
+			<g:service>Подача автомобиля</g:service>
+			<g:price>1000.00 RUB</g:price>
+		</g:shipping>
+			
+		<g:brand>Газель</g:brand>
+		<g:mpn>Next</g:mpn>
+		
+		<g:google_product_category>916</g:google_product_category>
+		<g:product_type>Аренда автомобиля &gt; Аренда автомобиля без водителя</g:product_type>
+	</entry>
+	
 </feed>
