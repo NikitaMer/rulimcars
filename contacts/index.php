@@ -76,6 +76,33 @@ $APPLICATION->SetTitle("Контакты RulimCars");
     false
 );?>
 	</div>
+    <div class="map">
+         <?$APPLICATION->IncludeComponent(
+    "bitrix:map.google.view", 
+    ".default", 
+    array(
+        "API_KEY" => "AIzaSyCqblkSttUsixd84hvUviKebl3mX2tNoq0",
+        "CONTROLS" => array(
+            0 => "SMALL_ZOOM_CONTROL",
+            1 => "TYPECONTROL",
+            2 => "SCALELINE",
+        ),
+        "INIT_MAP_TYPE" => "ROADMAP",
+        "MAP_DATA" => "a:4:{s:10:\"google_lat\";d:55.83964073209986;s:10:\"google_lon\";d:37.487353370361355;s:12:\"google_scale\";i:16;s:10:\"PLACEMARKS\";a:1:{i:0;a:3:{s:4:\"TEXT\";s:9:\"RulimCars\";s:3:\"LON\";d:37.488559484482;s:3:\"LAT\";d:55.839699147438;}}}",
+        "MAP_HEIGHT" => "500",
+        "MAP_ID" => "",
+        "MAP_WIDTH" => "700",
+        "OPTIONS" => array(
+            0 => "ENABLE_SCROLL_ZOOM",
+            1 => "ENABLE_DBLCLICK_ZOOM",
+            2 => "ENABLE_DRAGGING",
+            3 => "ENABLE_KEYBOARD",
+        ),
+        "COMPONENT_TEMPLATE" => ".default"
+    ),
+    false
+);?>
+    </div>
 	<div class="text">
 		<div class="partner">
 			 <a >Наши партнеры:</a> <?$APPLICATION->IncludeComponent(

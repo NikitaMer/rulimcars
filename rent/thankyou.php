@@ -143,8 +143,24 @@
     <script type="text/javascript">     
             //Actionpay
             window.APRT_DATA = {pageType: 6};
-            
-            var products = [];
+
+          ga('require', 'ec');
+
+          ga('ec:addProduct', {
+            'name': '<?=$car['NAME']?>',        //Наименование автомобиля
+            'variant': 'Аренда без водителя',    //Тип аренды
+            'price': '<?=$res/$rent?>',            //Стоимость аренды
+            'quantity': '<?=$rent?>'               //количество суток/часов аренды
+          });
+
+          ga('ec:setAction', 'purchase', {
+            'id': '<?=$orderId?>',                // номер заказа
+            'revenue': '<?=$res?>',                 // итоговая стоимость заказа
+            'shipping': '1000.00',                // Стоимость доставки (подачи автомобиля), если клиент выбрал доставку
+            'coupon': 'SAMPLE_COUPON_2017'        // Купон на скидку
+          });
+          ga('send', 'pageview');  
+            /*var products = [];
 
             products.push(
                 {
@@ -185,7 +201,7 @@
                         "products": products
                     }
                 }
-            });
+            });*/
     </script>
 
     <?=$name?>, Вы оформили заявку №<?=$orderId?> на аренду автомобиля <?=$car['NAME']?><?if ($rent != 0){?> сроком на <?=$rent?> суток, стоимость <?=$res?> руб. (<?=$res/$rent?> руб/суток). <?}else{?>.<?}?> 

@@ -39,21 +39,21 @@ if ($arItem['PROPERTIES']['SHOW_CAR']['VALUE_ENUM_ID'] == 13){
             <div class="price_car">
             <?if ($k == 1):?>                    
                 <div id="main_imagecar" class="car">
-                    <a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>"/></a>                                      
+                    <a href="<?=$arItem["DETAIL_PAGE_URL"]?>" onclick="ga('send', 'event', 'carbutton', 'go2car', 'imagecar'); yaCounter38525090.reachGoal('go2car'); return true;"><img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>"/></a>                                      
                 </div>
                 <div class="price_name">
                     <div id="main_namecar" class="name">
-                        <a href="<?=$arItem["DETAIL_PAGE_URL"]?>"><b><?=$arItem["NAME"]?></b></a> <br/>  
+                        <a href="<?=$arItem["DETAIL_PAGE_URL"]?>" onclick="ga('send', 'event', 'carbutton', 'go2car', 'namecar'); yaCounter38525090.reachGoal('go2car'); return true;"><b><?=$arItem["NAME"]?></b></a> <br/>  
                         <b><?=$arItem["PROPERTIES"]["YEAR_CAR"]["VALUE"]?></b><br/><br/>
                     </div>
                     <div id="main_pricecar" class="price">
-                        <?=GetMessage("FROM")?> <a id="price" href="<?=$arItem["DETAIL_PAGE_URL"]?>"> <?=min($price)?> <span>&#8381;</span></a><br/>
-                        <?=$text_rate?>   <div id="main_morecar" class="more"><a id="more" href="<?=$arItem["DETAIL_PAGE_URL"]?>"><?=GetMessage("MORE")?></a></div>                                  
+                        <?=GetMessage("FROM")?> <a id="price" href="<?=$arItem["DETAIL_PAGE_URL"]?>" onclick="ga('send', 'event', 'carbutton', 'go2car', 'pricecar'); yaCounter38525090.reachGoal('go2car'); return true;"> <?=min($price)?> <span>&#8381;</span></a><br/>
+                        <?=GetMessage("PER_DAY")?>   <div id="main_morecar" class="more"><a id="more" href="<?=$arItem["DETAIL_PAGE_URL"]?>" onclick="ga('send', 'event', 'carbutton', 'go2car', 'morecar'); yaCounter38525090.reachGoal('go2car'); return true;"><?=GetMessage("MORE")?></a></div>                                  
                     </div>
                     <div id="main_rentcar">
                         <form method="post" action="/rent/">
                             <input type="hidden" name="AUTO" value="<?=$arItem['ID']?>">
-                            <button type="submit" class="button"><?=GetMessage("RENT")?></button>
+                            <button type="submit" class="button" onclick="ga('send', 'event', 'rentbutton', 'go2rent', 'mainpage'); yaCounter38525090.reachGoal('go2rent'); return true;"><?=GetMessage("RENT")?></button>
                         </form>
                     </div>
                 </div>
