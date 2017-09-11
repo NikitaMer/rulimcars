@@ -44,6 +44,7 @@ $MESS["PLACE_PHONE"] = "Телефон";
 $MESS["PLACE_COMMENT"] = "Комментарий";
 $MESS["PLACE_RESULT"] = "Итого";
 $MESS["PLACE_CITY"] = "Город";
+$MESS["PLACE_DAY"] = "Количество дней";
 $MESS["PLACE_TYPE_RENT"] = "Тип аренды";
 $MESS["PLACE_CAR_PLACE_DELIVERY"] = "Место подачи";
 $MESS["PLACE_CAR_PLACE_RETURN"] = "Место возврата";
@@ -54,4 +55,8 @@ $MESS["ADDRESS_RETURN"] = "Адрес возврата";
 $MESS["TRANSFER"] = "Трансфер";
 $MESS["WITH_DRIVER"] = "С водителем";
 $MESS["WITHOUT_DRIVER"] = "Без водителя";
+$MESS["IN_AIRPORT"] = "В аэропорт";
+$MESS["OUT_AIRPORT"] = "Из аэропорта";
+$MESS["ADDRESS_DEPARTURE"] = "Адрес отправления";
+$MESS["AIRPORT"] = "Аэропорт";
 ?>

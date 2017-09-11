@@ -13,8 +13,13 @@
     $text = $_POST["TEXT"];
     $date = $_POST["DATE"];
     $res =  $_POST["RESULT"];
-    $rent = $_POST["RENT"]; 
-    if ($name != null && $phone != null){  
+    $rent = $_POST["DAYS"];
+    $date_delivery = $_POST["WITH_DATE_DELIVERY"];
+    $address_delivery = $_POST["ADDRESS_DELIVERY"];
+    $date_return = $_POST["WITH_DATE_RETURN"];
+    $address_return = $_POST["ADDRESS_RETURN"];
+    arshow($_POST); 
+    if ($name != null && $phone != null && $auto != null){  
     if ($_SESSION['id'] != 1 ){
         // Формирование корзины и создание заказа
         $car_catolog = CIBlockElement::GetProperty(12, $auto, array("sort"=>"asc"), array("CODE"=>"CATALOG"))->Fetch();        
@@ -90,6 +95,10 @@
         if ($name  != null){$somePropValueName = $propertyCollection->getItemByOrderPropertyId(1)->setValue($name);}
         if ($phone != null){$somePropValuePhone = $propertyCollection->getItemByOrderPropertyId(2)->setValue($phone);}
         if ($email != null){$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(3)->setValue($email);}
+        if ($date_delivery != null){$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(3)->setValue($email);}
+        if ($address_delivery != null){$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(3)->setValue($email);}
+        if ($date_return != null){$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(3)->setValue($email);}
+        if ($address_return != null){$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(3)->setValue($email);}
         $result = $order->save();  
         $orderId = $order->getId();     
         
@@ -114,7 +123,7 @@
             "DETAIL_TEXT"    => $text,
         );         
         $IDiblock = $el->Add($arLoadProductArray);
-    }
+    } 
 ?>
 
 <div class="content">

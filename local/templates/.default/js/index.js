@@ -24,8 +24,11 @@ $(document).ready(function () {
         var form = $(this);
         //проверяем заполненные поля
         var br=0;
-        $(this).find("input.must").each(function(){
-            var el = $(this), val = el.val();                   
+        $(this).find("input.must").each(function(){            
+            var el = $(this), val = el.val(); 
+            if ($(this).attr("disabled")) {
+                return true;    
+            }                 
             if (val.length > 0) {}
             else {
                 $(this).addClass("nogood");
@@ -41,7 +44,10 @@ $(document).ready(function () {
             }            
         });
         $(this).find("select.must").each(function(){
-            var el = $(this), val = el.val();           
+            var el = $(this), val = el.val();
+            if ($(this).attr("disabled")) {
+                return true;    
+            }           
             if (val != 0) {}
             else {
                 $(this).addClass("nogood"); 
@@ -100,12 +106,15 @@ $(document).ready(function () {
             new_car = new Array(); 
             new_car_price_day = new Array(); 
             new_car_price_hour = new Array(); 
+            new_car_day = new Array();    
             $.each(res['NEW_CAR']['PRICES'],function(index,value) {            
                 new_car[value['TYPE_RENT']] = value['OFFER'];                                                     
             });
             if(new_car['DAY']){
                 $.each(new_car['DAY'],function(index,value) {            
                     new_car_price_day.push(Number(value['PRICE']));                                                      
+                    new_car_day.push(Number(value['QUANTITY_FROM']));                                                      
+                    new_car_day.push(Number(value['QUANTITY_TO']));                                                      
                 });
             }
             if(new_car['HOUR']){
@@ -123,85 +132,97 @@ $(document).ready(function () {
                 ChangeCar(newcarid, res['NEW_CAR']['NAME'], res['NEW_CAR']['YEAR'], new_car['DAY'][0]['PRICE'], 0, null, null, 0);           
             }
               
+            console.log(new_car_day);
             console.log(new_car_price_day);
-            console.log(new_car_price_hour);
         }
         
         if ($("#select_type_rent").val() == 0) {
-            //$("#WITHOUT_DATE_RETURN, #WITH_DATE_RETURN").change();    
+            $("#WITHOUT_DATE_RETURN, #WITH_DATE_RETURN, #WITHOUT_DATE_DELIVERY, #WITH_DATE_DELIVERY, #TRANSFER_DATE_RETURN").change();
         } else if ($("#select_type_rent").val() == "TRANSFER") {
-            //Price ();  
+            $("#TRANSFER_DATE_RETURN").change();  
         } else if ($("#select_type_rent").val() == "WITH_DRIVER") {
-            Price ($("#WITH_DATE_RETURN"));  
+            $("#WITH_DATE_RETURN,  #WITH_DATE_DELIVERY").change(); 
         } else if ($("#select_type_rent").val() == "WITHOUT_DRIVER") {
-            Price ($("#WITHOUT_DATE_RETURN"));  
+            $("#WITHOUT_DATE_RETURN, #WITHOUT_DATE_DELIVERY").change();  
         }
         
     });
-    $("#WITHOUT_DATE_RETURN, #WITH_DATE_RETURN").change(function(){ 
-        Price ($(this));                                                   
-    });
-    function  Price (val) {
-        if(($("#select_car").val() == "0" && val.val() == "") || $("#select_car").val() == "0"){
+    $("#WITHOUT_DATE_RETURN, #WITH_DATE_RETURN, #WITHOUT_DATE_DELIVERY, #WITH_DATE_DELIVERY, #TRANSFER_DATE_RETURN").change(function(){
+        var main_block = $(this).parent().parent();
+         
+        if($("#select_car").val() == "0"){
            $('#rentday').find('a').text("Выберите автомобиль");
-           $('#rentday').find('a').css("color" , "#e93f45");  
-           $('#rentres').find('a').text("Выберите срок аренды");   
+           $('#rentday').find('a').css("color" , "#e93f45");
+           if ($("#select_type_rent").val() == "TRANSFER") {
+                $('#rentres').find('a').text("Выберите дату подачи");    
+           } else if ($("#select_type_rent").val() == 0) {
+                $('#rentres').find('a').text("Выберите тип аренды");
+           } else {
+                $('#rentres').find('a').text("Выберите дату подачи/возврата");   
+           } 
            $('#result').val('');   
-        }else if (val.val() == "") {                                                 
+        }else if (main_block.find('input.delivery').val() == "" || main_block.find('input.return').val() == "") {                                                 
             $('#rentday').find('a').text("от "+ getMinOfArray(new_car_price_day) +" до "+ getMaxOfArray(new_car_price_day));
             $('#rentday').find('a').css("color" , "#5d5d5d");
-            $('#rentres').find('a').text("Выберите срок аренды");   
+            if ($("#select_type_rent").val() == "TRANSFER") {
+                $('#rentres').find('a').text("Выберите дату подачи");    
+            } else if ($("#select_type_rent").val() == 0) {
+                $('#rentres').find('a').text("Выберите тип аренды");
+            } else {
+                $('#rentres').find('a').text("Выберите дату подачи/возврата");   
+            }   
             $('#result').val(''); 
-        }else{
-            rty = val.attr("id");
-            if (val.attr("id") == "WITH_DATE_RETURN") {
-                var test1 = val.val().split(' ');
-                var t1 = test1[0].split('.');
-                var t2 = test1[1].split(':');
-                var date1 = new Date(t1[2],t1[1],t1[0],t2[0],t2[1],t2[2]);
-                //alert(date1);    
-            } else if (val.attr("id") == "WITHOUT_DATE_RETURN") {
-                var test1 = val.val().split('.');
-                var date1 = new Date(test1[2],test1[1],test1[0]);
-                //alert(date1);
+        }else{            
+            if ($(this).hasClass("with")) {
+                var input_delivery = main_block.find('input.delivery').val();
+                var input_return = main_block.find('input.return').val();
+                formatted_delivery = input_delivery.replace(/^(\d+).(\d+).(\d+) (\d+):(\d+):(\d+)/,"$3-$2-$1T$4:$5:$6");
+                formatted_return = input_return.replace(/^(\d+).(\d+).(\d+) (\d+):(\d+):(\d+)/,"$3-$2-$1T$4:$5:$6")
+                var ms_delivery = Date.parse(formatted_delivery); 
+                var ms_return = Date.parse(formatted_return); 
+                var ms_time = Math.abs(ms_return - ms_delivery);
+                var days = Math.ceil(ms_time / (1000 * 3600 * 24));            
+            } else if ($(this).hasClass("without")) {
+                var input_delivery = main_block.find('input.delivery').val();
+                var input_return = main_block.find('input.return').val();
+                formatted_delivery = input_delivery.replace(/^(\d+).(\d+).(\d+)/,"$3-$2-$1");
+                formatted_return = input_return.replace(/^(\d+).(\d+).(\d+)/,"$3-$2-$1")
+                var ms_delivery = Date.parse(formatted_delivery); 
+                var ms_return = Date.parse(formatted_return); 
+                var ms_time = Math.abs(ms_return - ms_delivery);
+                var days = Math.ceil(ms_time / (1000 * 3600 * 24)); 
             } 
-            
-            //var test2 = $("#WITHOUT_DATE_DELIVERY").val().split('.');
-            //var date1 = new Date(t1[2],t1[1],t1[0],t2[0],t2[1],t2[2]);
-            //var date2 = new Date(test2[2],test2[1],test2[0]);
-            //var timeDiff = Math.abs(date1.getTime() - date2.getTime());
-            //var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-            //alert(test1);
             var i;
-           /* selday = car[$('#select option:selected').attr('value')]['Day'];   
-            selprice = car[$('#select option:selected').attr('value')]['Price'];
+            selday = new_car_day;   
+            selprice = new_car_price_day;
             $('#rentday').find('a').css("color" , "#5d5d5d");    
             for (i = 0; i<=selday.length-1 ; i+=2) {            
-                if (selday[selday.length-2]<=Number($("#rent").val())){                
+                if (selday[selday.length-2]<=days){                
                     $('#rentday').find('a').text(selprice[selprice.length-1]);                     
                     $('#rentday').find('a').append("<span>&#8381;</span>");  
-                    $('#rentres').find('a').text($("#rent").val()*selprice[selprice.length-1]);
+                    $('#rentres').find('a').text(days*selprice[selprice.length-1]);
                     $('#rentres').find('a').append("<span>&#8381;</span>");
-                    $('#result').val($("#rent").val()*selprice[selprice.length-1]);
+                    $('#result').val(days*selprice[selprice.length-1]);
                     i = 0;                    
                     break;    
                 }           
-                if (selday[i] <= Number($("#rent").val()) && selday[i+1] >= Number($("#rent").val())){
+                if (selday[i] <= days && selday[i+1] >= days){
                     $('#rentday').find('a').text(selprice[i/2]);                     
                     $('#rentday').find('a').append("<span>&#8381;</span>");  
-                    $('#rentres').find('a').text($("#rent").val()*selprice[i/2]);
+                    $('#rentres').find('a').text(days*selprice[i/2]);
                     $('#rentres').find('a').append("<span>&#8381;</span>");
-                    $('#result').val($("#rent").val()*selprice[i/2]);
+                    $('#result').val(days*selprice[i/2]);
                     i = 0;                    
                     break;    
                 }
-            }*/
-        }    
-    };
-    
+            }
+            $("#days").val(days);
+        }                                                   
+    });   
     $("#select_city").change(function(){
         var cityid = $('#select_city option:selected').attr('value');
-        res_city = '<option value="0" data_path="">Автомобиль</option>';
+        res_car_city = '<option value="0" data_path="">Автомобиль</option>';
+        res_airport = '<option value="0">Аэропорт</option>';
         res_ofice_delivery = '<option value="">Место подачи</option>';
         res_delivery = '<option value="address">Подать автомобиль по адресу...</option>';
         res_ofice_return = '<option value="">Место возврата</option>';
@@ -212,17 +233,19 @@ $(document).ready(function () {
           data: {city: cityid},
           success: function(data){
                 temp_res = $.secureEvalJSON(data);
-                res_city +=  temp_res['CAR'];
+                res_car_city +=  temp_res['CAR'];
                 res_ofice_delivery += temp_res['OFFICE'];        
-                res_ofice_return += temp_res['OFFICE'];        
+                res_ofice_return += temp_res['OFFICE'];
+                res_airport += temp_res['AIRPORT'];        
             },
           async: false               
         });
-        $("#select_car").html(res_city);
+        $("#select_car").html(res_car_city);
         $("#select_car_place_delivery").html(res_ofice_delivery);
         $("#select_car_place_delivery").append(res_delivery);
         $("#select_car_place_return").html(res_ofice_return);
         $("#select_car_place_return").append(res_return);
+        $("#select_airport").html(res_airport);
         $("#select_car").change();        
     });
     $("#select_type_rent").change(function(){
@@ -267,7 +290,8 @@ $(document).ready(function () {
             $(".without_driver").css("display","none");
             $(".without_driver").find('input').attr('disabled','disabled');       
             $(".without_driver").find('select').attr('disabled','disabled');
-        }   
+        }
+        $("#WITHOUT_DATE_RETURN, #WITH_DATE_RETURN, #WITHOUT_DATE_DELIVERY, #WITH_DATE_DELIVERY, #TRANSFER_DATE_RETURN").change();   
     });
     $("#select_car_place_delivery").change(function(){
         var carplaceid = $('#select_car_place_delivery option:selected').attr('value');
@@ -292,6 +316,14 @@ $(document).ready(function () {
             $(".address_return").parent().css("display","none");
             $(".address_return").val($('#select_car_place_return option:selected').text());
         }
+    });
+    $("#direction_select_airport").change(function(){
+        if($('#direction_select_airport option:selected').attr('value') == "IN"){
+            $(".address_transfer").attr("placeholder","Адрес отправления");
+        } else if ($('#direction_select_airport option:selected').attr('value') == "OUT") {
+            $(".address_transfer").attr("placeholder","Адрес назначения");
+        }
+                
     });
     $(".form").find('.button').click(function(){
         $(".rentpost").submit();       

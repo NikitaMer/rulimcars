@@ -477,38 +477,6 @@ h1{
     float:right;
     display: inline;  
 }
-.horizontalgrey{
-    position: absolute;
-    border-top: 1px solid;
-    border-color: #c1c1c0;
-}
-.horizontalgrey1{
-    top: 550px;
-    padding-bottom: 108px;
-    background-color: #f8f8f8;
-    width: 9999px;
-    left: -100%;
-}
-.horizontalgrey2{
-    top: -20px;
-    width: 9999px;
-    left: -100%;  
-}
-.horizontalgrey3{
-    width: 9999px;
-    vertical-align: baseline;
-    top: 190px;
-    right: 48%;    
-}
-.verticalgrey{
-    position: absolute;
-    width: 1px;
-    border-left: 1px solid;
-    border-color: #c1c1c0;
-    height: 679px;
-    left: 52%;
-    top: -20px;
-}
 .invisible{
     display: none !important;
 }
@@ -562,20 +530,21 @@ h1{
     padding-left: 7.5px;
     border: 1px solid #8B8B88;
     border-radius: 5px;
-    font-size: 15.75px;    
+    font-size: 14px;    
     font-family: sans-serif;
     height: 41px;    
 }
-.form .date, .form .rent{
-    display: inline;
+.form .section_date{
+    display: inline; 
 }
 .form .date{
-    width: 153px;
+    display: inline;
+    width: 154px;
 }
-.form .rent{
-    width: 165px;
-    padding-right: 0px;
-}
+.form .half{
+    display: inline;
+    width: 163px;
+}  
 .form textarea{
     height: 100px;
     padding-top: 7.5px;
