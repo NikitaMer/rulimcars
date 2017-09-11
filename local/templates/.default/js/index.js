@@ -1,8 +1,10 @@
 $(document).ready(function () {
+    //$("#select_car").change();
     $("input[name='PHONE']").mask("+7(999)999-99-99");
     var EmailCheck=/^[a-z0-9_-]+(\.[a-z0-9_-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*\.[a-z]{2,4}$/i;
     var Dat = new Date();
     res = new Array();
+    oldcarid = 0;
     $('#copyright').find('span').text(Dat.getFullYear());       
     $("input.must, select.must").focus(function(){
         var el = $(this), val = el.val();               
@@ -92,7 +94,7 @@ $(document).ready(function () {
         var newcarid = $('#select_car option:selected').attr('value');
         var src = $('#select_car option:selected').attr('data_path');       
         $('#selectimg').find('img').attr("src",$('#select_car option:selected').attr('data_path'));
-
+        //if (oldcarid) {} else {oldcarid = 0;}
         if(newcarid != 0){      
             $.ajax({
               url: "/local/templates/.default/ajax/change_car.php",
@@ -327,7 +329,8 @@ $(document).ready(function () {
     });
     $(".form").find('.button').click(function(){
         $(".rentpost").submit();       
-    }); 
+    });
+    $("#select_car").change(); 
 });
 
 /**

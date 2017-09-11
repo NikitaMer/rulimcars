@@ -14,11 +14,11 @@
     $date = $_POST["DATE"];
     $res =  $_POST["RESULT"];
     $rent = $_POST["DAYS"];
-    $date_delivery = $_POST["WITH_DATE_DELIVERY"];
+    $date_delivery = $_POST["WITH_DATE_DELIVERY"] ? $_POST["WITH_DATE_DELIVERY"] : $_POST["WITHOUT_DATE_DELIVERY"];
     $address_delivery = $_POST["ADDRESS_DELIVERY"];
-    $date_return = $_POST["WITH_DATE_RETURN"];
+    $date_return = $_POST["WITH_DATE_RETURN"] ? $_POST["WITH_DATE_RETURN"] : $_POST["WITHOUT_DATE_RETURN"];
     $address_return = $_POST["ADDRESS_RETURN"];
-    arshow($_POST); 
+    //arshow($_POST); 
     if ($name != null && $phone != null && $auto != null){  
     if ($_SESSION['id'] != 1 ){
         // Формирование корзины и создание заказа
@@ -95,10 +95,10 @@
         if ($name  != null){$somePropValueName = $propertyCollection->getItemByOrderPropertyId(1)->setValue($name);}
         if ($phone != null){$somePropValuePhone = $propertyCollection->getItemByOrderPropertyId(2)->setValue($phone);}
         if ($email != null){$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(3)->setValue($email);}
-        if ($date_delivery != null){$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(3)->setValue($email);}
-        if ($address_delivery != null){$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(3)->setValue($email);}
-        if ($date_return != null){$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(3)->setValue($email);}
-        if ($address_return != null){$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(3)->setValue($email);}
+        if ($date_delivery != null){$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(6)->setValue($date_delivery);}
+        if ($address_delivery != null){$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(4)->setValue($address_delivery);}
+        if ($date_return != null){$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(7)->setValue($date_return);}
+        if ($address_return != null){$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(5)->setValue($address_return);}
         $result = $order->save();  
         $orderId = $order->getId();     
         
@@ -143,24 +143,8 @@
     <script type="text/javascript">     
             //Actionpay
             window.APRT_DATA = {pageType: 6};
-
-          ga('require', 'ec');
-
-          ga('ec:addProduct', {
-            'name': '<?=$car['NAME']?>',        //Наименование автомобиля
-            'variant': 'Аренда без водителя',    //Тип аренды
-            'price': '<?=$res/$rent?>',            //Стоимость аренды
-            'quantity': '<?=$rent?>'               //количество суток/часов аренды
-          });
-
-          ga('ec:setAction', 'purchase', {
-            'id': '<?=$orderId?>',                // номер заказа
-            'revenue': '<?=$res?>',                 // итоговая стоимость заказа
-            'shipping': '1000.00',                // Стоимость доставки (подачи автомобиля), если клиент выбрал доставку
-            'coupon': 'SAMPLE_COUPON_2017'        // Купон на скидку
-          });
-          ga('send', 'pageview');  
-            /*var products = [];
+            
+            var products = [];
 
             products.push(
                 {
@@ -201,7 +185,7 @@
                         "products": products
                     }
                 }
-            });*/
+            });
     </script>
 
     <?=$name?>, Вы оформили заявку №<?=$orderId?> на аренду автомобиля <?=$car['NAME']?><?if ($rent != 0){?> сроком на <?=$rent?> суток, стоимость <?=$res?> руб. (<?=$res/$rent?> руб/суток). <?}else{?>.<?}?> 
