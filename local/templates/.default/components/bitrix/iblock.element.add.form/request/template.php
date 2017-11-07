@@ -54,9 +54,9 @@ $dbCity = CIBlockSection::GetList(array(), array("IBLOCK_ID" => CITY_ID,'ACTIVE'
                 <label>
                        <select class="select must" name="TYPE_RENT" id="select_type_rent">
                         <option value="0"><?=GetMessage("PLACE_TYPE_RENT")?></option>
-                        <option value="TRANSFER"><?=GetMessage("TRANSFER")?></option>        
-                        <option value="WITH_DRIVER"><?=GetMessage("WITH_DRIVER")?></option>        
-                        <option value="WITHOUT_DRIVER"><?=GetMessage("WITHOUT_DRIVER")?></option>        
+                        <option class="option_transfer" value="Трансфер"><?=GetMessage("TRANSFER")?></option>        
+                        <option class="option_with_driver" value="С водителем"><?=GetMessage("WITH_DRIVER")?></option>        
+                        <option class="option_without_driver" value="Без водителя"><?=GetMessage("WITHOUT_DRIVER")?></option>        
                        </select>
                 </label>        
                 <label>
@@ -106,7 +106,7 @@ $dbCity = CIBlockSection::GetList(array(), array("IBLOCK_ID" => CITY_ID,'ACTIVE'
                         <option value="0"><?=GetMessage("AIRPORT")?></option>  
                        </select>
                     </label>
-                     <label><input autocomplete="on" type="text" class="address_transfer" id="name" name="TRANSFER" placeholder="<?=GetMessage("ADDRESS_DEPARTURE")?>" value="" disabled="disabled"></label>     
+                     <label><input autocomplete="on" type="text" class="address_transfer" id="address_transfer" name="TRANSFER" placeholder="<?=GetMessage("ADDRESS_DEPARTURE")?>" value="" disabled="disabled"></label>     
                 </div>
                 <div class="with_driver">
                     <div class="section_date">
@@ -147,8 +147,8 @@ $dbCity = CIBlockSection::GetList(array(), array("IBLOCK_ID" => CITY_ID,'ACTIVE'
                                 );
                                 ?></label>
                     </div>
-                    <label><input autocomplete="on" type="text" class="address_delivery" id="name" name="ADDRESS_DELIVERY" placeholder="<?=GetMessage("ADDRESS_DELIVERY")?>" value="" disabled="disabled"></label>
-                    <label><input autocomplete="on" type="text" class="address_return" id="name" name="ADDRESS_RETURN" placeholder="<?=GetMessage("ADDRESS_RETURN")?>" value="" disabled="disabled"></label>
+                    <label><input autocomplete="on" type="text" class="address_delivery_with_driver" id="address_delivery" name="ADDRESS_DELIVERY" placeholder="<?=GetMessage("ADDRESS_DELIVERY")?>" value="" disabled="disabled"></label>
+                    <label><input autocomplete="on" type="text" class="address_return_with_driver" id="address_return" name="ADDRESS_RETURN" placeholder="<?=GetMessage("ADDRESS_RETURN")?>" value="" disabled="disabled"></label>
                 </div>
                 <div class="without_driver">
                     <div class="section_date">
@@ -193,49 +193,15 @@ $dbCity = CIBlockSection::GetList(array(), array("IBLOCK_ID" => CITY_ID,'ACTIVE'
                         <option value=""><?=GetMessage("PLACE_CAR_PLACE_DELIVERY")?></option>
                         <option value="address"><?=GetMessage("PLACE_CAR_PLACE_ADDRESS_DELIVERY")?></option>        
                     </select></label>
-                    <label style="display: none;"><input autocomplete="on" type="text" class="address_delivery" id="name" name="ADDRESS_DELIVERY" placeholder="<?=GetMessage("ADDRESS_DELIVERY")?>" value="" disabled="disabled"></label>
+                    <label style="display: none;"><input autocomplete="on" type="text" class="address_delivery_without_driver" id="address_delivery_without_driver" name="ADDRESS_DELIVERY" placeholder="<?=GetMessage("ADDRESS_DELIVERY")?>" value="" disabled="disabled"></label>
                     <label><select class="select must" name="CAR_PLACE_RETURN" id="select_car_place_return" disabled="disabled">
                         <option value=""><?=GetMessage("PLACE_CAR_PLACE_RETURN")?></option>
                         <option value="address"><?=GetMessage("PLACE_CAR_PLACE_ADDRESS_RETURN")?></option>       
                     </select></label>
-                    <label style="display: none;"><input autocomplete="on" type="text" class="address_return" id="name" name="ADDRESS_RETURN" placeholder="<?=GetMessage("ADDRESS_RETURN")?>" value="" disabled="disabled"></label>
+                    <label style="display: none;"><input autocomplete="on" type="text" class="address_return_without_driver" id="address_return_without_driver" name="ADDRESS_RETURN" placeholder="<?=GetMessage("ADDRESS_RETURN")?>" value="" disabled="disabled"></label>
                 </div>        
-                <!--label><select id="rent" class="input rent" name="RENT">
-                         <option value="0"><?=GetMessage("LEASE")?></option>
-                         <option value="1"><?=GetMessage("1_DAY")?></option>
-                         <option value="2"><?=GetMessage("2_DAY")?></option>
-                         <option value="3"><?=GetMessage("3_DAY")?></option>
-                         <option value="4"><?=GetMessage("4_DAY")?></option>
-                         <option value="5"><?=GetMessage("5_DAY")?></option>
-                         <option value="6"><?=GetMessage("6_DAY")?></option>
-                         <option value="7"><?=GetMessage("7_DAY")?></option>
-                         <option value="8"><?=GetMessage("8_DAY")?></option>
-                         <option value="9"><?=GetMessage("9_DAY")?></option>
-                         <option value="10"><?=GetMessage("10_DAY")?></option>
-                         <option value="11"><?=GetMessage("11_DAY")?></option>
-                         <option value="12"><?=GetMessage("12_DAY")?></option>
-                         <option value="13"><?=GetMessage("13_DAY")?></option>
-                         <option value="14"><?=GetMessage("14_DAY")?></option>
-                         <option value="15"><?=GetMessage("15_DAY")?></option>
-                         <option value="16"><?=GetMessage("16_DAY")?></option>
-                         <option value="17"><?=GetMessage("17_DAY")?></option>
-                         <option value="18"><?=GetMessage("18_DAY")?></option>
-                         <option value="19"><?=GetMessage("19_DAY")?></option>
-                         <option value="20"><?=GetMessage("20_DAY")?></option>
-                         <option value="21"><?=GetMessage("21_DAY")?></option>
-                         <option value="22"><?=GetMessage("22_DAY")?></option>
-                         <option value="23"><?=GetMessage("23_DAY")?></option>
-                         <option value="24"><?=GetMessage("24_DAY")?></option>
-                         <option value="25"><?=GetMessage("25_DAY")?></option>
-                         <option value="26"><?=GetMessage("26_DAY")?></option>
-                         <option value="27"><?=GetMessage("27_DAY")?></option>
-                         <option value="28"><?=GetMessage("28_DAY")?></option>
-                         <option value="29"><?=GetMessage("29_DAY")?></option>
-                         <option value="30"><?=GetMessage("30_DAY")?></option>
-                         <option value="31"><?=GetMessage("1_MONTH")?></option>                           
-                       </select>
-                </label-->
-                <label><textarea class="textarea" id="text" placeholder="<?=GetMessage("PLACE_COMMENT")?>" name="TEXT"></textarea></label>
+                
+                <label><textarea class="textarea" id="comment" placeholder="<?=GetMessage("PLACE_COMMENT")?>" name="TEXT"></textarea></label>
                 <label class="invisible"><input autocomplete="off" type="text" id="result" class="input invisible" name="RESULT" placeholder="<?=GetMessage("PLACE_RESULT")?>" value="0"/></label>                            
                 <label class="invisible"><input autocomplete="off" type="text" id="days" class="input invisible" name="DAYS" placeholder="<?=GetMessage("PLACE_DAY")?>" value="0"/></label>                            
             </form>

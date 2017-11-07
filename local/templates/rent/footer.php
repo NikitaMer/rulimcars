@@ -34,7 +34,7 @@ IncludeTemplateLangFile(__FILE__);
                     );?>
             </div>
         </footer>
-    </div>    
+    </div>                                                      
 </body>
 <?$APPLICATION->ShowViewContent('myFuncAfterCar');?>
 </html>

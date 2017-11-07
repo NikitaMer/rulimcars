@@ -5,7 +5,8 @@
     CModule::IncludeModule("iblock");
     CModule::IncludeModule("sale");
     CModule::IncludeModule("statistic");
-    CModule::IncludeModule("catalog"); 
+    CModule::IncludeModule("catalog");
+     
     $name = $_POST["NAME"];    
     $phone = $_POST["PHONE"];
     $auto = $_POST["AUTO"];
@@ -18,112 +19,10 @@
     $address_delivery = $_POST["ADDRESS_DELIVERY"];
     $date_return = $_POST["WITH_DATE_RETURN"] ? $_POST["WITH_DATE_RETURN"] : $_POST["WITHOUT_DATE_RETURN"];
     $address_return = $_POST["ADDRESS_RETURN"];
-    //arshow($_POST); 
-    if ($name != null && $phone != null && $auto != null){  
-    if ($_SESSION['id'] != 1 ){
-        // Формирование корзины и создание заказа
-        $car_catolog = CIBlockElement::GetProperty(12, $auto, array("sort"=>"asc"), array("CODE"=>"CATALOG"))->Fetch();        
-        $catolog = GetIBlockElement($car_catolog['VALUE']);     
-        $product = array(
-            'ID' => $car_catolog['VALUE'], 
-            'NAME' => $catolog['NAME'], 
-            'PRICE' => $res/$rent, 
-            'CURRENCY' => 'RUB', 
-            'QUANTITY' => $rent,    
-        );
-        // Генерируем случайный пароль
-        $arr = array('a','b','c','d','e','f',
-            'g','h','i','j','k','l',
-            'm','n','o','p','r','s',
-            't','u','v','x','y','z',
-            'A','B','C','D','E','F',
-            'G','H','I','J','K','L',
-            'M','N','O','P','R','S',
-            'T','U','V','X','Y','Z',
-            '1','2','3','4','5','6',
-            '7','8','9','0');
-        $pass = "";
-        for($i = 0; $i < 6; $i++)
-        {
-            // Вычисляем случайный индекс массива
-            $index = rand(0, count($arr) - 1);
-            $pass .= $arr[$index];
-        }
-        // Создаем пользователя
-        // Так как заказ нужно привязывать к пользователю. Но регистрации на сайте нет. Поэтому выкручиваемся как можем.
-        $user = new CUser;
-        $rnd = substr($pass,0,-3);
-        if($email == null){$email = "noemail@rulimcars.ru";}
-        $arFields = Array(
-            "NAME"              => $name,
-            "EMAIL"             => $email,
-            "LOGIN"             => $name.$rnd,
-            "PERSONAL_PHONE"    => $phone,
-            "LID"               => SITE_ID,
-            "ACTIVE"            => "Y",
-            "GROUP_ID"          => array(CLIENT_GROUP_ID),
-            "PASSWORD"          => $pass,
-            "CONFIRM_PASSWORD"  => $pass,
-        );
-        $user_ID = $user->Add($arFields);
-
-        $basket = Bitrix\Sale\Basket::create(SITE_ID);
-        $item = $basket->createItem("catalog", $product['ID']);
-        unset($product["ID"]);
-        $item->setFields($product);
-        $order = Bitrix\Sale\Order::create(SITE_ID, $user_ID);
-        $order->setPersonTypeId(CLIENT_GROUP_ID);
-        $order->setBasket($basket);
-        $order->setField('USER_DESCRIPTION', $text);
-
-        $shipmentCollection = $order->getShipmentCollection();
-        $shipment = $shipmentCollection->createItem(Bitrix\Sale\Delivery\Services\Manager::getObjectById(CLIENT_GROUP_ID));
-
-        $shipmentItemCollection = $shipment->getShipmentItemCollection();
-
-        foreach ($basket as $basketItem)
-        {
-            $item = $shipmentItemCollection->createItem($basketItem);
-            $item->setQuantity($basketItem->getQuantity());
-        }
-
-        $paymentCollection = $order->getPaymentCollection();
-        $payment = $paymentCollection->createItem(Bitrix\Sale\PaySystem\Manager::getObjectById(CLIENT_GROUP_ID));
-        $payment->setField("SUM", $order->getPrice());
-        $payment->setField("CURRENCY", $order->getCurrency());
-        $propertyCollection = $order->getPropertyCollection();
-        if ($name  != null){$somePropValueName = $propertyCollection->getItemByOrderPropertyId(1)->setValue($name);}
-        if ($phone != null){$somePropValuePhone = $propertyCollection->getItemByOrderPropertyId(2)->setValue($phone);}
-        if ($email != null){$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(3)->setValue($email);}
-        if ($date_delivery != null){$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(6)->setValue($date_delivery);}
-        if ($address_delivery != null){$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(4)->setValue($address_delivery);}
-        if ($date_return != null){$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(7)->setValue($date_return);}
-        if ($address_return != null){$somePropValueEmail = $propertyCollection->getItemByOrderPropertyId(5)->setValue($address_return);}
-        $result = $order->save();  
-        $orderId = $order->getId();     
-        
-        // Добавляем заявку в инфоблок "Заявки"
-        $el = new CIBlockElement;
-        $PROP = array();
-        $PROP["CAR"] = $auto;  
-        $PROP["PHONE"] = $phone;        
-        $PROP["EMAIL"] = $email;
-        $PROP["NAME"] = $name;
-        $PROP["DATE"] = $date;
-        $PROP["RESULT"] = $res;
-        $PROP["RENT"] = $rent;
-        $PROP["COMMENT"] = $text;         
-        $PROP["ID_ORDER"] = $orderId;         
-        $arLoadProductArray = Array(
-            "IBLOCK_SECTION_ID" => false,        
-            "IBLOCK_ID"      => 10,
-            "PROPERTY_VALUES"=> $PROP,
-            "NAME"           => $name,
-            "ACTIVE"         => "Y",          
-            "DETAIL_TEXT"    => $text,
-        );         
-        $IDiblock = $el->Add($arLoadProductArray);
-    } 
+    $orderId =  $_POST["ORDERID"];
+    
+if ($name != null && $phone != null && $auto != null){  
+    
 ?>
 
 <div class="content">
@@ -188,7 +87,7 @@
             });
     </script>
 
-    <?=$name?>, Вы оформили заявку №<?=$orderId?> на аренду автомобиля <?=$car['NAME']?><?if ($rent != 0){?> сроком на <?=$rent?> суток, стоимость <?=$res?> руб. (<?=$res/$rent?> руб/суток). <?}else{?>.<?}?> 
+    <?=$name?>, Вы оформили заявку №<?=$orderId?> на аренду автомобиля <?=$car['NAME']?><?if ($rent != 0){?> сроком на <?=$rent?> , стоимость <?=$res?> руб. (<?=$res/$rent?> руб/суток). <?}else{?>.<?}?> 
     <?if ($email != null && $email != "noemail@rulimcars.ru"){?>На адрес <?=$email?> отправлена информация с детализацией вашей заявки.<?}?>
     В ближайшее время с вами свяжется сотрудник нашей компании и обсудит с вами детали, вы так же можете позвонить самостоятельно по бесплатному номеру 8(800)777 59 90.
 
@@ -215,6 +114,5 @@
         <img src="//apypx.com/ok/14885.png?actionpay=<?=$_COOKIE["actionpay"]?>&apid=<?=$orderId?>&price=<?=$res?>" height="1" width="1" />
     <?}?> 
 </div>
-<?$_SESSION['id'] = 1;  
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
  

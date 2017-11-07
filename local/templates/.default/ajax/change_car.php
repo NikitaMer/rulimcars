@@ -21,26 +21,35 @@
     
     if (is_array($arInfo)) {
         $Offer = array();                  
-        $rsOffers = $CIBE->GetList(array(),array('IBLOCK_ID' => $arInfo['IBLOCK_ID'], 'PROPERTY_'.$arInfo['SKU_PROPERTY_ID'] => $newcar), false, false, array("ID","NAME", "PROPERTY_TYPE_RENT")); 
+        $rsOffers = $CIBE->GetList(array(),array('IBLOCK_ID' => $arInfo['IBLOCK_ID'], 'PROPERTY_'.$arInfo['SKU_PROPERTY_ID'] => $newcar), false, false, array("ID","NAME", "PROPERTY_TYPE_RENT", "PROPERTY_TYPE_PRICE")); 
         while ($arOffer = $rsOffers->GetNext()) {
-            if ($arOffer["PROPERTY_TYPE_RENT_VALUE"] == "За сутки") {
+            if ($arOffer["PROPERTY_TYPE_PRICE_VALUE"] == "За сутки") {
                 $type = "DAY";    
-            } else if ($arOffer["PROPERTY_TYPE_RENT_VALUE"] == "За час") {
+            } else if ($arOffer["PROPERTY_TYPE_PRICE_VALUE"] == "За час") {
                 $type = "HOUR";  
-            } else if ($arOffer["PROPERTY_TYPE_RENT_VALUE"] == "Трансфер") {
+            } else if ($arOffer["PROPERTY_TYPE_PRICE_VALUE"] == "Трансфер") {
                 $type = "TRANSFER";  
             }
-            $arResult["NEW_CAR"]["PRICES"][$arOffer["ID"]]["TYPE_RENT"] = $type;                                  
+            if ($arOffer["PROPERTY_TYPE_RENT_VALUE"] == "С водителем") {
+                $driver = "WITH";
+            } else if ($arOffer["PROPERTY_TYPE_RENT_VALUE"] == "Без водителя") {
+                $driver = "WITHOUT";
+            } else if ($arOffer["PROPERTY_TYPE_RENT_VALUE"] == "Трансфер") {
+                $driver = "TRANSFER";
+            }
+            $arResult["NEW_CAR"]["PRICES"][$arOffer["ID"]]["TYPE_PRICE"] = $type;                                  
+            $arResult["NEW_CAR"]["PRICES"][$arOffer["ID"]]["TYPE_RENT"] = $driver;                                  
             array_push($Offer, $arOffer["ID"]);             
         }
         if($Offer){           
             $rsPrice = CPrice::GetList(array(), array("IBLOCK_ID" => 17,"PRODUCT_ID" => $Offer));
             $key = 0;
+            $tmpProductID = 0;
             while ($arPrice = $rsPrice->Fetch()) {
                 $arResult["NEW_CAR"]["PRICES"][$arPrice["PRODUCT_ID"]]["OFFER"][$key]["QUANTITY_FROM"] = $arPrice["QUANTITY_FROM"];    
                 $arResult["NEW_CAR"]["PRICES"][$arPrice["PRODUCT_ID"]]["OFFER"][$key]["QUANTITY_TO"] = $arPrice["QUANTITY_TO"];    
                 $arResult["NEW_CAR"]["PRICES"][$arPrice["PRODUCT_ID"]]["OFFER"][$key]["PRICE"] = stristr($arPrice["PRICE"], '.', true);
-                $key++;    
+                $key++;  
             }    
         }                    
     }
@@ -55,16 +64,24 @@
         $arInfo = CCatalogSKU::GetInfoByProductIBlock($result["IBLOCK_ID"]);  
         if (is_array($arInfo)) {
             $Offer = array();                  
-            $rsOffers = $CIBE->GetList(array(),array('IBLOCK_ID' => $arInfo['IBLOCK_ID'], 'PROPERTY_'.$arInfo['SKU_PROPERTY_ID'] => $oldcar), false, false, array("ID","NAME", "PROPERTY_TYPE_RENT")); 
+            $rsOffers = $CIBE->GetList(array(),array('IBLOCK_ID' => $arInfo['IBLOCK_ID'], 'PROPERTY_'.$arInfo['SKU_PROPERTY_ID'] => $oldcar), false, false, array("ID","NAME", "PROPERTY_TYPE_RENT", "PROPERTY_TYPE_PRICE")); 
             while ($arOffer = $rsOffers->GetNext()) {
-                if ($arOffer["PROPERTY_TYPE_RENT_VALUE"] == "За сутки") {
+                if ($arOffer["PROPERTY_TYPE_PRICE_VALUE"] == "За сутки") {
                     $type = "DAY";    
-                } else if ($arOffer["PROPERTY_TYPE_RENT_VALUE"] == "За час") {
+                } else if ($arOffer["PROPERTY_TYPE_PRICE_VALUE"] == "За час") {
                     $type = "HOUR";  
-                } else if ($arOffer["PROPERTY_TYPE_RENT_VALUE"] == "Трансфер") {
+                } else if ($arOffer["PROPERTY_TYPE_PRICE_VALUE"] == "Трансфер") {
                     $type = "TRANSFER";  
                 }
-                $arResult["OLD_CAR"]["PRICES"][$arOffer["ID"]]["TYPE_RENT"] = $arOffer["PROPERTY_TYPE_RENT_VALUE"];                                  
+                if ($arOffer["PROPERTY_TYPE_RENT"] == "С водителем") {
+                    $driver = "WITH";
+                } else if ($arOffer["PROPERTY_TYPE_RENT"] == "Без водителем") {
+                    $driver = "WITHOUT";
+                } else if ($arOffer["PROPERTY_TYPE_RENT"] == "Трансфер") {
+                    $driver = "TRANSFER";
+                }
+                $arResult["NEW_CAR"]["PRICES"][$arOffer["ID"]]["TYPE_PRICE"] = $type;                                  
+                $arResult["NEW_CAR"]["PRICES"][$arOffer["ID"]]["TYPE_RENT"] = $driver;                                  
                 array_push($Offer, $arOffer["ID"]);             
             }
             if($Offer){           

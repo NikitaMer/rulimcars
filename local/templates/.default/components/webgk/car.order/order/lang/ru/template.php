@@ -1,0 +1,32 @@
+<?
+$MESS["COST"] = "Стоимость";
+$MESS["DAY"] = "Сутки:";
+$MESS["RESULT"] = "Итого: ";
+$MESS["SEND_REQUEST"] = "ОТПРАВИТЬ ЗАЯВКУ";
+$MESS["PERSONAL_DATA"] = "Личные данные";
+$MESS["CAR"] = "Автомобиль";
+$MESS["LEASE"] = "Срок аренды";
+$MESS["FINAL_PRICE"] = "Конечная цена сформируется <span>после общения с менеджером</span>";
+$MESS["PLACE_NAME"] = "Имя";
+$MESS["PLACE_EMAIL"] = "E-mail";
+$MESS["PLACE_PHONE"] = "Телефон";
+$MESS["PLACE_COMMENT"] = "Комментарий";
+$MESS["PLACE_RESULT"] = "Итого";
+$MESS["PLACE_CITY"] = "Город";
+$MESS["PLACE_DAY"] = "Количество дней";
+$MESS["PLACE_TYPE_RENT"] = "Тип аренды";
+$MESS["PLACE_CAR_PLACE_DELIVERY"] = "Место подачи";
+$MESS["PLACE_CAR_PLACE_RETURN"] = "Место возврата";
+$MESS["PLACE_CAR_PLACE_ADDRESS_DELIVERY"] = "Подать автомобиль по адресу...";
+$MESS["PLACE_CAR_PLACE_ADDRESS_RETURN"] = "Вернуть автомобиль по адресу...";
+$MESS["ADDRESS_DELIVERY"] = "Адрес подачи";
+$MESS["ADDRESS_RETURN"] = "Адрес возврата";
+$MESS["TRANSFER"] = "Трансфер";
+$MESS["WITH_DRIVER"] = "С водителем";
+$MESS["WITHOUT_DRIVER"] = "Без водителя";
+$MESS["IN_AIRPORT"] = "В аэропорт";
+$MESS["OUT_AIRPORT"] = "Из аэропорта";
+$MESS["ADDRESS_DEPARTURE"] = "Адрес отправления";
+$MESS["AIRPORT"] = "Аэропорт";
+$MESS["PLACE_ORDER"] = "ID заказа";
+?>
